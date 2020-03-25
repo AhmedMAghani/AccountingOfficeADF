@@ -13,6 +13,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class Tasks_VORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_TASKS_EO = 0;
 
     /**
@@ -28,8 +29,10 @@ public class Tasks_VORowImpl extends ViewRowImpl {
         TaskIssueDate,
         TaskCompleteDate,
         OfficeExpencesId,
-        OfficeIncomeId;
-        private static AttributesEnum[] vals = null;
+        OfficeIncomeId,
+        taskCompleteDateInt;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -51,6 +54,7 @@ public class Tasks_VORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int TASKID = AttributesEnum.TaskId.index();
     public static final int EMPID = AttributesEnum.EmpId.index();
     public static final int COMPANYID = AttributesEnum.CompanyId.index();
@@ -61,6 +65,7 @@ public class Tasks_VORowImpl extends ViewRowImpl {
     public static final int TASKCOMPLETEDATE = AttributesEnum.TaskCompleteDate.index();
     public static final int OFFICEEXPENCESID = AttributesEnum.OfficeExpencesId.index();
     public static final int OFFICEINCOMEID = AttributesEnum.OfficeIncomeId.index();
+    public static final int TASKCOMPLETEDATEINT = AttributesEnum.taskCompleteDateInt.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -234,6 +239,14 @@ public class Tasks_VORowImpl extends ViewRowImpl {
      */
     public void setOfficeIncomeId(BigDecimal value) {
         setAttributeInternal(OFFICEINCOMEID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute taskCompleteDateInt.
+     * @return the taskCompleteDateInt
+     */
+    public Integer gettaskCompleteDateInt() {
+        return (Integer) getAttributeInternal(TASKCOMPLETEDATEINT);
     }
 }
 

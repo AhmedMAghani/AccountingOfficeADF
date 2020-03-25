@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/CRUDTemplate.jsf" id="pt1" binding="#{backingBeanScope.backing_TasksActivity2.pt1}">
+        <f:facet name="creatPopup"/>
+        <f:facet name="editPopub"/>
+        <f:facet name="detailsPopub"/>
+        <f:facet name="tableHeader"/>
+        <f:facet name="search"/>
+        <f:facet name="navButtons"/>
+        <f:facet name="listView"/>
+        <f:facet name="createNewRecord"/>
+    </af:pageTemplate>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_TasksActivity2-->
+</ui:composition>

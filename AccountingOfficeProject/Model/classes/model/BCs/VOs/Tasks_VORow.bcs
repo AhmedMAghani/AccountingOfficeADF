@@ -1,0 +1,16 @@
+//Groovy Scripts for model.BCs.VOs.Tasks_VO
+
+package model.BCs.VOs
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="taskCompleteDateInt")
+def taskCompleteDateInt_ExpressionScript_Expression()
+{
+if (TaskCompleteDate!= null){
+def sDate = TaskCompleteDate.toString()
+return ((sDate.substring(5,7)) as int)
+}
+return 0
+}
+

@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="Contracts1" RangeSize="-1" DataControl="AppModule_AMDataControl" id="Contracts1Iterator"/>
-    <iterator Binds="Tasks1" RangeSize="10" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
+    <iterator Binds="Tasks1" RangeSize="-1" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
     <iterator Binds="Cash1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Cash1Iterator"/>
   </executables>
   <bindings>
@@ -92,6 +92,16 @@
         <AttrNames>
           <Item Value="SignDateString"/>
           <Item Value="ContractValue"/>
+          <Item Value="ContractIncome"/>
+          <Item Value="ContractExpence"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Tasks1Iterator" id="Tasks11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.BCs.VOs.Tasks_VO" Name="Tasks11">
+        <AttrNames>
+          <Item Value="taskCompleteDateInt"/>
+          <Item Value="TaskId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

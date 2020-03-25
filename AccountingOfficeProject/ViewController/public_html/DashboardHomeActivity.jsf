@@ -175,6 +175,10 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb2}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <af:outputFormatted value="#{backingBeanScope.backing_DashboardHomeActivity.totalContractNo}"
+                                                        id="of2"
+                                                        binding="#{backingBeanScope.backing_DashboardHomeActivity.of2}"
+                                                        inlineStyle="font-size:64px; font-weight:bolder; text-align:center;"/>
                                 </af:panelBox>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="33%" id="gc3"
@@ -184,6 +188,17 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb3}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <dvt:statusMeterGauge id="statusMeterGauge5"
+                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge5}"
+                                                          value="#{backingBeanScope.backing_DashboardHomeActivity.completedContractNo}"
+                                                          inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;"
+                                                          minimum="0" plotArea="on"
+                                                          maximum="#{backingBeanScope.backing_DashboardHomeActivity.totalContractNo}">
+                                        <dvt:gaugeThreshold id="thr11" color="#d62800"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.thr11}"/>
+                                        <dvt:gaugeMetricLabel rendered="true" id="gml5"
+                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.gml5}"/>
+                                    </dvt:statusMeterGauge>
                                 </af:panelBox>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc4"
@@ -193,10 +208,20 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb4}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <dvt:statusMeterGauge id="statusMeterGauge6"
+                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge6}"
+                                                          value="#{backingBeanScope.backing_DashboardHomeActivity.issuedContractNo}"
+                                                          inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;"
+                                                          minimum="0" plotArea="on">
+                                        <dvt:gaugeThreshold id="thr12" color="#d62800"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.thr12}"/>
+                                        <dvt:gaugeMetricLabel rendered="true" id="gml6"
+                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.gml6}"/>
+                                    </dvt:statusMeterGauge>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow marginTop="5px" height="auto" id="gr3"
+                        <af:gridRow marginTop="5px" height="300px" id="gr3"
                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.gr3}">
                             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc5"
                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.gc5}"
@@ -209,10 +234,11 @@
                                                   value="#{bindings.Contracts11.collectionModel}"
                                                   binding="#{backingBeanScope.backing_DashboardHomeActivity.barChart1}"
                                                   styleClass="AFStretchWidth">
-                                        <dvt:chartLegend id="cl1"
+                                        <dvt:chartLegend rendered="false" id="cl1"
                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.cl1}"/>
                                         <f:facet name="dataStamp">
-                                            <dvt:chartDataItem id="di1" series="#{row.ContractValue}"
+                                            <dvt:chartDataItem id="di1"
+                                                               series="#{row.ContractValue} #{row.ContractIncome} #{row.ContractExpence}"
                                                                value="#{row.SignDateString}"
                                                                group="#{bindings.Contracts11.hints.SignDateString.label}"
                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.di1}"/>
@@ -230,6 +256,9 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb6}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <af:outputFormatted value="#{backingBeanScope.backing_DashboardHomeActivity.totalTasksNo}" id="of4"
+                                                        binding="#{backingBeanScope.backing_DashboardHomeActivity.of4}"
+                                                        inlineStyle="font-size:64px; font-weight:bolder; text-align:center;"/>
                                 </af:panelBox>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="33%" id="gc7"
@@ -239,6 +268,16 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb7}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <dvt:statusMeterGauge id="statusMeterGauge7"
+                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge7}"
+                                                          value="#{backingBeanScope.backing_DashboardHomeActivity.completedTasksNo}"
+                                                          inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;"
+                                                          minimum="0" plotArea="on">
+                                        <dvt:gaugeThreshold id="thr13" color="#d62800"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.thr13}"/>
+                                        <dvt:gaugeMetricLabel rendered="true" id="gml7"
+                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.gml7}"/>
+                                    </dvt:statusMeterGauge>
                                 </af:panelBox>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc8"
@@ -249,10 +288,21 @@
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
                                     <!--width:200px; height:75px; text-align:center; margin: 0 auto;-->
+                                    <dvt:statusMeterGauge id="statusMeterGauge8"
+                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge8}"
+                                                          value="#{backingBeanScope.backing_DashboardHomeActivity.issuedTasksNo}"
+                                                          inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;"
+                                                          minimum="0" plotArea="on"
+                                                          maximum="#{backingBeanScope.backing_DashboardHomeActivity.totalTasksNo}">
+                                        <dvt:gaugeThreshold id="thr14" color="#d62800"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.thr14}"/>
+                                        <dvt:gaugeMetricLabel rendered="true" id="gml8"
+                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.gml8}"/>
+                                    </dvt:statusMeterGauge>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5"
+                        <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr5"
                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.gr5}">
                             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc9"
                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.gc9}"
@@ -261,6 +311,19 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb9}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <dvt:barChart orientation="vertical" id="barChart2" var="row"
+                                                  value="#{bindings.Tasks11.collectionModel}"
+                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.barChart2}"
+                                                  styleClass="AFStretchWidth">
+                                        <dvt:chartLegend rendered="false" id="cl2"
+                                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.cl2}"/>
+                                        <f:facet name="dataStamp">
+                                            <dvt:chartDataItem id="di2" series="#{row.TaskId}"
+                                                               value="#{row.taskCompleteDateInt}"
+                                                               group="#{bindings.Tasks11.hints.taskCompleteDateInt.label}"
+                                                               binding="#{backingBeanScope.backing_DashboardHomeActivity.di2}"/>
+                                        </f:facet>
+                                    </dvt:barChart>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>

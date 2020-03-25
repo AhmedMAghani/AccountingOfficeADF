@@ -3,6 +3,7 @@ package model.BCs.VOs;
 import java.sql.ResultSet;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.ViewRowSetImpl;
@@ -13,6 +14,9 @@ import oracle.jbo.server.ViewRowSetImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class Tasks_VOImpl extends ViewObjectImpl {
+    private RowSetIterator tasksItrator;
+    private Integer count;
+    
     /**
      * This is the default constructor (do not remove).
      */
@@ -61,6 +65,51 @@ public class Tasks_VOImpl extends ViewObjectImpl {
     public long getCappedQueryHitCount(ViewRowSetImpl viewRowSet, Row[] masterRows, long oldCap, long cap) {
         long value = super.getCappedQueryHitCount(viewRowSet, masterRows, oldCap, cap);
         return value;
+    }
+    
+    public Integer getTotalTasksNo(){
+        clearCache();
+        addWhereClause(null);
+        executeQuery();
+        count=0;
+        tasksItrator = createRowSetIterator(null);
+        if (!tasksItrator.hasNext())
+            return count;
+        do{
+            count++;
+            tasksItrator.next();
+        }while(tasksItrator.hasNext());
+        return count;
+    }
+    
+    public Integer getCompletedTasksNo(){
+        clearCache();
+        setWhereClause("TASK_COMPLETE_DATE IS NOT NULL");
+        executeQuery();
+        count=0;
+        tasksItrator = createRowSetIterator(null);
+        if (!tasksItrator.hasNext())
+            return count;
+        do{
+            count++;
+            tasksItrator.next();
+        }while(tasksItrator.hasNext());
+        return count;
+    }
+    
+    public Integer getIssuedTasksNo(){
+        clearCache();
+        setWhereClause("TASK_COMPLETE_DATE IS NULL");
+        executeQuery();
+        count=0;
+        tasksItrator = createRowSetIterator(null);
+        if (!tasksItrator.hasNext())
+            return count;
+        do{
+            count++;
+            tasksItrator.next();
+        }while(tasksItrator.hasNext());
+        return count;
     }
 }
 

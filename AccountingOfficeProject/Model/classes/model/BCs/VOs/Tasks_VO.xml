@@ -70,7 +70,16 @@
     PrecisionRule="true"
     EntityAttrName="TaskCompleteDate"
     EntityUsage="Tasks_EO"
-    AliasName="TASK_COMPLETE_DATE"/>
+    AliasName="TASK_COMPLETE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.BCs.VOs.Tasks_VO.TaskCompleteDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.BCs.VOs.Tasks_VO.TaskCompleteDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OfficeExpencesId"
     IsUnique="true"
@@ -85,4 +94,27 @@
     EntityAttrName="OfficeIncomeId"
     EntityUsage="Tasks_EO"
     AliasName="OFFICE_INCOME_ID"/>
+  <ViewAttribute
+    Name="taskCompleteDateInt"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="Tasks_VORow"/>
+    <Dependencies>
+      <Item
+        Value="TaskCompleteDate"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -7,7 +7,10 @@ import oracle.jbo.script.annotation.TransientValueExpression;
 @TransientValueExpression(attributeName="SignDateString")
 def SignDateString_ExpressionScript_Expression()
 {
+if (ContractSignDate!= null){
 def sDate = ContractSignDate.toString()
 return ((sDate.substring(5,7)) as int)
+}
+return 0
 }
 

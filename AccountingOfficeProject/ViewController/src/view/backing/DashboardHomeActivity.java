@@ -107,15 +107,86 @@ public class DashboardHomeActivity {
     private RichGridCell gc19;
     private RichGridCell gc20;
     private RichGridCell gc21;
-    private UIBarChart barChart1;
-    private UILegend cl1;
-    private UIDataItem di1;
     private Integer totalContractNo;
     private Integer completedContractNo;
     private Integer issuedContractNo;
     private Integer totalTasksNo;
     private Integer completedTasksNo;
     private Integer issuedTasksNo;
+    private RichOutputFormatted of2;
+    private UIStatusMeterGauge statusMeterGauge5;
+    private UIThreshold thr11;
+    private UIMetricLabel gml5;
+    private UIStatusMeterGauge statusMeterGauge6;
+    private UIThreshold thr12;
+    private UIMetricLabel gml6;
+    private RichOutputFormatted of4;
+    private UIStatusMeterGauge statusMeterGauge7;
+    private UIThreshold thr13;
+    private UIMetricLabel gml7;
+    private UIStatusMeterGauge statusMeterGauge8;
+    private UIThreshold thr14;
+    private UIMetricLabel gml8;
+    private UIBarChart barChart1;
+    private UILegend cl1;
+    private UIDataItem di1;
+    private UIBarChart barChart2;
+    private UILegend cl2;
+    private UIDataItem di2;
+
+
+    public DashboardHomeActivity() {
+        setContractInfo();
+        setTasksInfo();
+    }
+
+    public void setTotalContractNo(Integer totalContractNo) {
+        this.totalContractNo = totalContractNo;
+    }
+
+    public Integer getTotalContractNo() {
+        return totalContractNo;
+    }
+
+    public void setCompletedContractNo(Integer completedContractNo) {
+        this.completedContractNo = completedContractNo;
+    }
+
+    public Integer getCompletedContractNo() {
+        return completedContractNo;
+    }
+
+    public void setIssuedContractNo(Integer issuedContractNo) {
+        this.issuedContractNo = issuedContractNo;
+    }
+
+    public Integer getIssuedContractNo() {
+        return issuedContractNo;
+    }
+
+    public void setTotalTasksNo(Integer totalTasksNo) {
+        this.totalTasksNo = totalTasksNo;
+    }
+
+    public Integer getTotalTasksNo() {
+        return totalTasksNo;
+    }
+
+    public void setCompletedTasksNo(Integer completedTasksNo) {
+        this.completedTasksNo = completedTasksNo;
+    }
+
+    public Integer getCompletedTasksNo() {
+        return completedTasksNo;
+    }
+
+    public void setIssuedTasksNo(Integer issuedTasksNo) {
+        this.issuedTasksNo = issuedTasksNo;
+    }
+
+    public Integer getIssuedTasksNo() {
+        return issuedTasksNo;
+    }
 
     public void setPt1(RichPageTemplate pt1) {
         this.pt1 = pt1;
@@ -677,6 +748,136 @@ public class DashboardHomeActivity {
     }
 
 
+    private void setContractInfo(){
+        BindingContext bc = BindingContext.getCurrent();
+        DCBindingContainer dcbc = (DCBindingContainer)bc.getCurrentBindingsEntry();
+        Contracts_VOImpl contractVO =(Contracts_VOImpl) dcbc.findIteratorBinding("Contracts1Iterator").getViewObject();
+        totalContractNo =contractVO.getTotalContractsNo();
+        completedContractNo = contractVO.getCompletedContractsNo();
+        issuedContractNo = contractVO.getIssuedContractsNo();
+    }
+    
+    private void setTasksInfo(){
+        BindingContext bc = BindingContext.getCurrent();
+        DCBindingContainer dcbc = (DCBindingContainer)bc.getCurrentBindingsEntry();
+        Tasks_VOImpl contractVO =(Tasks_VOImpl) dcbc.findIteratorBinding("Tasks1Iterator").getViewObject();
+        totalTasksNo = contractVO.getTotalTasksNo();
+        completedTasksNo = contractVO.getCompletedTasksNo();
+        issuedTasksNo = contractVO.getIssuedTasksNo();
+    }
+
+    public void setOf2(RichOutputFormatted of2) {
+        this.of2 = of2;
+    }
+
+    public RichOutputFormatted getOf2() {
+        return of2;
+    }
+
+    public void setStatusMeterGauge5(UIStatusMeterGauge statusMeterGauge5) {
+        this.statusMeterGauge5 = statusMeterGauge5;
+    }
+
+    public UIStatusMeterGauge getStatusMeterGauge5() {
+        return statusMeterGauge5;
+    }
+
+    public void setThr11(UIThreshold thr11) {
+        this.thr11 = thr11;
+    }
+
+    public UIThreshold getThr11() {
+        return thr11;
+    }
+
+    public void setGml5(UIMetricLabel gml5) {
+        this.gml5 = gml5;
+    }
+
+    public UIMetricLabel getGml5() {
+        return gml5;
+    }
+
+    public void setStatusMeterGauge6(UIStatusMeterGauge statusMeterGauge6) {
+        this.statusMeterGauge6 = statusMeterGauge6;
+    }
+
+    public UIStatusMeterGauge getStatusMeterGauge6() {
+        return statusMeterGauge6;
+    }
+
+    public void setThr12(UIThreshold thr12) {
+        this.thr12 = thr12;
+    }
+
+    public UIThreshold getThr12() {
+        return thr12;
+    }
+
+    public void setGml6(UIMetricLabel gml6) {
+        this.gml6 = gml6;
+    }
+
+    public UIMetricLabel getGml6() {
+        return gml6;
+    }
+
+    public void setOf4(RichOutputFormatted of4) {
+        this.of4 = of4;
+    }
+
+    public RichOutputFormatted getOf4() {
+        return of4;
+    }
+
+    public void setStatusMeterGauge7(UIStatusMeterGauge statusMeterGauge7) {
+        this.statusMeterGauge7 = statusMeterGauge7;
+    }
+
+    public UIStatusMeterGauge getStatusMeterGauge7() {
+        return statusMeterGauge7;
+    }
+
+    public void setThr13(UIThreshold thr13) {
+        this.thr13 = thr13;
+    }
+
+    public UIThreshold getThr13() {
+        return thr13;
+    }
+
+    public void setGml7(UIMetricLabel gml7) {
+        this.gml7 = gml7;
+    }
+
+    public UIMetricLabel getGml7() {
+        return gml7;
+    }
+
+    public void setStatusMeterGauge8(UIStatusMeterGauge statusMeterGauge8) {
+        this.statusMeterGauge8 = statusMeterGauge8;
+    }
+
+    public UIStatusMeterGauge getStatusMeterGauge8() {
+        return statusMeterGauge8;
+    }
+
+    public void setThr14(UIThreshold thr14) {
+        this.thr14 = thr14;
+    }
+
+    public UIThreshold getThr14() {
+        return thr14;
+    }
+
+    public void setGml8(UIMetricLabel gml8) {
+        this.gml8 = gml8;
+    }
+
+    public UIMetricLabel getGml8() {
+        return gml8;
+    }
+
     public void setBarChart1(UIBarChart barChart1) {
         this.barChart1 = barChart1;
     }
@@ -700,22 +901,28 @@ public class DashboardHomeActivity {
     public UIDataItem getDi1() {
         return di1;
     }
-    
-    private void setContractInfo(){
-        BindingContext bc = BindingContext.getCurrent();
-        DCBindingContainer dcbc = (DCBindingContainer)bc.getCurrentBindingsEntry();
-        Contracts_VOImpl contractVO =(Contracts_VOImpl) dcbc.findIteratorBinding("Contracts1Iterator").getViewObject();
-        totalContractNo =contractVO.getTotalContractsNo();
-        completedContractNo = contractVO.getCompletedContractsNo();
-        issuedContractNo = contractVO.getIssuedContractsNo();
+
+    public void setBarChart2(UIBarChart barChart2) {
+        this.barChart2 = barChart2;
     }
-    
-    private void setTasksInfo(){
-        BindingContext bc = BindingContext.getCurrent();
-        DCBindingContainer dcbc = (DCBindingContainer)bc.getCurrentBindingsEntry();
-        Tasks_VOImpl contractVO =(Tasks_VOImpl) dcbc.findIteratorBinding("Tasks1Iterator").getViewObject();
-        totalTasksNo = contractVO.getTotalTasksNo();
-        completedTasksNo = contractVO.getCompletedTasksNo();
-        issuedTasksNo = contractVO.getIssuedTasksNo();
+
+    public UIBarChart getBarChart2() {
+        return barChart2;
+    }
+
+    public void setCl2(UILegend cl2) {
+        this.cl2 = cl2;
+    }
+
+    public UILegend getCl2() {
+        return cl2;
+    }
+
+    public void setDi2(UIDataItem di2) {
+        this.di2 = di2;
+    }
+
+    public UIDataItem getDi2() {
+        return di2;
     }
 }

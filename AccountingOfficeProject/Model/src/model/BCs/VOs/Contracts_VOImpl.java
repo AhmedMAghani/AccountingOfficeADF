@@ -3,6 +3,7 @@ package model.BCs.VOs;
 import java.sql.ResultSet;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.ViewRowSetImpl;
@@ -13,6 +14,9 @@ import oracle.jbo.server.ViewRowSetImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class Contracts_VOImpl extends ViewObjectImpl {
+    private RowSetIterator contractItrator;
+    private Integer count;
+
     /**
      * This is the default constructor (do not remove).
      */
@@ -61,6 +65,51 @@ public class Contracts_VOImpl extends ViewObjectImpl {
     public long getCappedQueryHitCount(ViewRowSetImpl viewRowSet, Row[] masterRows, long oldCap, long cap) {
         long value = super.getCappedQueryHitCount(viewRowSet, masterRows, oldCap, cap);
         return value;
+    }
+
+    public Integer getTotalContractsNo() {
+        clearCache();
+        addWhereClause(null);
+        executeQuery();
+        count = 0;
+        contractItrator = createRowSetIterator(null);
+        if (!contractItrator.hasNext())
+            return count;
+        do {
+            count++;
+            contractItrator.next();
+        } while (contractItrator.hasNext());
+        return count;
+    }
+
+    public Integer getCompletedContractsNo() {
+        clearCache();
+        setWhereClause("CONTRACT_END_DATE<SYSDATE");
+        executeQuery();
+        count = 0;
+        contractItrator = createRowSetIterator(null);
+        if (!contractItrator.hasNext())
+            return count;
+        do {
+            count++;
+            contractItrator.next();
+        } while (contractItrator.hasNext());
+        return count;
+    }
+
+    public Integer getIssuedContractsNo() {
+        clearCache();
+        setWhereClause("CONTRACT_END_DATE>=SYSDATE");
+        executeQuery();
+        count = 0;
+        contractItrator = createRowSetIterator(null);
+        if (!contractItrator.hasNext())
+            return count;
+        do {
+            count++;
+            contractItrator.next();
+        } while (contractItrator.hasNext());
+        return count;
     }
 }
 
