@@ -1,0 +1,13 @@
+//Groovy Scripts for model.BCs.VOs.Contracts_VO
+
+package model.BCs.VOs
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="SignDateString")
+def SignDateString_ExpressionScript_Expression()
+{
+def sDate = ContractSignDate.toString()
+return ((sDate.substring(5,7)) as int)
+}
+

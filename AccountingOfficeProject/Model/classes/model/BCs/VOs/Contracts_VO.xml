@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.BCs.VOs.Contracts_VORowImpl"
+  ComponentClass="model.BCs.VOs.Contracts_VOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="Contracts_EO"
     Entity="model.BCs.EOs.Contracts_EO"/>
@@ -58,13 +64,31 @@
     PrecisionRule="true"
     EntityAttrName="ContractValue"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_VALUE"/>
+    AliasName="CONTRACT_VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.VOs.Contracts_VO.ContractValue_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.VOs.Contracts_VO.ContractValue_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractSignDate"
     PrecisionRule="true"
     EntityAttrName="ContractSignDate"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_SIGN_DATE"/>
+    AliasName="CONTRACT_SIGN_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.VOs.Contracts_VO.ContractSignDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.VOs.Contracts_VO.ContractSignDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractPrintDate"
     PrecisionRule="true"
@@ -101,6 +125,26 @@
     EntityAttrName="ContractDebit"
     EntityUsage="Contracts_EO"
     AliasName="CONTRACT_DEBIT"/>
+  <ViewAttribute
+    Name="SignDateString"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.Integer"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="Contracts_VORow"/>
+    <Dependencies>
+      <Item
+        Value="ContractSignDate"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="OfficeExpences"
     ViewLink="model.BCs.VLs.ContractOfficeExpences_VL"
@@ -116,4 +160,8 @@
     ViewLink="model.BCs.VLs.ContractTasksFk_VL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

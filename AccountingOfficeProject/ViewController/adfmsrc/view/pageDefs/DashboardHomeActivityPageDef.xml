@@ -4,8 +4,9 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="Contracts1" RangeSize="10" DataControl="AppModule_AMDataControl" id="Contracts1Iterator"/>
+    <iterator Binds="Contracts1" RangeSize="-1" DataControl="AppModule_AMDataControl" id="Contracts1Iterator"/>
     <iterator Binds="Tasks1" RangeSize="10" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
+    <iterator Binds="Cash1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Cash1Iterator"/>
   </executables>
   <bindings>
     <table IterBinding="Tasks1Iterator" id="Tasks1">
@@ -40,5 +41,59 @@
         <Item Value="ContractValue"/>
       </AttrNames>
     </table>
+    <tree IterBinding="Cash1Iterator" id="Cash1">
+      <nodeDefinition DefName="model.BCs.VOs.Cash_VO" Name="Cash10">
+        <AttrNames>
+          <Item Value="StartDate"/>
+          <Item Value="CurrentCash"/>
+          <Item Value="LastTransactionDate"/>
+          <Item Value="OfficeCash"/>
+          <Item Value="CompanyCash"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Cash1Iterator" id="CurrentCash">
+      <AttrNames>
+        <Item Value="CurrentCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Cash1Iterator" id="UpdatedCash">
+      <AttrNames>
+        <Item Value="UpdatedCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="CurrentCash1" IterBinding="Cash1Iterator">
+      <AttrNames>
+        <Item Value="CurrentCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Cash1Iterator" id="OfficeCash">
+      <AttrNames>
+        <Item Value="OfficeCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="UpdatedCash1" IterBinding="Cash1Iterator">
+      <AttrNames>
+        <Item Value="UpdatedCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Cash1Iterator" id="CompanyCash">
+      <AttrNames>
+        <Item Value="CompanyCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="UpdatedCash12" IterBinding="Cash1Iterator">
+      <AttrNames>
+        <Item Value="UpdatedCash"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Contracts1Iterator" id="Contracts11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.BCs.VOs.Contracts_VO" Name="Contracts11">
+        <AttrNames>
+          <Item Value="SignDateString"/>
+          <Item Value="ContractValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

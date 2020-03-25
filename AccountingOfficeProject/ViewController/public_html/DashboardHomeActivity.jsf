@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
     <af:document title="DashboardHomeActivity.jsf" id="d1"
                  binding="#{backingBeanScope.backing_DashboardHomeActivity.d1}">
         <af:messages id="m1" binding="#{backingBeanScope.backing_DashboardHomeActivity.m1}"/>
@@ -47,6 +48,121 @@
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
                                     <!--font-size:medium; text-align:center;-->
+                                    <af:listView value="#{bindings.Cash1.collectionModel}" var="item"
+                                                 emptyText="#{bindings.Cash1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.Cash1.rangeSize}" id="lv1"
+                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.lv1}">
+                                        <af:listItem id="li1"
+                                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.li1}">
+                                            <af:panelGridLayout id="pgl2"
+                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.pgl2}">
+                                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.gr6}">
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc10"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc10}">
+                                                        <af:outputFormatted value="#{item.bindings.StartDate.inputValue}"
+                                                                            id="of1"
+                                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.of1}">
+                                                            <af:convertDateTime pattern="#{bindings.Cash1.hints.StartDate.format}"/>
+                                                        </af:outputFormatted>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc11"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc11}">
+                                                        <dvt:statusMeterGauge orientation="circular"
+                                                                              inlineStyle="width:50px;height:50px"
+                                                                              id="statusMeterGauge1" maximum="20000"
+                                                                              value="#{bindings.CurrentCash.inputValue}"
+                                                                              minimum="0"
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge1}">
+                                                            <dvt:gaugeMetricLabel rendered="true" id="gml1"
+                                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gml1}"/>
+                                                            <dvt:gaugeThreshold color="#00ff00" maximum="0" id="thr1"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr1}"/>
+                                                            <dvt:gaugeThreshold color="#d62800" maximum="15000"
+                                                                                id="thr2"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr2}"/>
+                                                            <dvt:gaugeThreshold color="#d62800" id="thr3"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr3}"/>
+                                                        </dvt:statusMeterGauge>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc12"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc12}">
+                                                        <af:outputFormatted value="#{item.bindings.LastTransactionDate.inputValue}"
+                                                                            id="of3"
+                                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.of3}">
+                                                            <af:convertDateTime pattern="#{bindings.Cash1.hints.LastTransactionDate.format}"/>
+                                                        </af:outputFormatted>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc13"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc13}">
+                                                        <dvt:statusMeterGauge orientation="circular"
+                                                                              inlineStyle="width:50px;height:50px"
+                                                                              id="statusMeterGauge2" maximum="20000"
+                                                                              value="#{bindings.UpdatedCash.inputValue}"
+                                                                              minimum="0"
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge2}">
+                                                            <dvt:gaugeMetricLabel rendered="true" id="gml2"
+                                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gml2}"/>
+                                                            <dvt:gaugeThreshold color="#ff0000" maximum="0" id="thr4"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr4}"/>
+                                                            <dvt:gaugeThreshold color="#00ff00"
+                                                                                maximum="#{bindings.CurrentCash1.inputValue}"
+                                                                                id="thr5"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr5}"/>
+                                                            <dvt:gaugeThreshold color="#00ff00" id="thr6"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr6}"/>
+                                                        </dvt:statusMeterGauge>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="16%" id="gc14"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc14}">
+                                                        <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge3"
+                                                                              maximum="#{bindings.UpdatedCash1.inputValue}"
+                                                                              value="#{bindings.OfficeCash.inputValue}"
+                                                                              minimum="0"
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge3}">
+                                                            <dvt:gaugeMetricLabel rendered="true" id="gml3"
+                                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gml3}"/>
+                                                            <dvt:gaugeThreshold color="#00d66b" maximum="0" id="thr7"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr7}"/>
+                                                            <dvt:gaugeThreshold color="#00d66b" id="thr8"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr8}"/>
+                                                        </dvt:statusMeterGauge>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px"
+                                                                 id="gc15"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc15}">
+                                                        <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge4"
+                                                                              maximum="#{bindings.UpdatedCash12.inputValue}"
+                                                                              value="#{bindings.CompanyCash.inputValue}"
+                                                                              minimum="0"
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge4}">
+                                                            <dvt:gaugeMetricLabel rendered="true" id="gml4"
+                                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gml4}"/>
+                                                            <dvt:gaugeThreshold color="#b5b5b5" maximum="0" id="thr9"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr9}"/>
+                                                            <dvt:gaugeThreshold color="#b5b5b5" id="thr10"
+                                                                                binding="#{backingBeanScope.backing_DashboardHomeActivity.thr10}"/>
+                                                        </dvt:statusMeterGauge>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow id="gr7"
+                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.gr7}">
+                                                    <af:gridCell id="gc16"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc16}"/>
+                                                    <af:gridCell id="gc17"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc17}"/>
+                                                    <af:gridCell id="gc18"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc18}"/>
+                                                    <af:gridCell id="gc19"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc19}"/>
+                                                    <af:gridCell id="gc20"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc20}"/>
+                                                    <af:gridCell id="gc21"
+                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.gc21}"/>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
+                                        </af:listItem>
+                                    </af:listView>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
@@ -89,6 +205,19 @@
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb5}"
                                              inlineStyle="text-align:center;" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <dvt:barChart orientation="vertical" id="barChart1" var="row"
+                                                  value="#{bindings.Contracts11.collectionModel}"
+                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.barChart1}"
+                                                  styleClass="AFStretchWidth">
+                                        <dvt:chartLegend id="cl1"
+                                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.cl1}"/>
+                                        <f:facet name="dataStamp">
+                                            <dvt:chartDataItem id="di1" series="#{row.ContractValue}"
+                                                               value="#{row.SignDateString}"
+                                                               group="#{bindings.Contracts11.hints.SignDateString.label}"
+                                                               binding="#{backingBeanScope.backing_DashboardHomeActivity.di1}"/>
+                                        </f:facet>
+                                    </dvt:barChart>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
