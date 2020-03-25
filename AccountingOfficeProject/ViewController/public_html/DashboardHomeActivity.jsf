@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DashboardHomeActivity.jsf" id="d1"
+                 binding="#{backingBeanScope.backing_DashboardHomeActivity.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_DashboardHomeActivity.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_DashboardHomeActivity.f1}">
+            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1"
+                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pt1}">
+                <f:facet name="header"/>
+                <f:facet name="status"/>
+                <f:facet name="appNav">
+                <af:button text="Home" id="b1" binding="#{backingBeanScope.backing_DashboardHomeActivity.b1}"
+                               selected="true" iconPosition="leading" styleClass="AFAppNavbarButton "
+                               hoverIcon="#{resource['images:home_ovr.png']}"
+                               depressedIcon="#{resource['images:home_dwn.png']}"
+                               disabledIcon="#{resource['images:home_dis.png']}" action="toDashboard"
+                               icon="#{resource['images:home_ena.png']}"/>
+                    <af:button text="Income" id="b2" binding="#{backingBeanScope.backing_DashboardHomeActivity.b2}"
+                               iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:salesmanagement_lg_ena1.png']}"
+                               hoverIcon="#{resource['images:salesmanagement_lg_ovr.png']}"
+                               disabledIcon="#{resource['images:salesmanagement_lg_dis.png']}" action="toIncomeH"/>
+                    <af:button text="Expances" id="b3" binding="#{backingBeanScope.backing_DashboardHomeActivity.b3}"
+                                iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:salesmanagement_lg_ena1.png']}"
+                               hoverIcon="#{resource['images:salesmanagement_lg_ovr.png']}"
+                               disabledIcon="#{resource['images:salesmanagement_lg_dis.png']}" action="toExpencesH"/>
+                    <af:button text="Managment" id="b4" binding="#{backingBeanScope.backing_DashboardHomeActivity.b4}"
+                                iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:manageproject_ena.png']}"
+                               hoverIcon="#{resource['images:manageproject_ovr.png']}"
+                               depressedIcon="#{resource['images:manageproject_dwn.png']}"
+                               disabledIcon="#{resource['images:manageproject_dis.png']}" action="toManagmentH"/>
+                </f:facet>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_DashboardHomeActivity.pgl1}">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1"
+                                    binding="#{backingBeanScope.backing_DashboardHomeActivity.gr1}">
+                            <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc1"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc1}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb1"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb1}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                    <!--font-size:medium; text-align:center;-->
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="140px" id="gr2"
+                                    binding="#{backingBeanScope.backing_DashboardHomeActivity.gr2}">
+                            <af:gridCell marginStart="5px" width="34%" id="gc2"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc2}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb2"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb2}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" id="gc3"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc3}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb3"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb3}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc4"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc4}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb4"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb4}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr3"
+                                    binding="#{backingBeanScope.backing_DashboardHomeActivity.gr3}">
+                            <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc5"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc5}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb5"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb5}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="140px" id="gr4"
+                                    binding="#{backingBeanScope.backing_DashboardHomeActivity.gr4}">
+                            <af:gridCell marginStart="5px" width="34%" id="gc6"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc6}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb6"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb6}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" id="gc7"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc7}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb7"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb7}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc8"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc8}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb8"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb8}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                    <!--width:200px; height:75px; text-align:center; margin: 0 auto;-->
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5"
+                                    binding="#{backingBeanScope.backing_DashboardHomeActivity.gr5}">
+                            <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc9"
+                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.gc9}"
+                                         halign="stretch" valign="stretch" inlineStyle="text-align:center;">
+                                <af:panelBox text="Change Title" id="pb9"
+                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.pb9}"
+                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <!--<f:facet name="start"/>
+                <f:facet name="end"/>-->
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_DashboardHomeActivity-->
+</f:view>

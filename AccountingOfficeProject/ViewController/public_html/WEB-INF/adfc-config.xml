@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="DashboardHomeActivity">
+    <page>/DashboardHomeActivity.jsf</page>
+  </view>
+  <view id="IncomeHomeActivity">
+    <page>/IncomeHomeActivity.jsf</page>
+  </view>
+  <view id="ExpencesHomeAcivity">
+    <page>/ExpencesHomeAcivity.jsf</page>
+  </view>
+  <view id="ManagmentHomeActivity">
+    <page>/ManagmentHomeActivity.jsf</page>
+  </view>
+  <control-flow-rule id="__11">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome>toDashboard</from-outcome>
+      <to-activity-id>DashboardHomeActivity</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__13">
+      <from-outcome>toIncomeH</from-outcome>
+      <to-activity-id>IncomeHomeActivity</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>toManagmentH</from-outcome>
+      <to-activity-id>ManagmentHomeActivity</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__15">
+      <from-outcome>toExpencesH</from-outcome>
+      <to-activity-id>ExpencesHomeAcivity</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__16">
+    <managed-bean-name>backing_DashboardHomeActivity</managed-bean-name>
+    <managed-bean-class>view.backing.DashboardHomeActivity</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1DashboardHomeActivity.jsf-->
+  </managed-bean>
+  <managed-bean id="__17">
+    <managed-bean-name>backing_IncomeHomeActivity</managed-bean-name>
+    <managed-bean-class>view.backing.IncomeHomeActivity</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1IncomeHomeActivity.jsf-->
+  </managed-bean>
+  <managed-bean id="__18">
+    <managed-bean-name>backing_ExpencesHomeAcivity</managed-bean-name>
+    <managed-bean-class>view.backing.ExpencesHomeAcivity</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1ExpencesHomeAcivity.jsf-->
+  </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name>backing_ManagmentHomeActivity</managed-bean-name>
+    <managed-bean-class>view.backing.ManagmentHomeActivity</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1ManagmentHomeActivity.jsf-->
+  </managed-bean>
+</adfc-config>

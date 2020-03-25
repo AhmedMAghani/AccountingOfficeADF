@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>CRUDTemplate</afc:display-name>
+            <afc:facet>
+                <afc:description>Popup to create in the table "don't forget event creatInsert"</afc:description>
+                <afc:facet-name>creatPopup</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Popup to update record in table</afc:description>
+                <afc:facet-name>editPopub</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Popup to display details of record</afc:description>
+                <afc:facet-name>detailsPopub</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Contains the titles of the records (GridRow)</afc:description>
+                <afc:facet-name>tableHeader</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Contains the search criteria</afc:description>
+                <afc:facet-name>search</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Contains the Navigation Buttons</afc:description>
+                <afc:facet-name>navButtons</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Contains the date of the table with the last 3 cloumns ditails,edit and delete "don't
+                                 forget popup behavior"</afc:description>
+                <afc:facet-name>listView</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:description>Button to call the create popup</afc:description>
+                <afc:facet-name>createNewRecord</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:group id="pt_g1">
+        <af:panelGroupLayout layout="scroll" id="pt_pgl1">
+            <af:panelGridLayout id="pgl2">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                            <af:facetRef facetName="navButtons"/>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="gr5" height="100%">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc9">
+                        <af:facetRef facetName="search"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <af:panelGroupLayout layout="scroll" id="pgl1">
+                            <!-- Content -->
+                            <af:panelGridLayout id="pgl6" inlineStyle="background-color:#802525; color:White;">
+                                <af:facetRef facetName="tableHeader"/>
+                            </af:panelGridLayout>
+                            <af:facetRef facetName="listView"/>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="30px" id="gr3">
+                    <af:gridCell id="gc3" inlineStyle="text-align:center;" halign="stretch" valign="stretch">
+                        <af:panelStretchLayout id="psl1">
+                            <f:facet name="center">
+                                <af:facetRef facetName="createNewRecord"/>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                      popupFetchListener="#{backingBeanScope.backing_TasksFragment.createInsertTask}">
+                <af:dialog id="d1" title="Create"
+                           dialogListener="#{backingBeanScope.backing_TasksFragment.CommitDialog}">
+                    <af:facetRef facetName="creatPopup"/>
+                </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+                <af:noteWindow id="nw1">
+                    <af:facetRef facetName="detailsPopub"/>
+                </af:noteWindow>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+                <af:dialog id="d2" title="Edit" dialogListener="#{backingBeanScope.backing_TasksFragment.CommitDialog}">
+                    <af:facetRef facetName="editPopub"/>
+                </af:dialog>
+            </af:popup>
+        </af:panelGroupLayout>
+    </af:group>
+</af:pageTemplateDef>

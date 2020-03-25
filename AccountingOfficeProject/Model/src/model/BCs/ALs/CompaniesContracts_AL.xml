@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CompaniesContracts_AL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Companies"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BCs.EOs.Companies_EO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Companies"/>
+      <Attr Name="_foreignKey" Value="model.BCs.EOs.Companies_EO.CompaniesPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BCs.EOs.Companies_EO.CompanyId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Contracts"
+    Cardinality="-1"
+    Owner="model.BCs.EOs.Contracts_EO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Contracts"/>
+      <Attr Name="_foreignKey" Value="model.BCs.EOs.Contracts_EO.CompaniesContracts"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BCs.EOs.Contracts_EO.ContractCompanyId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

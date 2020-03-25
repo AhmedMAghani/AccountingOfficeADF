@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="IncomeHomeActivity.jsf" id="d1" binding="#{backingBeanScope.backing_IncomeHomeActivity.d1}">
+        <af:form id="f1" binding="#{backingBeanScope.backing_IncomeHomeActivity.f1}">
+            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1"
+                             binding="#{backingBeanScope.backing_IncomeHomeActivity.pt1}">
+                <f:facet name="header"/>
+                <f:facet name="status"/>
+                <f:facet name="appNav">
+                <af:button text="Home" id="b1" binding="#{backingBeanScope.backing_IncomeHomeActivity.b1}" iconPosition="leading" styleClass="AFAppNavbarButton "
+                               hoverIcon="#{resource['images:home_ovr.png']}"
+                               depressedIcon="#{resource['images:home_dwn.png']}"
+                               disabledIcon="#{resource['images:home_dis.png']}" action="toDashboard"
+                               icon="#{resource['images:home_ena.png']}"/>
+                    <af:button text="Income" id="b2" binding="#{backingBeanScope.backing_IncomeHomeActivity.b2}"
+                               iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:salesmanagement_lg_ena1.png']}"
+                               hoverIcon="#{resource['images:salesmanagement_lg_ovr.png']}"
+                               disabledIcon="#{resource['images:salesmanagement_lg_dis.png']}" action="toIncomeH"
+                               selected="true"/>
+                    <af:button text="Expances" id="b3" binding="#{backingBeanScope.backing_IncomeHomeActivity.b3}"
+                                iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:salesmanagement_lg_ena1.png']}"
+                               hoverIcon="#{resource['images:salesmanagement_lg_ovr.png']}"
+                               disabledIcon="#{resource['images:salesmanagement_lg_dis.png']}" action="toExpencesH"/>
+                    <af:button text="Managment" id="b4" binding="#{backingBeanScope.backing_IncomeHomeActivity.b4}"
+                                iconPosition="leading" styleClass="AFAppNavbarButton "
+                               icon="#{resource['images:manageproject_ena.png']}"
+                               hoverIcon="#{resource['images:manageproject_ovr.png']}"
+                               depressedIcon="#{resource['images:manageproject_dwn.png']}"
+                               disabledIcon="#{resource['images:manageproject_dis.png']}" action="toManagmentH"/>
+                </f:facet>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center"/>
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_IncomeHomeActivity-->
+</f:view>

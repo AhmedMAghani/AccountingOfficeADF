@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OfficeIncomeTasksFk_VL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  EntityAssociation="model.BCs.ALs.OfficeIncomeTasksFk_AL">
+  <ViewLinkDefEnd
+    Name="OfficeIncome"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BCs.VOs.OfficeIncome_VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="OfficeIncome"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BCs.VOs.OfficeIncome_VO.IncomeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Tasks"
+    Cardinality="1"
+    Owner="model.BCs.VOs.Tasks_VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="Tasks"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BCs.VOs.Tasks_VO.OfficeIncomeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
