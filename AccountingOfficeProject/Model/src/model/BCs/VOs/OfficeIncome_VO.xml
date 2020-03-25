@@ -13,6 +13,53 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="Contracts_VO1"
+    ViewObjectName="model.BCs.VOs.Contracts_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IncomeTypesStatic_VO1"
+    ViewObjectName="model.BCs.VOs.IncomeTypesStatic_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContractId"
+    ListVOName="Contracts_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractId"/>
+      <Item Value="ContractValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IncomeType"
+    ListVOName="IncomeTypesStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IncomeType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="typeID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="type"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OfficeIncome_EO"
     Entity="model.BCs.EOs.OfficeIncome_EO"/>
@@ -29,7 +76,15 @@
     PrecisionRule="true"
     EntityAttrName="ContractId"
     EntityUsage="OfficeIncome_EO"
-    AliasName="CONTRACT_ID"/>
+    AliasName="CONTRACT_ID"
+    LOVName="LOV_ContractId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IncomeValue"
     PrecisionRule="true"
@@ -41,7 +96,15 @@
     PrecisionRule="true"
     EntityAttrName="IncomeType"
     EntityUsage="OfficeIncome_EO"
-    AliasName="INCOME_TYPE"/>
+    AliasName="INCOME_TYPE"
+    LOVName="LOV_IncomeType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="Tasks"
     ViewLink="model.BCs.VLs.OfficeIncomeTasksFk_VL"

@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="ManagmentTF">
+    <default-activity>TasksActivity</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__9">
+      <managed-bean-name>backing_TasksActivity</managed-bean-name>
+      <managed-bean-class>view.backing.TasksActivity</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1TasksActivity.jsff-->
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name>backing_TasksActivity2</managed-bean-name>
+      <managed-bean-class>view.backing.TasksActivity</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1TasksActivity.jsff-->
+    </managed-bean>
+    <view id="TasksActivity">
+      <page>/TasksActivity.jsff</page>
+    </view>
+    <view id="EmployeesActivity"></view>
+    <view id="CompanyiesActivity"></view>
+    <control-flow-rule id="__3">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>toTasks</from-outcome>
+        <to-activity-id>TasksActivity</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>toEmp</from-outcome>
+        <to-activity-id>EmployeesActivity</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>toCompanies</from-outcome>
+        <to-activity-id>CompanyiesActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

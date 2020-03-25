@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -13,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class Tasks_VORowImpl extends ViewRowImpl {
+
 
     public static final int ENTITY_TASKS_EO = 0;
 
@@ -30,7 +32,14 @@ public class Tasks_VORowImpl extends ViewRowImpl {
         TaskCompleteDate,
         OfficeExpencesId,
         OfficeIncomeId,
-        taskCompleteDateInt;
+        taskCompleteDateInt,
+        Employees_VO1,
+        Companies_VO1,
+        Contracts_VO1,
+        TaskTypsStatic_VO1,
+        TasksStatusStatic_VO1,
+        OfficeExpences_VO1,
+        OfficeIncome_VO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -55,6 +64,7 @@ public class Tasks_VORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int TASKID = AttributesEnum.TaskId.index();
     public static final int EMPID = AttributesEnum.EmpId.index();
     public static final int COMPANYID = AttributesEnum.CompanyId.index();
@@ -66,6 +76,13 @@ public class Tasks_VORowImpl extends ViewRowImpl {
     public static final int OFFICEEXPENCESID = AttributesEnum.OfficeExpencesId.index();
     public static final int OFFICEINCOMEID = AttributesEnum.OfficeIncomeId.index();
     public static final int TASKCOMPLETEDATEINT = AttributesEnum.taskCompleteDateInt.index();
+    public static final int EMPLOYEES_VO1 = AttributesEnum.Employees_VO1.index();
+    public static final int COMPANIES_VO1 = AttributesEnum.Companies_VO1.index();
+    public static final int CONTRACTS_VO1 = AttributesEnum.Contracts_VO1.index();
+    public static final int TASKTYPSSTATIC_VO1 = AttributesEnum.TaskTypsStatic_VO1.index();
+    public static final int TASKSSTATUSSTATIC_VO1 = AttributesEnum.TasksStatusStatic_VO1.index();
+    public static final int OFFICEEXPENCES_VO1 = AttributesEnum.OfficeExpences_VO1.index();
+    public static final int OFFICEINCOME_VO1 = AttributesEnum.OfficeIncome_VO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -247,6 +264,55 @@ public class Tasks_VORowImpl extends ViewRowImpl {
      */
     public Integer gettaskCompleteDateInt() {
         return (Integer) getAttributeInternal(TASKCOMPLETEDATEINT);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Employees_VO1.
+     */
+    public RowSet getEmployees_VO1() {
+        return (RowSet) getAttributeInternal(EMPLOYEES_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Companies_VO1.
+     */
+    public RowSet getCompanies_VO1() {
+        return (RowSet) getAttributeInternal(COMPANIES_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Contracts_VO1.
+     */
+    public RowSet getContracts_VO1() {
+        return (RowSet) getAttributeInternal(CONTRACTS_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> TaskTypsStatic_VO1.
+     */
+    public RowSet getTaskTypsStatic_VO1() {
+        return (RowSet) getAttributeInternal(TASKTYPSSTATIC_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> TasksStatusStatic_VO1.
+     */
+    public RowSet getTasksStatusStatic_VO1() {
+        return (RowSet) getAttributeInternal(TASKSSTATUSSTATIC_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> OfficeExpences_VO1.
+     */
+    public RowSet getOfficeExpences_VO1() {
+        return (RowSet) getAttributeInternal(OFFICEEXPENCES_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> OfficeIncome_VO1.
+     */
+    public RowSet getOfficeIncome_VO1() {
+        return (RowSet) getAttributeInternal(OFFICEINCOME_VO1);
     }
 }
 

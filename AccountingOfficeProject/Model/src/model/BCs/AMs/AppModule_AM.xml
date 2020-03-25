@@ -55,6 +55,24 @@
   <ViewUsage
     Name="Tasks6"
     ViewObjectName="model.BCs.VOs.Tasks_VO"/>
+  <ViewUsage
+    Name="ContactTypesStatic1"
+    ViewObjectName="model.BCs.VOs.ContactTypesStatic_VO"/>
+  <ViewUsage
+    Name="TaskTypsStatic1"
+    ViewObjectName="model.BCs.VOs.TaskTypsStatic_VO"/>
+  <ViewUsage
+    Name="TasksStatusStatic1"
+    ViewObjectName="model.BCs.VOs.TasksStatusStatic_VO"/>
+  <ViewUsage
+    Name="IncomeTypesStatic1"
+    ViewObjectName="model.BCs.VOs.IncomeTypesStatic_VO"/>
+  <ViewUsage
+    Name="ExpencesTypesStatic1"
+    ViewObjectName="model.BCs.VOs.ExpencesTypesStatic_VO"/>
+  <ViewUsage
+    Name="EducationTypesStatic1"
+    ViewObjectName="model.BCs.VOs.EducationTypesStatic_VO"/>
   <ViewLinkUsage
     Name="CompaniesContracts_VL1"
     ViewLinkObjectName="model.BCs.VLs.CompaniesContracts_VL"

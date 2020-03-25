@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -39,7 +40,10 @@ public class Contracts_VORowImpl extends ViewRowImpl {
         SignDateString,
         OfficeExpences,
         OfficeIncome,
-        Tasks;
+        Tasks,
+        Companies_VO1,
+        Employees_VO1,
+        ContactTypesStatic_VO1;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -83,6 +87,9 @@ public class Contracts_VORowImpl extends ViewRowImpl {
     public static final int OFFICEEXPENCES = AttributesEnum.OfficeExpences.index();
     public static final int OFFICEINCOME = AttributesEnum.OfficeIncome.index();
     public static final int TASKS = AttributesEnum.Tasks.index();
+    public static final int COMPANIES_VO1 = AttributesEnum.Companies_VO1.index();
+    public static final int EMPLOYEES_VO1 = AttributesEnum.Employees_VO1.index();
+    public static final int CONTACTTYPESSTATIC_VO1 = AttributesEnum.ContactTypesStatic_VO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -349,6 +356,27 @@ public class Contracts_VORowImpl extends ViewRowImpl {
      */
     public RowIterator getTasks() {
         return (RowIterator) getAttributeInternal(TASKS);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Companies_VO1.
+     */
+    public RowSet getCompanies_VO1() {
+        return (RowSet) getAttributeInternal(COMPANIES_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> Employees_VO1.
+     */
+    public RowSet getEmployees_VO1() {
+        return (RowSet) getAttributeInternal(EMPLOYEES_VO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ContactTypesStatic_VO1.
+     */
+    public RowSet getContactTypesStatic_VO1() {
+        return (RowSet) getAttributeInternal(CONTACTTYPESSTATIC_VO1);
     }
 }
 

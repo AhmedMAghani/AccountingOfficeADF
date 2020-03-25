@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="EducationTypesStatic_VO1"
+    ViewObjectName="model.BCs.VOs.EducationTypesStatic_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_EmpEducationId"
+    ListVOName="EducationTypesStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EmpEducationId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="typeID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="type"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Employees_EO"
     Entity="model.BCs.EOs.Employees_EO"/>
@@ -54,7 +76,15 @@
     PrecisionRule="true"
     EntityAttrName="EmpEducationId"
     EntityUsage="Employees_EO"
-    AliasName="EMP_EDUCATION_ID"/>
+    AliasName="EMP_EDUCATION_ID"
+    LOVName="LOV_EmpEducationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpJobTitleId"
     PrecisionRule="true"

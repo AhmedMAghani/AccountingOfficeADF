@@ -221,7 +221,7 @@
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow marginTop="5px" height="300px" id="gr3"
+                        <af:gridRow marginTop="5px" height="320px" id="gr3"
                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.gr3}">
                             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc5"
                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.gc5}"
@@ -233,7 +233,7 @@
                                     <dvt:barChart orientation="vertical" id="barChart1" var="row"
                                                   value="#{bindings.Contracts11.collectionModel}"
                                                   binding="#{backingBeanScope.backing_DashboardHomeActivity.barChart1}"
-                                                  styleClass="AFStretchWidth">
+                                                  styleClass="AFStretchWidth" inlineStyle="height:300px;">
                                         <dvt:chartLegend rendered="false" id="cl1"
                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.cl1}"/>
                                         <f:facet name="dataStamp">
@@ -302,7 +302,7 @@
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow marginTop="5px" height="300px" marginBottom="5px" id="gr5"
+                        <af:gridRow marginTop="5px" height="320px" marginBottom="5px" id="gr5"
                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.gr5}">
                             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc9"
                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.gc9}"
@@ -314,7 +314,7 @@
                                     <dvt:barChart orientation="vertical" id="barChart2" var="row"
                                                   value="#{bindings.Tasks11.collectionModel}"
                                                   binding="#{backingBeanScope.backing_DashboardHomeActivity.barChart2}"
-                                                  styleClass="AFStretchWidth">
+                                                  styleClass="AFStretchWidth" inlineStyle="height:300px;">
                                         <dvt:chartLegend rendered="false" id="cl2"
                                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.cl2}"/>
                                         <f:facet name="dataStamp">

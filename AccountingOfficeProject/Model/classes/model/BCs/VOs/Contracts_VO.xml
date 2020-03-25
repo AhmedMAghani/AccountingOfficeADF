@@ -19,6 +19,52 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="Companies_VO1"
+    ViewObjectName="model.BCs.VOs.Companies_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Employees_VO1"
+    ViewObjectName="model.BCs.VOs.Employees_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContractCompanyId"
+    ListVOName="Companies_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractCompanyId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContractEmpId"
+    ListVOName="Employees_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractEmpId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EmpId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EmpName"/>
+      <Item Value="EmpJobTitleId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Contracts_EO"
     Entity="model.BCs.EOs.Contracts_EO"/>
@@ -34,7 +80,15 @@
     PrecisionRule="true"
     EntityAttrName="ContractCompanyId"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_COMPANY_ID"/>
+    AliasName="CONTRACT_COMPANY_ID"
+    LOVName="LOV_ContractCompanyId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractCompanyRepName"
     PrecisionRule="true"
@@ -46,7 +100,15 @@
     PrecisionRule="true"
     EntityAttrName="ContractEmpId"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_EMP_ID"/>
+    AliasName="CONTRACT_EMP_ID"
+    LOVName="LOV_ContractEmpId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractDecument"
     PrecisionRule="true"
@@ -79,7 +141,8 @@
     PrecisionRule="true"
     EntityAttrName="ContractSignDate"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_SIGN_DATE">
+    AliasName="CONTRACT_SIGN_DATE"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER
@@ -135,7 +198,7 @@
     Type="java.lang.Integer"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="INTEGER">
     <TransientExpression
       Name="ExpressionScript"
       trustMode="untrusted"

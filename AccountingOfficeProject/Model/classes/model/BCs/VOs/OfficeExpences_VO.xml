@@ -13,6 +13,30 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="Contracts_VO1"
+    ViewObjectName="model.BCs.VOs.Contracts_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContractId"
+    ListVOName="Contracts_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractId"/>
+      <Item Value="ContractCompanyId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OfficeExpences_EO"
     Entity="model.BCs.EOs.OfficeExpences_EO"/>
@@ -28,7 +52,15 @@
     PrecisionRule="true"
     EntityAttrName="ContractId"
     EntityUsage="OfficeExpences_EO"
-    AliasName="CONTRACT_ID"/>
+    AliasName="CONTRACT_ID"
+    LOVName="LOV_ContractId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ExpenceValue"
     PrecisionRule="true"
