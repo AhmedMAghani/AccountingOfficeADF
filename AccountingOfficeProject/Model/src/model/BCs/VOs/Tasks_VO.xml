@@ -103,7 +103,7 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContractId"/>
-      <Item Value="ContractValue"/>
+      <Item Value="ContractEndDate"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -264,7 +264,8 @@
     PrecisionRule="true"
     EntityAttrName="TaskIssueDate"
     EntityUsage="Tasks_EO"
-    AliasName="TASK_ISSUE_DATE"/>
+    AliasName="TASK_ISSUE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="TaskCompleteDate"
     PrecisionRule="true"
@@ -329,6 +330,12 @@
         Value="TaskCompleteDate"/>
     </Dependencies>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="OfficeIncome"
+    ViewLink="model.BCs.VLs.OfficeIncomeTasksFk_VL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

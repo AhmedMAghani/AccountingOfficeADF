@@ -58,18 +58,19 @@
                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.pgl2}">
                                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6"
                                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.gr6}">
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc10"
+                                                    <af:gridCell marginStart="5px" width="10%" id="gc10"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc10}">
                                                         <af:outputFormatted value="#{item.bindings.StartDate.inputValue}"
                                                                             id="of1"
-                                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.of1}">
+                                                                            binding="#{backingBeanScope.backing_DashboardHomeActivity.of1}"
+                                                                            inlineStyle="line-height:inherit;">
                                                             <af:convertDateTime pattern="#{bindings.Cash1.hints.StartDate.format}"/>
                                                         </af:outputFormatted>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="17%" id="gc11"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc11}">
                                                         <dvt:statusMeterGauge orientation="circular"
-                                                                              inlineStyle="width:50px;height:50px"
+                                                                              inlineStyle="width:100px;height:100px"
                                                                               id="statusMeterGauge1" maximum="20000"
                                                                               value="#{bindings.CurrentCash.inputValue}"
                                                                               minimum="0"
@@ -85,7 +86,7 @@
                                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.thr3}"/>
                                                         </dvt:statusMeterGauge>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc12"
+                                                    <af:gridCell marginStart="5px" width="10%" id="gc12"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc12}">
                                                         <af:outputFormatted value="#{item.bindings.LastTransactionDate.inputValue}"
                                                                             id="of3"
@@ -96,7 +97,7 @@
                                                     <af:gridCell marginStart="5px" width="17%" id="gc13"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc13}">
                                                         <dvt:statusMeterGauge orientation="circular"
-                                                                              inlineStyle="width:50px;height:50px"
+                                                                              inlineStyle="width:100px;height:100px"
                                                                               id="statusMeterGauge2" maximum="20000"
                                                                               value="#{bindings.UpdatedCash.inputValue}"
                                                                               minimum="0"
@@ -113,13 +114,14 @@
                                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.thr6}"/>
                                                         </dvt:statusMeterGauge>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" id="gc14"
+                                                    <af:gridCell marginStart="5px" width="24%" id="gc14"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc14}">
                                                         <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge3"
                                                                               maximum="#{bindings.UpdatedCash1.inputValue}"
                                                                               value="#{bindings.OfficeCash.inputValue}"
                                                                               minimum="0"
-                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge3}">
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge3}"
+                                                                              inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;">
                                                             <dvt:gaugeMetricLabel rendered="true" id="gml3"
                                                                                   binding="#{backingBeanScope.backing_DashboardHomeActivity.gml3}"/>
                                                             <dvt:gaugeThreshold color="#00d66b" maximum="0" id="thr7"
@@ -128,14 +130,15 @@
                                                                                 binding="#{backingBeanScope.backing_DashboardHomeActivity.thr8}"/>
                                                         </dvt:statusMeterGauge>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px"
+                                                    <af:gridCell marginStart="5px" width="24%" marginEnd="5px"
                                                                  id="gc15"
                                                                  binding="#{backingBeanScope.backing_DashboardHomeActivity.gc15}">
                                                         <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge4"
                                                                               maximum="#{bindings.UpdatedCash12.inputValue}"
                                                                               value="#{bindings.CompanyCash.inputValue}"
                                                                               minimum="0"
-                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge4}">
+                                                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge4}"
+                                                                              inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;">
                                                             <dvt:gaugeMetricLabel rendered="true" id="gml4"
                                                                                   binding="#{backingBeanScope.backing_DashboardHomeActivity.gml4}"/>
                                                             <dvt:gaugeThreshold color="#b5b5b5" maximum="0" id="thr9"

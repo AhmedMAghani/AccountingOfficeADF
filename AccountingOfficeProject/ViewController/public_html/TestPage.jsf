@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="TestPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="scroll" id="pgl1">
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:panelFormLayout id="pfl2">
+                        <af:inputText value="#{bindings.IncomeId.inputValue}" label="#{bindings.IncomeId.hints.label}"
+                                      required="#{bindings.IncomeId.hints.mandatory}"
+                                      columns="#{bindings.IncomeId.hints.displayWidth}"
+                                      maximumLength="#{bindings.IncomeId.hints.precision}"
+                                      shortDesc="#{bindings.IncomeId.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.IncomeId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeId.format}"/>
+                        </af:inputText>
+                        <af:inputListOfValues id="contractId1Id"
+                                              popupTitle="Search and Select: #{bindings.ContractId1.hints.label}"
+                                              value="#{bindings.ContractId1.inputValue}"
+                                              label="#{bindings.ContractId1.hints.label}"
+                                              model="#{bindings.ContractId1.listOfValuesModel}"
+                                              required="#{bindings.ContractId1.hints.mandatory}"
+                                              columns="#{bindings.ContractId1.hints.displayWidth}"
+                                              shortDesc="#{bindings.ContractId1.hints.tooltip}">
+                            <f:validator binding="#{bindings.ContractId1.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId1.format}"/>
+                        </af:inputListOfValues>
+                        <af:inputText value="#{bindings.IncomeValue.inputValue}"
+                                      label="#{bindings.IncomeValue.hints.label}"
+                                      required="#{bindings.IncomeValue.hints.mandatory}"
+                                      columns="#{bindings.IncomeValue.hints.displayWidth}"
+                                      maximumLength="#{bindings.IncomeValue.hints.precision}"
+                                      shortDesc="#{bindings.IncomeValue.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.IncomeValue.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeValue.format}"/>
+                        </af:inputText>
+                        <af:selectOneChoice value="#{bindings.IncomeType.inputValue}"
+                                            label="#{bindings.IncomeType.label}"
+                                            required="#{bindings.IncomeType.hints.mandatory}"
+                                            shortDesc="#{bindings.IncomeType.hints.tooltip}" id="soc2">
+                            <f:selectItems value="#{bindings.IncomeType.items}" id="si2"/>
+                            <f:validator binding="#{bindings.IncomeType.validator}"/>
+                        </af:selectOneChoice>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                <af:button actionListener="#{bindings.First1.execute}" text="First1"
+                                           disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b5"/>
+                                <af:button actionListener="#{bindings.Previous1.execute}" text="Previous1"
+                                           disabled="#{!bindings.Previous1.enabled}" partialSubmit="true" id="b6"/>
+                                <af:button actionListener="#{bindings.Next1.execute}" text="Next1"
+                                           disabled="#{!bindings.Next1.enabled}" partialSubmit="true" id="b7"/>
+                                <af:button actionListener="#{bindings.Last1.execute}" text="Last1"
+                                           disabled="#{!bindings.Last1.enabled}" partialSubmit="true" id="b8"/>
+                                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="CreateInsert1"
+                                           disabled="#{!bindings.CreateInsert1.enabled}" id="b10"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.ExpenceId.inputValue}" label="#{bindings.ExpenceId.hints.label}"
+                                      required="#{bindings.ExpenceId.hints.mandatory}"
+                                      columns="#{bindings.ExpenceId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ExpenceId.hints.precision}"
+                                      shortDesc="#{bindings.ExpenceId.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.ExpenceId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ExpenceId.format}"/>
+                        </af:inputText>
+                        <af:inputListOfValues id="contractIdId"
+                                              popupTitle="Search and Select: #{bindings.ContractId.hints.label}"
+                                              value="#{bindings.ContractId.inputValue}"
+                                              label="#{bindings.ContractId.hints.label}"
+                                              model="#{bindings.ContractId.listOfValuesModel}"
+                                              required="#{bindings.ContractId.hints.mandatory}"
+                                              columns="#{bindings.ContractId.hints.displayWidth}"
+                                              shortDesc="#{bindings.ContractId.hints.tooltip}">
+                            <f:validator binding="#{bindings.ContractId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
+                        </af:inputListOfValues>
+                        <af:selectOneChoice value="#{bindings.ExpenceType.inputValue}"
+                                            label="#{bindings.ExpenceType.label}"
+                                            required="#{bindings.ExpenceType.hints.mandatory}"
+                                            shortDesc="#{bindings.ExpenceType.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.ExpenceType.items}" id="si1"/>
+                            <f:validator binding="#{bindings.ExpenceType.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.ExpenceValue.inputValue}"
+                                      label="#{bindings.ExpenceValue.hints.label}"
+                                      required="#{bindings.ExpenceValue.hints.mandatory}"
+                                      columns="#{bindings.ExpenceValue.hints.displayWidth}"
+                                      maximumLength="#{bindings.ExpenceValue.hints.precision}"
+                                      shortDesc="#{bindings.ExpenceValue.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.ExpenceValue.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ExpenceValue.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                <af:button actionListener="#{bindings.First.execute}" text="First"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b9"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                               disabled="#{!bindings.Commit.enabled}" id="b11"/>
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b12">
+                        <af:resetActionListener/>
+                    </af:button>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pgl3" layout="vertical">
+                    <af:listView value="#{bindings.Cash1.collectionModel}" var="item"
+                                 emptyText="#{bindings.Cash1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.Cash1.rangeSize}" id="lv1">
+                        <af:listItem id="li1">
+                            <af:panelGridLayout id="pgl7">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="20%" id="gc1">
+                                        <af:outputFormatted value="#{item.bindings.LastTransactionDate.inputValue}"
+                                                            id="of1">
+                                            <af:convertDateTime pattern="#{bindings.Cash1.hints.LastTransactionDate.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc2">
+                                        <af:outputFormatted value="#{item.bindings.CurrentCash.inputValue}" id="of2">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Cash1.hints.CurrentCash.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc3">
+                                        <af:outputFormatted value="#{item.bindings.UpdatedCash.inputValue}" id="of3">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Cash1.hints.UpdatedCash.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc4">
+                                        <af:outputFormatted value="#{item.bindings.CompanyCash.inputValue}" id="of4">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Cash1.hints.CompanyCash.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc5">
+                                        <af:outputFormatted value="#{item.bindings.OfficeCash.inputValue}" id="of5">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Cash1.hints.OfficeCash.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:listItem>
+                    </af:listView>
+                    <af:listView value="#{bindings.Contracts1.collectionModel}" var="item"
+                                 emptyText="#{bindings.Contracts1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.Contracts1.rangeSize}" id="lv2">
+                        <af:listItem id="li2">
+                            <af:panelGridLayout id="pgl8">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                    <af:gridCell marginStart="5px" width="20%" id="gc6">
+                                        <af:outputFormatted value="#{item.bindings.ContractId.inputValue}" id="of6">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Contracts1.hints.ContractId.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc7">
+                                        <af:outputFormatted value="#{item.bindings.ContractEndDate.inputValue}"
+                                                            id="of7">
+                                            <af:convertDateTime pattern="#{bindings.Contracts1.hints.ContractEndDate.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc8">
+                                        <af:outputFormatted value="#{item.bindings.ContractIncome.inputValue}" id="of8">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Contracts1.hints.ContractIncome.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc9">
+                                        <af:outputFormatted value="#{item.bindings.ContractExpence.inputValue}"
+                                                            id="of9">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Contracts1.hints.ContractExpence.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc10">
+                                        <af:outputFormatted value="#{item.bindings.ContractDebit.inputValue}" id="of10">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.Contracts1.hints.ContractDebit.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:listItem>
+                    </af:listView>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

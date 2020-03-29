@@ -1,0 +1,6 @@
+//Groovy Scripts for model.BCs.EOs.Contracts_EO
+
+package model.BCs.EOs
+
+import oracle.jbo.script.annotation.MessageParameterExpression;
+

@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.BCs.VOs.OfficeIncome_VORowImpl"
+  ComponentClass="model.BCs.VOs.OfficeIncome_VOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="Contracts_VO1"
     ViewObjectName="model.BCs.VOs.Contracts_VO"
@@ -37,7 +43,7 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContractId"/>
-      <Item Value="ContractValue"/>
+      <Item Value="ContractEndDate"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

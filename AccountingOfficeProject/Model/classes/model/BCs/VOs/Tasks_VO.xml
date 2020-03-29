@@ -19,6 +19,166 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="Employees_VO1"
+    ViewObjectName="model.BCs.VOs.Employees_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Companies_VO1"
+    ViewObjectName="model.BCs.VOs.Companies_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Contracts_VO1"
+    ViewObjectName="model.BCs.VOs.Contracts_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TaskTypsStatic_VO1"
+    ViewObjectName="model.BCs.VOs.TaskTypsStatic_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TasksStatusStatic_VO1"
+    ViewObjectName="model.BCs.VOs.TasksStatusStatic_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OfficeExpences_VO1"
+    ViewObjectName="model.BCs.VOs.OfficeExpences_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OfficeIncome_VO1"
+    ViewObjectName="model.BCs.VOs.OfficeIncome_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_EmpId"
+    ListVOName="Employees_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EmpId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EmpId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EmpName"/>
+      <Item Value="EmpJobTitleId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CompanyId"
+    ListVOName="Companies_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CompanyId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="IsBranch"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContractId"
+    ListVOName="Contracts_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractId"/>
+      <Item Value="ContractEndDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TaskType"
+    ListVOName="TaskTypsStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TaskType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="typeID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="type"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TaskState"
+    ListVOName="TasksStatusStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TaskState"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StatusID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="status"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OfficeExpencesId"
+    ListVOName="OfficeExpences_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OfficeExpencesId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ExpenceId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ExpenceType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OfficeIncomeId"
+    ListVOName="OfficeIncome_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OfficeIncomeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IncomeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="IncomeType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Tasks_EO"
     Entity="model.BCs.EOs.Tasks_EO"/>
@@ -34,37 +194,78 @@
     PrecisionRule="true"
     EntityAttrName="EmpId"
     EntityUsage="Tasks_EO"
-    AliasName="EMP_ID"/>
+    AliasName="EMP_ID"
+    LOVName="LOV_EmpId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CompanyId"
     PrecisionRule="true"
     EntityAttrName="CompanyId"
     EntityUsage="Tasks_EO"
-    AliasName="COMPANY_ID"/>
+    AliasName="COMPANY_ID"
+    LOVName="LOV_CompanyId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractId"
     PrecisionRule="true"
     EntityAttrName="ContractId"
     EntityUsage="Tasks_EO"
-    AliasName="CONTRACT_ID"/>
+    AliasName="CONTRACT_ID"
+    LOVName="LOV_ContractId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskType"
     PrecisionRule="true"
     EntityAttrName="TaskType"
     EntityUsage="Tasks_EO"
-    AliasName="TASK_TYPE"/>
+    AliasName="TASK_TYPE"
+    LOVName="LOV_TaskType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskState"
     PrecisionRule="true"
     EntityAttrName="TaskState"
     EntityUsage="Tasks_EO"
-    AliasName="TASK_STATE"/>
+    AliasName="TASK_STATE"
+    LOVName="LOV_TaskState">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskIssueDate"
     PrecisionRule="true"
     EntityAttrName="TaskIssueDate"
     EntityUsage="Tasks_EO"
-    AliasName="TASK_ISSUE_DATE"/>
+    AliasName="TASK_ISSUE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="TaskCompleteDate"
     PrecisionRule="true"
@@ -86,14 +287,30 @@
     PrecisionRule="true"
     EntityAttrName="OfficeExpencesId"
     EntityUsage="Tasks_EO"
-    AliasName="OFFICE_EXPENCES_ID"/>
+    AliasName="OFFICE_EXPENCES_ID"
+    LOVName="LOV_OfficeExpencesId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OfficeIncomeId"
     IsUnique="true"
     PrecisionRule="true"
     EntityAttrName="OfficeIncomeId"
     EntityUsage="Tasks_EO"
-    AliasName="OFFICE_INCOME_ID"/>
+    AliasName="OFFICE_INCOME_ID"
+    LOVName="LOV_OfficeIncomeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="taskCompleteDateInt"
     IsUpdateable="false"
@@ -113,6 +330,12 @@
         Value="TaskCompleteDate"/>
     </Dependencies>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="OfficeIncome"
+    ViewLink="model.BCs.VLs.OfficeIncomeTasksFk_VL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

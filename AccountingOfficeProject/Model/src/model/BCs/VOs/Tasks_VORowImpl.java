@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.Row;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -33,6 +34,7 @@ public class Tasks_VORowImpl extends ViewRowImpl {
         OfficeExpencesId,
         OfficeIncomeId,
         taskCompleteDateInt,
+        OfficeIncome,
         Employees_VO1,
         Companies_VO1,
         Contracts_VO1,
@@ -76,6 +78,7 @@ public class Tasks_VORowImpl extends ViewRowImpl {
     public static final int OFFICEEXPENCESID = AttributesEnum.OfficeExpencesId.index();
     public static final int OFFICEINCOMEID = AttributesEnum.OfficeIncomeId.index();
     public static final int TASKCOMPLETEDATEINT = AttributesEnum.taskCompleteDateInt.index();
+    public static final int OFFICEINCOME = AttributesEnum.OfficeIncome.index();
     public static final int EMPLOYEES_VO1 = AttributesEnum.Employees_VO1.index();
     public static final int COMPANIES_VO1 = AttributesEnum.Companies_VO1.index();
     public static final int CONTRACTS_VO1 = AttributesEnum.Contracts_VO1.index();
@@ -264,6 +267,20 @@ public class Tasks_VORowImpl extends ViewRowImpl {
      */
     public Integer gettaskCompleteDateInt() {
         return (Integer) getAttributeInternal(TASKCOMPLETEDATEINT);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link OfficeIncome.
+     */
+    public Row getOfficeIncome() {
+        return (Row) getAttributeInternal(OFFICEINCOME);
+    }
+
+    /**
+     * Sets the master-detail link OfficeIncome between this object and <code>value</code>.
+     */
+    public void setOfficeIncome(Row value) {
+        setAttributeInternal(OFFICEINCOME, value);
     }
 
     /**

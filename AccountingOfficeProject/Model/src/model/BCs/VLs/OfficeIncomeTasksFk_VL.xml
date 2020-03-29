@@ -15,6 +15,7 @@
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_finderName" Value="OfficeIncome"/>
+      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.BCs.VOs.OfficeIncome_VO.IncomeId"/>

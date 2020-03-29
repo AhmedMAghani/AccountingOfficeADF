@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="TestPagePageDef1"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OfficeExpences1" RangeSize="25" DataControl="AppModule_AMDataControl"
+              id="OfficeExpences1Iterator"/>
+    <iterator Binds="OfficeIncome1" RangeSize="25" DataControl="AppModule_AMDataControl" id="OfficeIncome1Iterator"/>
+    <iterator Binds="Cash1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Cash1Iterator"/>
+    <iterator Binds="Contracts1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Contracts1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OfficeExpences1Iterator" StaticList="false" Uses="LOV_ContractId" id="ContractId"/>
+    <attributeValues IterBinding="OfficeIncome1Iterator" id="IncomeId">
+      <AttrNames>
+        <Item Value="IncomeId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="OfficeIncome1Iterator" StaticList="false" Uses="LOV_ContractId" id="ContractId1"/>
+    <attributeValues IterBinding="OfficeIncome1Iterator" id="IncomeValue">
+      <AttrNames>
+        <Item Value="IncomeValue"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OfficeIncome1Iterator" StaticList="false" Uses="LOV_IncomeType" id="IncomeType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="OfficeIncome1Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OfficeIncome1Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OfficeIncome1Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OfficeIncome1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="OfficeIncome1Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModule_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AppModule_AMDataControl"/>
+    <tree IterBinding="Cash1Iterator" id="Cash1">
+      <nodeDefinition DefName="model.BCs.VOs.Cash_VO" Name="Cash10">
+        <AttrNames>
+          <Item Value="LastTransactionDate"/>
+          <Item Value="CurrentCash"/>
+          <Item Value="UpdatedCash"/>
+          <Item Value="CompanyCash"/>
+          <Item Value="OfficeCash"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Contracts1Iterator" id="Contracts1">
+      <nodeDefinition DefName="model.BCs.VOs.Contracts_VO" Name="Contracts10">
+        <AttrNames>
+          <Item Value="ContractId"/>
+          <Item Value="ContractEndDate"/>
+          <Item Value="ContractIncome"/>
+          <Item Value="ContractExpence"/>
+          <Item Value="ContractDebit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Cash1Iterator" id="Execute" InstanceName="AppModule_AMDataControl.Cash1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="Contracts1Iterator" id="Execute1" InstanceName="AppModule_AMDataControl.Contracts1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="OfficeExpences1Iterator" id="ExpenceId">
+      <AttrNames>
+        <Item Value="ExpenceId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OfficeExpences1Iterator" StaticList="false" Uses="LOV_ExpenceType" id="ExpenceType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="OfficeExpences1Iterator" id="ExpenceValue">
+      <AttrNames>
+        <Item Value="ExpenceValue"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OfficeExpences1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OfficeExpences1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OfficeExpences1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OfficeExpences1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="OfficeExpences1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

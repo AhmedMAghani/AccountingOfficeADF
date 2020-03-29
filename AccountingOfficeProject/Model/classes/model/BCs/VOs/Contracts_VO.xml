@@ -27,6 +27,10 @@
     Name="Employees_VO1"
     ViewObjectName="model.BCs.VOs.Employees_VO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContactTypesStatic_VO1"
+    ViewObjectName="model.BCs.VOs.ContactTypesStatic_VO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContractCompanyId"
     ListVOName="Companies_VO1"
@@ -62,6 +66,24 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="EmpName"/>
       <Item Value="EmpJobTitleId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContractType"
+    ListVOName="ContactTypesStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="typesID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="type"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -169,7 +191,15 @@
     PrecisionRule="true"
     EntityAttrName="ContractType"
     EntityUsage="Contracts_EO"
-    AliasName="CONTRACT_TYPE"/>
+    AliasName="CONTRACT_TYPE"
+    LOVName="LOV_ContractType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractIncome"
     PrecisionRule="true"

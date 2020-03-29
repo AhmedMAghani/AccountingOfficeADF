@@ -17,6 +17,10 @@
     Name="Contracts_VO1"
     ViewObjectName="model.BCs.VOs.Contracts_VO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ExpencesTypesStatic_VO1"
+    ViewObjectName="model.BCs.VOs.ExpencesTypesStatic_VO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContractId"
     ListVOName="Contracts_VO1"
@@ -33,7 +37,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContractId"/>
-      <Item Value="ContractCompanyId"/>
+      <Item Value="ContractEndDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ExpenceType"
+    ListVOName="ExpencesTypesStatic_VO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ExpenceType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="typesID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="type"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -53,7 +75,8 @@
     EntityAttrName="ContractId"
     EntityUsage="OfficeExpences_EO"
     AliasName="CONTRACT_ID"
-    LOVName="LOV_ContractId">
+    LOVName="LOV_ContractId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -62,17 +85,29 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ExpenceValue"
-    PrecisionRule="true"
-    EntityAttrName="ExpenceValue"
-    EntityUsage="OfficeExpences_EO"
-    AliasName="EXPENCE_VALUE"/>
-  <ViewAttribute
     Name="ExpenceType"
     PrecisionRule="true"
     EntityAttrName="ExpenceType"
     EntityUsage="OfficeExpences_EO"
-    AliasName="EXPENCE_TYPE"/>
+    AliasName="EXPENCE_TYPE"
+    LOVName="LOV_ExpenceType"
+    IsUpdateable="while_insert"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExpenceValue"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ExpenceValue"
+    EntityUsage="OfficeExpences_EO"
+    AliasName="EXPENCE_VALUE"/>
   <ViewLinkAccessor
     Name="Tasks"
     ViewLink="model.BCs.VLs.OfficeExpencesTasksFk_VL"

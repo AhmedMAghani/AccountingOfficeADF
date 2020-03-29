@@ -13,6 +13,7 @@
     <Attr Name="_jprName" Value="../../Model.jpr"/>
     <Attr Name="_NamedConnection" Value="2DayProjectDB"/>
     <Attr Name="_appModuleNames0" Value="model.BCs.AMs.AppModule_AM"/>
+    <Attr Name="_domainNames0" Value="model.BCs.Money"/>
   </DesignTime>
   <Containee
     Name="ALs"
@@ -28,6 +29,14 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="BCs"
+    PackageName="model.BCs"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_DO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

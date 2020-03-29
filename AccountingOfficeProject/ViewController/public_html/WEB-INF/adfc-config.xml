@@ -55,4 +55,9 @@
     <managed-bean-scope>backingBean</managed-bean-scope>
     <!--oracle-jdev-comment:managed-bean-jsp-link:1ManagmentHomeActivity.jsf-->
   </managed-bean>
+  <managed-bean id="__1">
+    <managed-bean-name>TestBean</managed-bean-name>
+    <managed-bean-class>view.Test</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

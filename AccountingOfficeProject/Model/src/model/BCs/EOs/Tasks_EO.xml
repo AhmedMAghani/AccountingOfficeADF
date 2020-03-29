@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="TASKS"
   AliasName="Tasks_EO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.BCs.EOs.Tasks_EOImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+  </DesignTime>
   <Attribute
     Name="TaskId"
     IsNotNull="true"
@@ -39,7 +45,12 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <validation:MethodValidationBean
+      Name="ContractIdRule0"
+      ResId="model.BCs.EOs.Tasks_EO.ContractId_Rule_0"
+      MethodName="validateContractId"/>
+  </Attribute>
   <Attribute
     Name="TaskType"
     ColumnName="TASK_TYPE"
@@ -53,21 +64,62 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <validation:MethodValidationBean
+      Name="TaskStateRule0"
+      ResId="model.BCs.EOs.Tasks_EO.TaskState_Rule_0"
+      MethodName="validateTaskState"/>
+  </Attribute>
   <Attribute
     Name="TaskIssueDate"
     ColumnName="TASK_ISSUE_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="TASKS"/>
+    TableName="TASKS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.EOs.Tasks_EO.TaskIssueDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.EOs.Tasks_EO.TaskIssueDate_FMT_FORMAT"/>
+        <TimeZoneID
+          Value="Africa/Cairo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaskCompleteDate"
     ColumnName="TASK_COMPLETE_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="TASKS"/>
+    TableName="TASKS">
+    <validation:MethodValidationBean
+      Name="TaskCompleteDateRule0"
+      ResId="model.BCs.EOs.Tasks_EO.TaskCompleteDate_Rule_0"
+      MethodName="validateTaskCompleteDate">
+      <validation:ResExpressions
+        Name="TaskCompleteDateRule0_ResExprList">
+        <validation:Expression
+          Name="1"
+          trustMode="untrusted"
+          CodeSourceName="Tasks_EORow"/>
+      </validation:ResExpressions>
+    </validation:MethodValidationBean>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.EOs.Tasks_EO.TaskCompleteDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.EOs.Tasks_EO.TaskCompleteDate_FMT_FORMAT"/>
+        <TimeZoneID
+          Value="Africa/Cairo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="OfficeExpencesId"
     IsUnique="true"
@@ -204,4 +256,8 @@
       <Item Value="model.BCs.EOs.Tasks_EO.OfficeIncomeId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

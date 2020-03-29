@@ -9,21 +9,50 @@
   DBObjectType="table"
   DBObjectName="CASH"
   AliasName="Cash_EO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.BCs.EOs.Cash_EOImpl"
+  CollClass="model.BCs.EOs.Cash_EOCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="StartDate"
     ColumnName="START_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="CASH"/>
+    TableName="CASH">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.EOs.Cash_EO.StartDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.EOs.Cash_EO.StartDate_FMT_FORMAT"/>
+        <TimeZoneID
+          Value="Africa/Cairo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastTransactionDate"
     ColumnName="LAST_TRANSACTION_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="CASH"/>
+    TableName="CASH"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.EOs.Cash_EO.LastTransactionDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.EOs.Cash_EO.LastTransactionDate_FMT_FORMAT"/>
+        <TimeZoneID
+          Value="Africa/Cairo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CurrentCash"
     ColumnName="CURRENT_CASH"
@@ -61,6 +90,13 @@
     ColumnType="NUMBER"
     TableName="CASH"
     PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="Contracts"
+    Association="model.BCs.ALs.CashContracts_AL"
+    AssociationEnd="model.BCs.ALs.CashContracts_AL.Contracts"
+    AssociationOtherEnd="model.BCs.ALs.CashContracts_AL.Cash"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="CashPk"
     PrimaryKey="true">
@@ -71,4 +107,8 @@
       <Item Value="model.BCs.EOs.Cash_EO.CashId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

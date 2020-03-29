@@ -76,8 +76,11 @@
       <list n="technologyScope">
          <string v="ADFbc"/>
          <string v="ADFbc-Modeling"/>
+         <string v="Database"/>
+         <string v="Database-Modeling"/>
          <string v="Java"/>
          <string v="Java-Modeling"/>
+         <string v="UML"/>
          <string v="XML"/>
       </list>
    </hash>

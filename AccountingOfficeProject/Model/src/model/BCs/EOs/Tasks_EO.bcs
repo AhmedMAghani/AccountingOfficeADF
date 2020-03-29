@@ -1,0 +1,12 @@
+//Groovy Scripts for model.BCs.EOs.Tasks_EO
+
+package model.BCs.EOs
+
+import oracle.jbo.script.annotation.MessageParameterExpression;
+
+@MessageParameterExpression(validatorName="TaskCompleteDateRule0", name="ResExpressions_1", attributeName="TaskCompleteDate")
+def TaskCompleteDate_TaskCompleteDateRule0_ResExpressions_1_MessageParameterValues()
+{
+TaskIssueDate
+}
+

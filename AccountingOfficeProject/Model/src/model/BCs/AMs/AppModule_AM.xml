@@ -6,7 +6,11 @@
   Name="AppModule_AM"
   Version="12.2.1.11.57"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.BCs.AMs.AppModule_AMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="Cash1"
     ViewObjectName="model.BCs.VOs.Cash_VO"/>
@@ -73,6 +77,15 @@
   <ViewUsage
     Name="EducationTypesStatic1"
     ViewObjectName="model.BCs.VOs.EducationTypesStatic_VO"/>
+  <ViewUsage
+    Name="jobTitleStatic1"
+    ViewObjectName="model.BCs.VOs.jobTitleStatic_VO"/>
+  <ViewUsage
+    Name="TrueFalseStatic1"
+    ViewObjectName="model.BCs.VOs.TrueFalseStatic_VO"/>
+  <ViewUsage
+    Name="TotalExpancesSQL1"
+    ViewObjectName="model.BCs.VOs.TotalExpancesSQL_VO"/>
   <ViewLinkUsage
     Name="CompaniesContracts_VL1"
     ViewLinkObjectName="model.BCs.VLs.CompaniesContracts_VL"

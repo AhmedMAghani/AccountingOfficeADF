@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="COMPANIES"
   AliasName="Companies_EO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="CompanyId"
     IsNotNull="true"
@@ -30,6 +31,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="CompanyNameRule0"
+      ResId="model.BCs.EOs.Companies_EO.CompanyName_Rule_0"
+      OnAttribute="CompanyName"
+      Pattern="^[A-Z]([a-zA-Z0-9]|[- @\.#&amp;!])*$"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="IsBranch"
@@ -51,6 +58,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="CompanyAddressRule0"
+      ResId="model.BCs.EOs.Companies_EO.CompanyAddress_Rule_0"
+      OnAttribute="CompanyAddress"
+      Pattern="^\p{Upper}(\p{Lower}+\s?)\w+ .*, \w+ \d{5}(-\d{4})?$"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="CompanyPhone1"
@@ -63,6 +76,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="CompanyPhone1Rule0"
+      ResId="model.BCs.EOs.Companies_EO.CompanyPhone1_Rule_0"
+      OnAttribute="CompanyPhone1"
+      Pattern="\b\d+\b"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="CompanyPhone2"
@@ -75,6 +94,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="CompanyPhone2Rule0"
+      ResId="model.BCs.EOs.Companies_EO.CompanyPhone2_Rule_0"
+      OnAttribute="CompanyPhone2"
+      Pattern="\b\d+\b"
+      Inverse="false"/>
   </Attribute>
   <AccessorAttribute
     Name="Contracts"
@@ -100,4 +125,8 @@
       <Item Value="model.BCs.EOs.Companies_EO.CompanyId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

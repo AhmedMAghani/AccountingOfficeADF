@@ -7,9 +7,12 @@
   </definitionFactories>
   <pageMap>
     <page path="/DashboardHomeActivity.jsf" usageId="view_DashboardHomeActivityPageDef"/>
+    <page path="/TestPage.jsf" usageId="view_TestPagePageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_DashboardHomeActivityPageDef" path="view.pageDefs.DashboardHomeActivityPageDef"/>
+    <page id="view_TestPagePageDef" path="view.pageDefs.TestPagePageDef"/>
+    <page id="view_TestPagePageDef1" path="view.pageDefs.TestPagePageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModule_AMDataControl" Package="model.BCs.AMs"

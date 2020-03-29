@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="EMPLOYEES"
   AliasName="Employees_EO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="EmpId"
     IsNotNull="true"
@@ -43,6 +44,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="EmpNameRule0"
+      ResId="model.BCs.EOs.Employees_EO.EmpName_Rule_0"
+      OnAttribute="EmpName"
+      Pattern="\\w+\\.?"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="EmpAddress"
@@ -67,6 +74,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="EmpPhonesRule0"
+      ResId="model.BCs.EOs.Employees_EO.EmpPhones_Rule_0"
+      OnAttribute="EmpPhones"
+      Pattern="\b\d+\b"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="EmpEducationId"
@@ -89,14 +102,28 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="EMPLOYEES"/>
+    TableName="EMPLOYEES"
+    IsUpdateable="false"/>
   <Attribute
     Name="EmpHairDate"
     ColumnName="EMP_HAIR_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="EMPLOYEES"/>
+    TableName="EMPLOYEES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.BCs.EOs.Employees_EO.EmpHairDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.BCs.EOs.Employees_EO.EmpHairDate_FMT_FORMAT"/>
+        <TimeZoneID
+          Value="Africa/Cairo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EmpNationalId"
     IsNotNull="true"
@@ -129,4 +156,8 @@
       <Item Value="model.BCs.EOs.Employees_EO.EmpId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

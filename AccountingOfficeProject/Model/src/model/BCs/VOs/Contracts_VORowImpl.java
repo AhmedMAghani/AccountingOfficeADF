@@ -4,8 +4,11 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import model.BCs.common.Money;
+
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.BFileDomain;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------

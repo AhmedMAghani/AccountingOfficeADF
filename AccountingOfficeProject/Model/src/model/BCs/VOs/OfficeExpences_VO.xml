@@ -37,7 +37,7 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContractId"/>
-      <Item Value="ContractCompanyId"/>
+      <Item Value="ContractEndDate"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -75,7 +75,8 @@
     EntityAttrName="ContractId"
     EntityUsage="OfficeExpences_EO"
     AliasName="CONTRACT_ID"
-    LOVName="LOV_ContractId">
+    LOVName="LOV_ContractId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -84,18 +85,15 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ExpenceValue"
-    PrecisionRule="true"
-    EntityAttrName="ExpenceValue"
-    EntityUsage="OfficeExpences_EO"
-    AliasName="EXPENCE_VALUE"/>
-  <ViewAttribute
     Name="ExpenceType"
     PrecisionRule="true"
     EntityAttrName="ExpenceType"
     EntityUsage="OfficeExpences_EO"
     AliasName="EXPENCE_TYPE"
-    LOVName="LOV_ExpenceType">
+    LOVName="LOV_ExpenceType"
+    IsUpdateable="while_insert"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -103,6 +101,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ExpenceValue"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ExpenceValue"
+    EntityUsage="OfficeExpences_EO"
+    AliasName="EXPENCE_VALUE"/>
   <ViewLinkAccessor
     Name="Tasks"
     ViewLink="model.BCs.VLs.OfficeExpencesTasksFk_VL"
