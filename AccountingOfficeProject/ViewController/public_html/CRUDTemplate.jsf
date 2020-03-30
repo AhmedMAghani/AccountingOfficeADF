@@ -77,10 +77,9 @@
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                      popupFetchListener="#{backingBeanScope.backing_TasksFragment.createInsertTask}">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                 <af:dialog id="d1" title="Create"
-                           dialogListener="#{backingBeanScope.backing_TasksFragment.CommitDialog}">
+                           dialogListener="#{backing_CRUDTemplate.CommitDialog}">
                     <af:facetRef facetName="creatPopup"/>
                 </af:dialog>
             </af:popup>
@@ -90,7 +89,7 @@
                 </af:noteWindow>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
-                <af:dialog id="d2" title="Edit" dialogListener="#{backingBeanScope.backing_TasksFragment.CommitDialog}">
+                <af:dialog id="d2" title="Edit" dialogListener="#{backing_CRUDTemplate.CommitDialog}">
                     <af:facetRef facetName="editPopub"/>
                 </af:dialog>
             </af:popup>

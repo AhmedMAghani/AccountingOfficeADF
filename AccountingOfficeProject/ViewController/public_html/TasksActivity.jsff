@@ -1,15 +1,532 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:pageTemplate viewId="/CRUDTemplate.jsf" id="pt1" binding="#{backingBeanScope.backing_TasksActivity2.pt1}">
-        <f:facet name="creatPopup"/>
-        <f:facet name="editPopub"/>
-        <f:facet name="detailsPopub"/>
-        <f:facet name="tableHeader"/>
-        <f:facet name="search"/>
-        <f:facet name="navButtons"/>
-        <f:facet name="listView"/>
-        <f:facet name="createNewRecord"/>
+    <af:pageTemplate viewId="/CRUDTemplate.jsf" id="pt1" binding="#{backingBeanScope.backing_TasksActivity2.pt1}"
+                     value="#{bindings.ptb1}">
+        <f:facet name="creatPopup">
+            <af:panelFormLayout id="pfl3" binding="#{backingBeanScope.backing_TasksActivity2.pfl3}">
+                <af:inputText value="#{bindings.TaskId.inputValue}" label="#{bindings.TaskId.hints.label}"
+                              required="#{bindings.TaskId.hints.mandatory}"
+                              columns="#{bindings.TaskId.hints.displayWidth}"
+                              maximumLength="#{bindings.TaskId.hints.precision}"
+                              shortDesc="#{bindings.TaskId.hints.tooltip}" id="it3"
+                              binding="#{backingBeanScope.backing_TasksActivity2.it3}">
+                    <f:validator binding="#{bindings.TaskId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TaskId.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="ilov4" popupTitle="Search and Select: #{bindings.EmpId.hints.label}"
+                                      value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
+                                      model="#{bindings.EmpId.listOfValuesModel}"
+                                      required="#{bindings.EmpId.hints.mandatory}"
+                                      columns="#{bindings.EmpId.hints.displayWidth}"
+                                      shortDesc="#{bindings.EmpId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov4}">
+                    <f:validator binding="#{bindings.EmpId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="ilov5" popupTitle="Search and Select: #{bindings.CompanyId.hints.label}"
+                                      value="#{bindings.CompanyId.inputValue}" label="#{bindings.CompanyId.hints.label}"
+                                      model="#{bindings.CompanyId.listOfValuesModel}"
+                                      required="#{bindings.CompanyId.hints.mandatory}"
+                                      columns="#{bindings.CompanyId.hints.displayWidth}"
+                                      shortDesc="#{bindings.CompanyId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov5}">
+                    <f:validator binding="#{bindings.CompanyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyId.format}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="ilov6" popupTitle="Search and Select: #{bindings.ContractId.hints.label}"
+                                      value="#{bindings.ContractId.inputValue}"
+                                      label="#{bindings.ContractId.hints.label}"
+                                      model="#{bindings.ContractId.listOfValuesModel}"
+                                      required="#{bindings.ContractId.hints.mandatory}"
+                                      columns="#{bindings.ContractId.hints.displayWidth}"
+                                      shortDesc="#{bindings.ContractId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov6}">
+                    <f:validator binding="#{bindings.ContractId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
+                </af:inputListOfValues>
+                <af:selectOneChoice value="#{bindings.TaskType.inputValue}" label="#{bindings.TaskType.label}"
+                                    required="#{bindings.TaskType.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskType.hints.tooltip}" id="soc9"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc9}">
+                    <f:selectItems value="#{bindings.TaskType.items}" id="si9"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si9}"/>
+                    <f:validator binding="#{bindings.TaskType.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.TaskState.inputValue}" label="#{bindings.TaskState.label}"
+                                    required="#{bindings.TaskState.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskState.hints.tooltip}" id="soc10"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc10}">
+                    <f:selectItems value="#{bindings.TaskState.items}" id="si10"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si10}"/>
+                    <f:validator binding="#{bindings.TaskState.validator}"/>
+                </af:selectOneChoice>
+                <af:inputDate value="#{bindings.TaskIssueDate.inputValue}" label="#{bindings.TaskIssueDate.hints.label}"
+                              required="#{bindings.TaskIssueDate.hints.mandatory}"
+                              columns="#{bindings.TaskIssueDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TaskIssueDate.hints.tooltip}" id="id5"
+                              binding="#{backingBeanScope.backing_TasksActivity2.id5}">
+                    <f:validator binding="#{bindings.TaskIssueDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TaskIssueDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.TaskCompleteDate.inputValue}"
+                              label="#{bindings.TaskCompleteDate.hints.label}"
+                              required="#{bindings.TaskCompleteDate.hints.mandatory}"
+                              columns="#{bindings.TaskCompleteDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TaskCompleteDate.hints.tooltip}" id="id6"
+                              binding="#{backingBeanScope.backing_TasksActivity2.id6}">
+                    <f:validator binding="#{bindings.TaskCompleteDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TaskCompleteDate.format}"/>
+                </af:inputDate>
+                <af:selectOneChoice value="#{bindings.OfficeExpencesId.inputValue}"
+                                    label="#{bindings.OfficeExpencesId.label}"
+                                    required="#{bindings.OfficeExpencesId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeExpencesId.hints.tooltip}" id="soc11"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc11}">
+                    <f:selectItems value="#{bindings.OfficeExpencesId.items}" id="si11"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si11}"/>
+                    <f:validator binding="#{bindings.OfficeExpencesId.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.OfficeIncomeId.inputValue}"
+                                    label="#{bindings.OfficeIncomeId.label}"
+                                    required="#{bindings.OfficeIncomeId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeIncomeId.hints.tooltip}" id="soc12"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc12}">
+                    <f:selectItems value="#{bindings.OfficeIncomeId.items}" id="si12"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si12}"/>
+                    <f:validator binding="#{bindings.OfficeIncomeId.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="editPopub">
+            <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_TasksActivity2.pfl2}">
+                <af:inputText value="#{bindings.TaskId.inputValue}" label="#{bindings.TaskId.hints.label}"
+                              required="#{bindings.TaskId.hints.mandatory}"
+                              columns="#{bindings.TaskId.hints.displayWidth}"
+                              maximumLength="#{bindings.TaskId.hints.precision}"
+                              shortDesc="#{bindings.TaskId.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.backing_TasksActivity2.it2}">
+                    <f:validator binding="#{bindings.TaskId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TaskId.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.EmpId.hints.label}"
+                                      value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
+                                      model="#{bindings.EmpId.listOfValuesModel}"
+                                      required="#{bindings.EmpId.hints.mandatory}"
+                                      columns="#{bindings.EmpId.hints.displayWidth}"
+                                      shortDesc="#{bindings.EmpId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov1}">
+                    <f:validator binding="#{bindings.EmpId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="ilov2" popupTitle="Search and Select: #{bindings.CompanyId.hints.label}"
+                                      value="#{bindings.CompanyId.inputValue}" label="#{bindings.CompanyId.hints.label}"
+                                      model="#{bindings.CompanyId.listOfValuesModel}"
+                                      required="#{bindings.CompanyId.hints.mandatory}"
+                                      columns="#{bindings.CompanyId.hints.displayWidth}"
+                                      shortDesc="#{bindings.CompanyId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov2}">
+                    <f:validator binding="#{bindings.CompanyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyId.format}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="ilov3" popupTitle="Search and Select: #{bindings.ContractId.hints.label}"
+                                      value="#{bindings.ContractId.inputValue}"
+                                      label="#{bindings.ContractId.hints.label}"
+                                      model="#{bindings.ContractId.listOfValuesModel}"
+                                      required="#{bindings.ContractId.hints.mandatory}"
+                                      columns="#{bindings.ContractId.hints.displayWidth}"
+                                      shortDesc="#{bindings.ContractId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_TasksActivity2.ilov3}">
+                    <f:validator binding="#{bindings.ContractId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
+                </af:inputListOfValues>
+                <af:selectOneChoice value="#{bindings.TaskType.inputValue}" label="#{bindings.TaskType.label}"
+                                    required="#{bindings.TaskType.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskType.hints.tooltip}" id="soc5"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc5}">
+                    <f:selectItems value="#{bindings.TaskType.items}" id="si5"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si5}"/>
+                    <f:validator binding="#{bindings.TaskType.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.TaskState.inputValue}" label="#{bindings.TaskState.label}"
+                                    required="#{bindings.TaskState.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskState.hints.tooltip}" id="soc6"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc6}">
+                    <f:selectItems value="#{bindings.TaskState.items}" id="si6"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si6}"/>
+                    <f:validator binding="#{bindings.TaskState.validator}"/>
+                </af:selectOneChoice>
+                <af:inputDate value="#{bindings.TaskIssueDate.inputValue}" label="#{bindings.TaskIssueDate.hints.label}"
+                              required="#{bindings.TaskIssueDate.hints.mandatory}"
+                              columns="#{bindings.TaskIssueDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TaskIssueDate.hints.tooltip}" id="id3"
+                              binding="#{backingBeanScope.backing_TasksActivity2.id3}">
+                    <f:validator binding="#{bindings.TaskIssueDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TaskIssueDate.format}"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.TaskCompleteDate.inputValue}"
+                              label="#{bindings.TaskCompleteDate.hints.label}"
+                              required="#{bindings.TaskCompleteDate.hints.mandatory}"
+                              columns="#{bindings.TaskCompleteDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TaskCompleteDate.hints.tooltip}" id="id4"
+                              binding="#{backingBeanScope.backing_TasksActivity2.id4}">
+                    <f:validator binding="#{bindings.TaskCompleteDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TaskCompleteDate.format}"/>
+                </af:inputDate>
+                <af:selectOneChoice value="#{bindings.OfficeExpencesId.inputValue}"
+                                    label="#{bindings.OfficeExpencesId.label}"
+                                    required="#{bindings.OfficeExpencesId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeExpencesId.hints.tooltip}" id="soc7"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc7}">
+                    <f:selectItems value="#{bindings.OfficeExpencesId.items}" id="si7"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si7}"/>
+                    <f:validator binding="#{bindings.OfficeExpencesId.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.OfficeIncomeId.inputValue}"
+                                    label="#{bindings.OfficeIncomeId.label}"
+                                    required="#{bindings.OfficeIncomeId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeIncomeId.hints.tooltip}" id="soc8"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc8}">
+                    <f:selectItems value="#{bindings.OfficeIncomeId.items}" id="si8"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si8}"/>
+                    <f:validator binding="#{bindings.OfficeIncomeId.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="detailsPopub">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_TasksActivity2.pfl1}">
+                <af:panelLabelAndMessage label="#{bindings.TaskId.hints.label}" id="plam1"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.plam1}">
+                    <af:outputText value="#{bindings.TaskId.inputValue}" shortDesc="#{bindings.TaskId.hints.tooltip}"
+                                   id="ot1" binding="#{backingBeanScope.backing_TasksActivity2.ot1}">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TaskId.format}"/>
+                    </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.EmpId1.inputValue}" label="#{bindings.EmpId1.label}"
+                                    required="#{bindings.EmpId1.hints.mandatory}"
+                                    shortDesc="#{bindings.EmpId1.hints.tooltip}" readOnly="true" id="soc1"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc1}">
+                    <f:selectItems value="#{bindings.EmpId1.items}" id="si1"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si1}"/>
+                    <f:validator binding="#{bindings.EmpId1.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.CompanyId1.inputValue}" label="#{bindings.CompanyId1.label}"
+                                    required="#{bindings.CompanyId1.hints.mandatory}"
+                                    shortDesc="#{bindings.CompanyId1.hints.tooltip}" readOnly="true" id="soc2"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc2}">
+                    <f:selectItems value="#{bindings.CompanyId1.items}" id="si2"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si2}"/>
+                    <f:validator binding="#{bindings.CompanyId1.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.ContractId1.inputValue}" label="#{bindings.ContractId1.label}"
+                                    required="#{bindings.ContractId1.hints.mandatory}"
+                                    shortDesc="#{bindings.ContractId1.hints.tooltip}" readOnly="true" id="soc3"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc3}">
+                    <f:selectItems value="#{bindings.ContractId1.items}" id="si3"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si3}"/>
+                    <f:validator binding="#{bindings.ContractId1.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.TaskType.inputValue}" label="#{bindings.TaskType.label}"
+                                    required="#{bindings.TaskType.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskType.hints.tooltip}" readOnly="true" id="soc4"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc4}">
+                    <f:selectItems value="#{bindings.TaskType.items}" id="si4"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si4}"/>
+                    <f:validator binding="#{bindings.TaskType.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.TaskState.inputValue}" label="#{bindings.TaskState.label}"
+                                    required="#{bindings.TaskState.hints.mandatory}"
+                                    shortDesc="#{bindings.TaskState.hints.tooltip}" readOnly="true" id="soc18"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc18}">
+                    <f:selectItems value="#{bindings.TaskState.items}" id="si18"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si18}"/>
+                    <f:validator binding="#{bindings.TaskState.validator}"/>
+                </af:selectOneChoice>
+                <af:panelLabelAndMessage label="#{bindings.TaskIssueDate.hints.label}" id="plam2"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.plam2}">
+                    <af:outputText value="#{bindings.TaskIssueDate.inputValue}"
+                                   shortDesc="#{bindings.TaskIssueDate.hints.tooltip}" id="ot2"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.ot2}">
+                        <af:convertDateTime pattern="#{bindings.TaskIssueDate.format}"/>
+                    </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.TaskCompleteDate.hints.label}" id="plam3"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.plam3}">
+                    <af:outputText value="#{bindings.TaskCompleteDate.inputValue}"
+                                   shortDesc="#{bindings.TaskCompleteDate.hints.tooltip}" id="ot3"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.ot3}">
+                        <af:convertDateTime pattern="#{bindings.TaskCompleteDate.format}"/>
+                    </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.OfficeExpencesId.inputValue}"
+                                    label="#{bindings.OfficeExpencesId.label}"
+                                    required="#{bindings.OfficeExpencesId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeExpencesId.hints.tooltip}" readOnly="true" id="soc19"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc19}">
+                    <f:selectItems value="#{bindings.OfficeExpencesId.items}" id="si19"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si19}"/>
+                    <f:validator binding="#{bindings.OfficeExpencesId.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.OfficeIncomeId.inputValue}"
+                                    label="#{bindings.OfficeIncomeId.label}"
+                                    required="#{bindings.OfficeIncomeId.hints.mandatory}"
+                                    shortDesc="#{bindings.OfficeIncomeId.hints.tooltip}" readOnly="true" id="soc20"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc20}">
+                    <f:selectItems value="#{bindings.OfficeIncomeId.items}" id="si20"
+                                   binding="#{backingBeanScope.backing_TasksActivity2.si20}"/>
+                    <f:validator binding="#{bindings.OfficeIncomeId.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="tableHeader">
+            <af:gridRow id="gr4" binding="#{backingBeanScope.backing_TasksActivity2.gr4}" height="50px" marginTop="10px"
+                        marginBottom="10px">
+                <af:gridCell id="gc4" binding="#{backingBeanScope.backing_TasksActivity2.gc4}" width="4%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="ID" id="of11"
+                                        binding="#{backingBeanScope.backing_TasksActivity2.of11}"
+                                        inlineStyle="font-size:medium; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc5" binding="#{backingBeanScope.backing_TasksActivity2.gc5}" width="10%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Employee" id="of10"
+                                        binding="#{backingBeanScope.backing_TasksActivity2.of10}"
+                                        inlineStyle="font-size:medium; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc6" binding="#{backingBeanScope.backing_TasksActivity2.gc6}" width="20%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Company" id="of9"
+                                        binding="#{backingBeanScope.backing_TasksActivity2.of9}"
+                                        inlineStyle="font-size:medium; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc7" binding="#{backingBeanScope.backing_TasksActivity2.gc7}" width="10%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Contract" id="of8"
+                                        binding="#{backingBeanScope.backing_TasksActivity2.of8}"
+                                        inlineStyle="font-size:medium; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc8" binding="#{backingBeanScope.backing_TasksActivity2.gc8}" width="15%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:panelGridLayout id="pgl11" binding="#{backingBeanScope.backing_TasksActivity2.pgl11}">
+                        <af:gridRow height="auto" id="gr7"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.gr7}">
+                            <af:gridCell width="100%" id="gc10"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc10}" marginStart="7px">
+                                <af:outputFormatted value="Type" id="of7"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.of7}"
+                                                    inlineStyle="font-size:medium; font-weight:bold;"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" id="gr8"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.gr8}">
+                            <af:gridCell width="100%" id="gc12"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc12}" marginStart="7px">
+                                <af:outputFormatted value="Status" id="of6"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.of6}"
+                                                    inlineStyle="font-size:medium; font-weight:bold;"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:gridCell>
+                <af:gridCell id="gc11" binding="#{backingBeanScope.backing_TasksActivity2.gc11}" width="15%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:panelGridLayout id="pgl8" binding="#{backingBeanScope.backing_TasksActivity2.pgl8}">
+                        <af:gridRow height="auto" id="gr9"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.gr9}">
+                            <af:gridCell width="100%" id="gc13"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc13}">
+                                <af:outputFormatted value="Issue Date" id="of12"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.of12}"
+                                                    inlineStyle="font-size:medium; font-weight:bold;"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" id="gr10"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.gr10}">
+                            <af:gridCell width="100%" id="gc14"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc14}">
+                                <af:outputFormatted value="Complete Date" id="of13"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.of13}"
+                                                    inlineStyle="font-size:medium; font-weight:bold;"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:gridCell>
+                <af:gridCell id="gc27" binding="#{backingBeanScope.backing_TasksActivity2.gc27}" width="10%"
+                             marginStart="5px" halign="stretch" valign="stretch"/>
+                <af:gridCell id="gc28" binding="#{backingBeanScope.backing_TasksActivity2.gc28}" width="10%"
+                             marginStart="5px" halign="stretch" valign="stretch"/>
+            </af:gridRow>
+        </f:facet>
+        <f:facet name="search">
+            <af:panelGroupLayout layout="vertical" id="pgl5" binding="#{backingBeanScope.backing_TasksActivity2.pgl5}">
+                <af:panelHeader text="Tasks Managment Page" id="ph1" binding="#{backingBeanScope.backing_TasksActivity2.ph1}">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              binding="#{backingBeanScope.backing_TasksActivity2.qryId1}" partialTriggers="::lv1"
+                              resultComponentId="::lv1"/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="navButtons">
+            <af:button text="Tasks" id="b1" binding="#{backingBeanScope.backing_TasksActivity2.b1}"
+                       styleClass="AFAppNavbarButton"/>
+            <af:button text="Employees" id="b2" binding="#{backingBeanScope.backing_TasksActivity2.b2}"
+                       styleClass="AFAppNavbarButton"/>
+            <af:button text="Companies" id="b3" binding="#{backingBeanScope.backing_TasksActivity2.b3}"
+                       styleClass="AFAppNavbarButton"/>
+        </f:facet>
+        <f:facet name="listView">
+            <af:listView value="#{bindings.Tasks1.collectionModel}" var="item"
+                         emptyText="#{bindings.Tasks1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.Tasks1.rangeSize}" id="lv1"
+                         binding="#{backingBeanScope.backing_TasksActivity2.lv1}">
+                <af:listItem id="li1" binding="#{backingBeanScope.backing_TasksActivity2.li1}">
+                    <af:panelGridLayout id="pgl4" binding="#{backingBeanScope.backing_TasksActivity2.pgl4}">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6"
+                                    binding="#{backingBeanScope.backing_TasksActivity2.gr6}">
+                            <af:gridCell marginStart="5px" width="4%" id="gc15"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc15}" halign="stretch"
+                                         valign="stretch">
+                                <af:outputFormatted value="#{item.bindings.TaskId.inputValue}" id="of1"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.of1}">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Tasks1.hints.TaskId.format}"/>
+                                </af:outputFormatted>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="10%" id="gc16"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc16}" halign="stretch"
+                                         valign="stretch">
+                                <af:selectOneChoice value="#{item.bindings.EmpId.inputValue}"
+                                                    required="#{bindings.Tasks1.hints.EmpId.mandatory}"
+                                                    shortDesc="#{bindings.Tasks1.hints.EmpId.tooltip}" readOnly="true"
+                                                    id="soc13"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.soc13}">
+                                    <f:selectItems value="#{item.bindings.EmpId.items}" id="si13"
+                                                   binding="#{backingBeanScope.backing_TasksActivity2.si13}"/>
+                                    <f:validator binding="#{item.bindings.EmpId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="20%" id="gc17"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc17}" halign="stretch"
+                                         valign="stretch">
+                                <af:selectOneChoice value="#{item.bindings.CompanyId.inputValue}"
+                                                    required="#{bindings.Tasks1.hints.CompanyId.mandatory}"
+                                                    shortDesc="#{bindings.Tasks1.hints.CompanyId.tooltip}"
+                                                    readOnly="true" id="soc14"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.soc14}">
+                                    <f:selectItems value="#{item.bindings.CompanyId.items}" id="si14"
+                                                   binding="#{backingBeanScope.backing_TasksActivity2.si14}"/>
+                                    <f:validator binding="#{item.bindings.CompanyId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="10%" id="gc18"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc18}" halign="stretch"
+                                         valign="stretch">
+                                <af:selectOneChoice value="#{item.bindings.ContractId.inputValue}"
+                                                    required="#{bindings.Tasks1.hints.ContractId.mandatory}"
+                                                    shortDesc="#{bindings.Tasks1.hints.ContractId.tooltip}"
+                                                    readOnly="true" id="soc15"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.soc15}">
+                                    <f:selectItems value="#{item.bindings.ContractId.items}" id="si15"
+                                                   binding="#{backingBeanScope.backing_TasksActivity2.si15}"/>
+                                    <f:validator binding="#{item.bindings.ContractId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="15%" id="gc19"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc19}" halign="stretch"
+                                         valign="stretch">
+                                <af:panelGridLayout id="pgl7" binding="#{backingBeanScope.backing_TasksActivity2.pgl7}">
+                                    <af:gridRow height="auto" id="gr11"
+                                                binding="#{backingBeanScope.backing_TasksActivity2.gr11}">
+                                        <af:gridCell width="100%" id="gc20"
+                                                     binding="#{backingBeanScope.backing_TasksActivity2.gc20}">
+                                            <af:selectOneChoice value="#{item.bindings.TaskType.inputValue}"
+                                                                required="#{bindings.Tasks1.hints.TaskType.mandatory}"
+                                                                shortDesc="#{bindings.Tasks1.hints.TaskType.tooltip}"
+                                                                readOnly="true" id="soc16"
+                                                                binding="#{backingBeanScope.backing_TasksActivity2.soc16}">
+                                                <f:selectItems value="#{item.bindings.TaskType.items}" id="si16"
+                                                               binding="#{backingBeanScope.backing_TasksActivity2.si16}"/>
+                                                <f:validator binding="#{item.bindings.TaskType.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="10px" height="auto" id="gr12"
+                                                binding="#{backingBeanScope.backing_TasksActivity2.gr12}">
+                                        <af:gridCell width="100%" id="gc22"
+                                                     binding="#{backingBeanScope.backing_TasksActivity2.gc22}">
+                                            <af:selectOneChoice value="#{item.bindings.TaskState.inputValue}"
+                                                                required="#{bindings.Tasks1.hints.TaskState.mandatory}"
+                                                                shortDesc="#{bindings.Tasks1.hints.TaskState.tooltip}"
+                                                                readOnly="true" id="soc17"
+                                                                binding="#{backingBeanScope.backing_TasksActivity2.soc17}">
+                                                <f:selectItems value="#{item.bindings.TaskState.items}" id="si17"
+                                                               binding="#{backingBeanScope.backing_TasksActivity2.si17}"/>
+                                                <f:validator binding="#{item.bindings.TaskState.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="15%" id="gc21"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc21}" halign="stretch"
+                                         valign="stretch">
+                                <af:panelGridLayout id="pgl12"
+                                                    binding="#{backingBeanScope.backing_TasksActivity2.pgl12}">
+                                    <af:gridRow height="auto" id="gr13"
+                                                binding="#{backingBeanScope.backing_TasksActivity2.gr13}">
+                                        <af:gridCell width="100%" id="gc23"
+                                                     binding="#{backingBeanScope.backing_TasksActivity2.gc23}">
+                                            <af:outputFormatted value="#{item.bindings.TaskIssueDate.inputValue}"
+                                                                id="of2"
+                                                                binding="#{backingBeanScope.backing_TasksActivity2.of2}">
+                                                <af:convertDateTime pattern="#{bindings.Tasks1.hints.TaskIssueDate.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="10px" height="auto" id="gr14"
+                                                binding="#{backingBeanScope.backing_TasksActivity2.gr14}">
+                                        <af:gridCell width="100%" id="gc24"
+                                                     binding="#{backingBeanScope.backing_TasksActivity2.gc24}">
+                                            <af:outputFormatted value="#{item.bindings.TaskCompleteDate.inputValue}"
+                                                                id="of3"
+                                                                binding="#{backingBeanScope.backing_TasksActivity2.of3}">
+                                                <af:convertDateTime pattern="#{bindings.Tasks1.hints.TaskCompleteDate.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="10%" id="gc25"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc25}" valign="stretch"
+                                         halign="stretch">
+                                <af:button text="Details" id="b4"
+                                           binding="#{backingBeanScope.backing_TasksActivity2.b4}" disabled="false"
+                                           selected="true">
+                                    <af:showPopupBehavior popupId="::p2" triggerType="action"/>
+                                </af:button>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="10%" marginEnd="5px" id="gc26"
+                                         binding="#{backingBeanScope.backing_TasksActivity2.gc26}" halign="stretch"
+                                         valign="stretch">
+                                <af:button text="Edit" id="b5"
+                                           binding="#{backingBeanScope.backing_TasksActivity2.b5}">
+                                    <af:showPopupBehavior popupId="::p3"/>
+                                </af:button>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:listItem>
+            </af:listView>
+        </f:facet>
+        <f:facet name="createNewRecord">
+            <af:button text="Create New" id="b6" binding="#{backingBeanScope.backing_TasksActivity2.b6}" actionListener="#{backingBeanScope.backing_TasksActivity2.createInsertTask}">
+                <af:showPopupBehavior popupId="p1" triggerType="click"/>
+            </af:button>
+        </f:facet>
     </af:pageTemplate>
     <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_TasksActivity2-->
 </ui:composition>

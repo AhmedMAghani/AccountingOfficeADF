@@ -3,7 +3,8 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
         xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
     <af:document title="DashboardHomeActivity.jsf" id="d1"
-                 binding="#{backingBeanScope.backing_DashboardHomeActivity.d1}">
+                 binding="#{backingBeanScope.backing_DashboardHomeActivity.d1}"
+                 inlineStyle='background-image:url("single-invoice-header.jpg"); background-repeat:no-repeat; background-position:50% 50%; background-size:cover;  background-attachment:fixed; -webkit-background-size: cover;   -moz-background-size: cover;   -o-background-size: cover;   background-size: cover;'>
         <af:messages id="m1" binding="#{backingBeanScope.backing_DashboardHomeActivity.m1}"/>
         <af:form id="f1" binding="#{backingBeanScope.backing_DashboardHomeActivity.f1}">
             <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1"

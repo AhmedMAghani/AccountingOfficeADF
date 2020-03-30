@@ -4,6 +4,61 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="Tasks1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Tasks1Iterator" id="ImplicitViewCriteriaQuery"/>
+    <page path="view.pageDefs.CRUDTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="Tasks1Iterator" id="TaskId">
+      <AttrNames>
+        <Item Value="TaskId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_EmpId" id="EmpId"/>
+    <listOfValues IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_CompanyId" id="CompanyId"/>
+    <listOfValues IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_ContractId" id="ContractId"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_TaskType" id="TaskType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_TaskState" id="TaskState" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="Tasks1Iterator" id="TaskIssueDate">
+      <AttrNames>
+        <Item Value="TaskIssueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Tasks1Iterator" id="TaskCompleteDate">
+      <AttrNames>
+        <Item Value="TaskCompleteDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_OfficeExpencesId" id="OfficeExpencesId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_OfficeIncomeId" id="OfficeIncomeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="Tasks1Iterator" id="Tasks1">
+      <nodeDefinition DefName="model.BCs.VOs.Tasks_VO" Name="Tasks10">
+        <AttrNames>
+          <Item Value="TaskId"/>
+          <Item Value="EmpId"/>
+          <Item Value="CompanyId"/>
+          <Item Value="ContractId"/>
+          <Item Value="TaskType"/>
+          <Item Value="TaskState"/>
+          <Item Value="TaskIssueDate"/>
+          <Item Value="TaskCompleteDate"/>
+          <Item Value="OfficeExpencesId"/>
+          <Item Value="OfficeIncomeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Tasks1Iterator" id="CreateInsert" InstanceName="AppModule_AMDataControl.Tasks1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_EmpId" id="EmpId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_CompanyId" id="CompanyId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="Tasks1Iterator" StaticList="false" Uses="LOV_ContractId" id="ContractId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
 </pageDefinition>

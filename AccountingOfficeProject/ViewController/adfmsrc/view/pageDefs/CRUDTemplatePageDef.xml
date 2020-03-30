@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CRUDTemplatePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Tasks1" RangeSize="10" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AppModule_AMDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="Tasks1Iterator" id="CreateInsert" InstanceName="AppModule_AMDataControl.Tasks1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

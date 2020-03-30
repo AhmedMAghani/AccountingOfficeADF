@@ -51,7 +51,6 @@
     Name="LOV_EmpId"
     ListVOName="Employees_VO1"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -63,7 +62,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="EmpName"/>
-      <Item Value="EmpJobTitleId"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -71,7 +69,6 @@
     Name="LOV_CompanyId"
     ListVOName="Companies_VO1"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -83,7 +80,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CompanyName"/>
-      <Item Value="IsBranch"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -91,7 +87,6 @@
     Name="LOV_ContractId"
     ListVOName="Contracts_VO1"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -103,7 +98,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContractId"/>
-      <Item Value="ContractEndDate"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -157,7 +151,7 @@
       <Item Value="ExpenceId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ExpenceType"/>
+      <Item Value="ExpenceId"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -175,7 +169,7 @@
       <Item Value="IncomeId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="IncomeType"/>
+      <Item Value="IncomeId"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -199,7 +193,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="combo"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -213,7 +207,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="combo"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -227,7 +221,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="input_text_lov"/>
+          Value="combo"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

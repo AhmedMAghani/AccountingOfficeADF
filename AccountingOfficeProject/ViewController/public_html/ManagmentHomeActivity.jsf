@@ -2,11 +2,16 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="ManagmentHomeActivity.jsf" id="d1"
-                 binding="#{backingBeanScope.backing_ManagmentHomeActivity.d1}">
+                 binding="#{backingBeanScope.backing_ManagmentHomeActivity.d1}"
+                 inlineStyle='background-image:url("single-invoice-header.jpg"); background-repeat:no-repeat; background-position:50% 50%; background-size:cover;  background-attachment:fixed; -webkit-background-size: cover;   -moz-background-size: cover;   -o-background-size: cover;   background-size: cover;'>
         <af:form id="f1" binding="#{backingBeanScope.backing_ManagmentHomeActivity.f1}">
             <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1"
                              binding="#{backingBeanScope.backing_ManagmentHomeActivity.pt1}">
-                <f:facet name="header"/>
+                <f:facet name="header">
+                    <af:outputFormatted id="of1" binding="#{backingBeanScope.backing_ManagmentHomeActivity.of1}"
+                                        value="Taxes Office Application"
+                                        inlineStyle="font-size:large; font-family:times; font-weight:bold;"/>
+                </f:facet>
                 <f:facet name="status"/>
                 <f:facet name="appNav">
                 <af:button text="Home" id="b1" binding="#{backingBeanScope.backing_ManagmentHomeActivity.b1}" iconPosition="leading" styleClass="AFAppNavbarButton "
@@ -33,10 +38,13 @@
                                selected="true"/>
                 </f:facet>
                 <f:facet name="globalLinks"/>
-                <f:facet name="footer"/>
-                <f:facet name="center"/>
-                <f:facet name="start"/>
-                <f:facet name="end"/>
+                <!--<f:facet name="footer"/>-->
+                <f:facet name="center">
+                    <af:region value="#{bindings.ManagmentTF1.regionModel}" id="r1"
+                               binding="#{backingBeanScope.backing_ManagmentHomeActivity.r1}"/>
+                </f:facet>
+                <!--<f:facet name="start"/>
+                <f:facet name="end"/>-->
             </af:pageTemplate>
         </af:form>
     </af:document>
