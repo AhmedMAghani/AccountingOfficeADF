@@ -14,14 +14,21 @@
     <page path="/TasksActivity.jsff" usageId="view_TasksActivityPageDef"/>
     <page path="/ManagmentHomeActivity.jsf" usageId="view_ManagmentHomeActivityPageDef"/>
     <page path="/CRUDTemplate.jsf" usageId="view_CRUDTemplatePageDef"/>
+    <page path="/EmployeesActivity.jsff" usageId="view_EmployeesActivityPageDef"/>
+    <page path="/CompanyiesActivity.jsff" usageId="view_CompanyiesActivityPageDef"/>
+    <page path="/IncomeActivity.jsff" usageId="view_IncomeActivityPageDef"/>
+    <page path="/IncomeHomeActivity.jsf" usageId="view_IncomeHomeActivityPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_DashboardHomeActivityPageDef" path="view.pageDefs.DashboardHomeActivityPageDef"/>
-    <page id="view_TestPagePageDef" path="view.pageDefs.TestPagePageDef"/>
     <page id="view_TestPagePageDef1" path="view.pageDefs.TestPagePageDef1"/>
     <page id="view_TasksActivityPageDef" path="view.pageDefs.TasksActivityPageDef"/>
     <page id="view_ManagmentHomeActivityPageDef" path="view.pageDefs.ManagmentHomeActivityPageDef"/>
     <page id="view_CRUDTemplatePageDef" path="view.pageDefs.CRUDTemplatePageDef"/>
+    <page id="view_EmployeesActivityPageDef" path="view.pageDefs.EmployeesActivityPageDef"/>
+    <page id="view_CompanyiesActivityPageDef" path="view.pageDefs.CompanyiesActivityPageDef"/>
+    <page id="view_IncomeActivityPageDef" path="view.pageDefs.IncomeActivityPageDef"/>
+    <page id="view_IncomeHomeActivityPageDef" path="view.pageDefs.IncomeHomeActivityPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModule_AMDataControl" Package="model.BCs.AMs"

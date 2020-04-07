@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/CRUDTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="creatPopup">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_EmployeesActivity.pfl1}">
+                <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
+                              required="#{bindings.EmpId.hints.mandatory}"
+                              columns="#{bindings.EmpId.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpId.hints.precision}"
+                              shortDesc="#{bindings.EmpId.hints.tooltip}" id="it1"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it1}">
+                    <f:validator binding="#{bindings.EmpId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpImge.inputValue}" label="#{bindings.EmpImge.hints.label}"
+                              required="#{bindings.EmpImge.hints.mandatory}"
+                              columns="#{bindings.EmpImge.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpImge.hints.precision}"
+                              shortDesc="#{bindings.EmpImge.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it2}">
+                    <f:validator binding="#{bindings.EmpImge.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpName.inputValue}" label="#{bindings.EmpName.hints.label}"
+                              required="#{bindings.EmpName.hints.mandatory}"
+                              columns="#{bindings.EmpName.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpName.hints.precision}"
+                              shortDesc="#{bindings.EmpName.hints.tooltip}" id="it3"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it3}">
+                    <f:validator binding="#{bindings.EmpName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpAddress.inputValue}" label="#{bindings.EmpAddress.hints.label}"
+                              required="#{bindings.EmpAddress.hints.mandatory}"
+                              columns="#{bindings.EmpAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpAddress.hints.precision}"
+                              shortDesc="#{bindings.EmpAddress.hints.tooltip}" id="it4"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it4}">
+                    <f:validator binding="#{bindings.EmpAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpPhones.inputValue}" label="#{bindings.EmpPhones.hints.label}"
+                              required="#{bindings.EmpPhones.hints.mandatory}"
+                              columns="#{bindings.EmpPhones.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpPhones.hints.precision}"
+                              shortDesc="#{bindings.EmpPhones.hints.tooltip}" id="it5"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it5}">
+                    <f:validator binding="#{bindings.EmpPhones.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.EmpEducationId.inputValue}"
+                                    label="#{bindings.EmpEducationId.label}"
+                                    required="#{bindings.EmpEducationId.hints.mandatory}"
+                                    shortDesc="#{bindings.EmpEducationId.hints.tooltip}" id="soc1"
+                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc1}">
+                    <f:selectItems value="#{bindings.EmpEducationId.items}" id="si1"
+                                   binding="#{backingBeanScope.backing_EmployeesActivity.si1}"/>
+                    <f:validator binding="#{bindings.EmpEducationId.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.EmpJobTitleId.inputValue}" label="#{bindings.EmpJobTitleId.label}"
+                                    required="#{bindings.EmpJobTitleId.hints.mandatory}"
+                                    shortDesc="#{bindings.EmpJobTitleId.hints.tooltip}" id="soc2"
+                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc2}">
+                    <f:selectItems value="#{bindings.EmpJobTitleId.items}" id="si2"
+                                   binding="#{backingBeanScope.backing_EmployeesActivity.si2}"/>
+                    <f:validator binding="#{bindings.EmpJobTitleId.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.EmpSalary.inputValue}" label="#{bindings.EmpSalary.hints.label}"
+                              required="#{bindings.EmpSalary.hints.mandatory}"
+                              columns="#{bindings.EmpSalary.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpSalary.hints.precision}"
+                              shortDesc="#{bindings.EmpSalary.hints.tooltip}" id="it6"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it6}">
+                    <f:validator binding="#{bindings.EmpSalary.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpSalary.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.EmpHairDate.inputValue}" label="#{bindings.EmpHairDate.hints.label}"
+                              required="#{bindings.EmpHairDate.hints.mandatory}"
+                              columns="#{bindings.EmpHairDate.hints.displayWidth}"
+                              shortDesc="#{bindings.EmpHairDate.hints.tooltip}" id="id1"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.id1}">
+                    <f:validator binding="#{bindings.EmpHairDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.EmpHairDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.EmpNationalId.inputValue}" label="#{bindings.EmpNationalId.hints.label}"
+                              required="#{bindings.EmpNationalId.hints.mandatory}"
+                              columns="#{bindings.EmpNationalId.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpNationalId.hints.precision}"
+                              shortDesc="#{bindings.EmpNationalId.hints.tooltip}" id="it7"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it7}">
+                    <f:validator binding="#{bindings.EmpNationalId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpNationalId.format}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="editPopub">
+            <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_EmployeesActivity.pfl2}">
+                <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
+                              required="#{bindings.EmpId.hints.mandatory}"
+                              columns="#{bindings.EmpId.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpId.hints.precision}"
+                              shortDesc="#{bindings.EmpId.hints.tooltip}" id="it8"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it8}">
+                    <f:validator binding="#{bindings.EmpId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpImge.inputValue}" label="#{bindings.EmpImge.hints.label}"
+                              required="#{bindings.EmpImge.hints.mandatory}"
+                              columns="#{bindings.EmpImge.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpImge.hints.precision}"
+                              shortDesc="#{bindings.EmpImge.hints.tooltip}" id="it9"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it9}">
+                    <f:validator binding="#{bindings.EmpImge.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpName.inputValue}" label="#{bindings.EmpName.hints.label}"
+                              required="#{bindings.EmpName.hints.mandatory}"
+                              columns="#{bindings.EmpName.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpName.hints.precision}"
+                              shortDesc="#{bindings.EmpName.hints.tooltip}" id="it10"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it10}">
+                    <f:validator binding="#{bindings.EmpName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpAddress.inputValue}" label="#{bindings.EmpAddress.hints.label}"
+                              required="#{bindings.EmpAddress.hints.mandatory}"
+                              columns="#{bindings.EmpAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpAddress.hints.precision}"
+                              shortDesc="#{bindings.EmpAddress.hints.tooltip}" id="it11"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it11}">
+                    <f:validator binding="#{bindings.EmpAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.EmpPhones.inputValue}" label="#{bindings.EmpPhones.hints.label}"
+                              required="#{bindings.EmpPhones.hints.mandatory}"
+                              columns="#{bindings.EmpPhones.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpPhones.hints.precision}"
+                              shortDesc="#{bindings.EmpPhones.hints.tooltip}" id="it12"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it12}">
+                    <f:validator binding="#{bindings.EmpPhones.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.EmpEducationId.inputValue}"
+                                    label="#{bindings.EmpEducationId.label}"
+                                    required="#{bindings.EmpEducationId.hints.mandatory}"
+                                    shortDesc="#{bindings.EmpEducationId.hints.tooltip}" id="soc3"
+                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc3}">
+                    <f:selectItems value="#{bindings.EmpEducationId.items}" id="si3"
+                                   binding="#{backingBeanScope.backing_EmployeesActivity.si3}"/>
+                    <f:validator binding="#{bindings.EmpEducationId.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.EmpJobTitleId.inputValue}" label="#{bindings.EmpJobTitleId.label}"
+                                    required="#{bindings.EmpJobTitleId.hints.mandatory}"
+                                    shortDesc="#{bindings.EmpJobTitleId.hints.tooltip}" id="soc4"
+                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc4}">
+                    <f:selectItems value="#{bindings.EmpJobTitleId.items}" id="si4"
+                                   binding="#{backingBeanScope.backing_EmployeesActivity.si4}"/>
+                    <f:validator binding="#{bindings.EmpJobTitleId.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.EmpSalary.inputValue}" label="#{bindings.EmpSalary.hints.label}"
+                              required="#{bindings.EmpSalary.hints.mandatory}"
+                              columns="#{bindings.EmpSalary.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpSalary.hints.precision}"
+                              shortDesc="#{bindings.EmpSalary.hints.tooltip}" id="it13"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it13}">
+                    <f:validator binding="#{bindings.EmpSalary.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpSalary.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.EmpHairDate.inputValue}" label="#{bindings.EmpHairDate.hints.label}"
+                              required="#{bindings.EmpHairDate.hints.mandatory}"
+                              columns="#{bindings.EmpHairDate.hints.displayWidth}"
+                              shortDesc="#{bindings.EmpHairDate.hints.tooltip}" id="id2"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.id2}">
+                    <f:validator binding="#{bindings.EmpHairDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.EmpHairDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.EmpNationalId.inputValue}" label="#{bindings.EmpNationalId.hints.label}"
+                              required="#{bindings.EmpNationalId.hints.mandatory}"
+                              columns="#{bindings.EmpNationalId.hints.displayWidth}"
+                              maximumLength="#{bindings.EmpNationalId.hints.precision}"
+                              shortDesc="#{bindings.EmpNationalId.hints.tooltip}" id="it14"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.it14}">
+                    <f:validator binding="#{bindings.EmpNationalId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpNationalId.format}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="detailsPopub"/>
+        <f:facet name="tableHeader"/>
+        <f:facet name="search">
+            <af:panelGroupLayout layout="vertical" id="pgl4"
+                                 binding="#{backingBeanScope.backing_EmployeesActivity.pgl4}">
+                <af:panelHeader text="Employees_EO" id="ph1"
+                                binding="#{backingBeanScope.backing_EmployeesActivity.ph1}">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              binding="#{backingBeanScope.backing_EmployeesActivity.qryId1}" resultComponentId="::lv1"/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="navButtons">
+            <af:button text="Tasks" id="b1" binding="#{backingBeanScope.backing_EmployeesActivity.b1}"
+                       action="toTasks" styleClass="AFAppNavbarButton"/>
+            <af:button text="Employee" id="b2" binding="#{backingBeanScope.backing_EmployeesActivity.b2}"
+                       action="toEmp" selected="true" styleClass="AFAppNavbarButton"/>
+            <af:button text="Companies" id="b3" binding="#{backingBeanScope.backing_EmployeesActivity.b3}"
+                       action="toCompanies" styleClass="AFAppNavbarButton"/>
+        </f:facet>
+        <f:facet name="listView">
+            <af:panelBox id="pb1" binding="#{backingBeanScope.backing_EmployeesActivity.pb1}" showDisclosure="false">
+                <f:facet name="toolbar"/>
+                <af:carousel currentItemKey="#{bindings.Employees1.treeModel.rootCurrencyRowKey}"
+                             value="#{bindings.Employees1.treeModel}" var="item" id="lv1"
+                             binding="#{backingBeanScope.backing_EmployeesActivity.c1}" styleClass="AFStretchWidth"
+                             inlineStyle="height:450px;"
+                             carouselSpinListener="#{backingBeanScope.backing_EmployeesActivity.onSpin}">
+                    <f:facet name="nodeStamp">
+                        <af:carouselItem id="ci1" binding="#{backingBeanScope.backing_EmployeesActivity.ci1}"
+                                         inlineStyle="height:400px; width:500px;">
+                            <af:panelFormLayout id="pfl3" binding="#{backingBeanScope.backing_EmployeesActivity.pfl3}">
+                                <af:panelLabelAndMessage label="#{bindings.EmpId.hints.label}" id="plam1"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam1}">
+                                    <af:outputFormatted value="#{item.bindings.EmpId.inputValue}" id="of1"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of1}">
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+                                    </af:outputFormatted>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpImge.hints.label}" id="plam2"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam2}">
+                                    <af:outputFormatted value="#{item.bindings.EmpImge.inputValue}" id="of2"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of2}"/>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpName.hints.label}" id="plam3"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam3}">
+                                    <af:outputFormatted value="#{item.bindings.EmpName.inputValue}" id="of3"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of3}"/>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpAddress.hints.label}" id="plam4"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam4}">
+                                    <af:outputFormatted value="#{item.bindings.EmpAddress.inputValue}" id="of4"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of4}"/>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpPhones.hints.label}" id="plam5"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam5}">
+                                    <af:outputFormatted value="#{item.bindings.EmpPhones.inputValue}" id="of5"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of5}"/>
+                                </af:panelLabelAndMessage>
+                                <af:selectOneChoice value="#{item.bindings.EmpEducationId.inputValue}"
+                                                    label="#{bindings.EmpEducationId.label}"
+                                                    required="#{bindings.EmpEducationId.hints.mandatory}"
+                                                    shortDesc="#{bindings.EmpEducationId.hints.tooltip}" readOnly="true"
+                                                    id="soc5"
+                                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc5}">
+                                    <f:selectItems value="#{bindings.EmpEducationId.items}" id="si5"
+                                                   binding="#{backingBeanScope.backing_EmployeesActivity.si5}"/>
+                                    <f:validator binding="#{bindings.EmpEducationId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{item.bindings.EmpJobTitleId.inputValue}"
+                                                    label="#{bindings.EmpJobTitleId.label}"
+                                                    required="#{bindings.EmpJobTitleId.hints.mandatory}"
+                                                    shortDesc="#{bindings.EmpJobTitleId.hints.tooltip}" readOnly="true"
+                                                    id="soc6"
+                                                    binding="#{backingBeanScope.backing_EmployeesActivity.soc6}">
+                                    <f:selectItems value="#{bindings.EmpJobTitleId.items}" id="si6"
+                                                   binding="#{backingBeanScope.backing_EmployeesActivity.si6}"/>
+                                    <f:validator binding="#{bindings.EmpJobTitleId.validator}"/>
+                                </af:selectOneChoice>
+                                <af:panelLabelAndMessage label="#{bindings.EmpSalary.hints.label}" id="plam6"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam6}">
+                                    <af:outputFormatted value="#{item.bindings.EmpSalary.inputValue}" id="of6"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of6}">
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpSalary.format}"/>
+                                    </af:outputFormatted>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpHairDate.hints.label}" id="plam7"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam7}">
+                                    <af:outputFormatted value="#{item.bindings.EmpHairDate.inputValue}" id="of7"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of7}">
+                                        <af:convertDateTime pattern="#{bindings.EmpHairDate.format}"/>
+                                    </af:outputFormatted>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.EmpNationalId.hints.label}" id="plam8"
+                                                         binding="#{backingBeanScope.backing_EmployeesActivity.plam8}">
+                                    <af:outputFormatted value="#{item.bindings.EmpNationalId.inputValue}" id="of8"
+                                                        binding="#{backingBeanScope.backing_EmployeesActivity.of8}">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmpNationalId.format}"/>
+                                    </af:outputFormatted>
+                                </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                        </af:carouselItem>
+                    </f:facet>
+                </af:carousel>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="createNewRecord">
+            <af:panelGridLayout id="pgl5" binding="#{backingBeanScope.backing_EmployeesActivity.pgl5}">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr6"
+                            binding="#{backingBeanScope.backing_EmployeesActivity.gr6}">
+                    <af:gridCell marginStart="5px" width="50%" id="gc6"
+                                 binding="#{backingBeanScope.backing_EmployeesActivity.gc6}" halign="stretch"
+                                 valign="stretch">
+                        <af:panelStretchLayout id="psl2" binding="#{backingBeanScope.backing_EmployeesActivity.psl2}">
+                            <f:facet name="center">
+                                <af:button text="Add Employee" id="b4"
+                                           binding="#{backingBeanScope.backing_EmployeesActivity.b4}"
+                                           actionListener="#{backingBeanScope.backing_EmployeesActivity.createInsertTask}">
+                                    <af:showPopupBehavior popupId="p1" triggerType="click"/>
+                                </af:button>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc7"
+                                 binding="#{backingBeanScope.backing_EmployeesActivity.gc7}" halign="stretch"
+                                 valign="stretch">
+                        <af:panelStretchLayout id="psl3" binding="#{backingBeanScope.backing_EmployeesActivity.psl3}">
+                            <f:facet name="center">
+                                <af:button text="Edit Empoyee Details" id="b5"
+                                           binding="#{backingBeanScope.backing_EmployeesActivity.b5}">
+                                    <af:showPopupBehavior popupId="p3" triggerType="action"/>
+                                </af:button>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+    </af:pageTemplate>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_EmployeesActivity-->
+</ui:composition>

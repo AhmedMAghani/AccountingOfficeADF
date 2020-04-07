@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="EmployeesActivityPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="view.pageDefs.CRUDTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="Employees1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Employees1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Employees1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpImge">
+      <AttrNames>
+        <Item Value="EmpImge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpAddress">
+      <AttrNames>
+        <Item Value="EmpAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpPhones">
+      <AttrNames>
+        <Item Value="EmpPhones"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Employees1Iterator" StaticList="false" Uses="LOV_EmpEducationId" id="EmpEducationId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="Employees1Iterator" StaticList="false" Uses="LOV_EmpJobTitleId" id="EmpJobTitleId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpSalary">
+      <AttrNames>
+        <Item Value="EmpSalary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpHairDate">
+      <AttrNames>
+        <Item Value="EmpHairDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="EmpNationalId">
+      <AttrNames>
+        <Item Value="EmpNationalId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Employees1Iterator" id="Employees1">
+      <nodeDefinition DefName="model.BCs.VOs.Employees_VO" Name="Employees10">
+        <AttrNames>
+          <Item Value="EmpId"/>
+          <Item Value="EmpImge"/>
+          <Item Value="EmpName"/>
+          <Item Value="EmpAddress"/>
+          <Item Value="EmpPhones"/>
+          <Item Value="EmpEducationId"/>
+          <Item Value="EmpJobTitleId"/>
+          <Item Value="EmpSalary"/>
+          <Item Value="EmpHairDate"/>
+          <Item Value="EmpNationalId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Employees1Iterator" id="CreateInsert" InstanceName="AppModule_AMDataControl.Employees1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

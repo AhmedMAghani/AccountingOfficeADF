@@ -21,6 +21,7 @@ public class Contracts_VOImpl extends ViewObjectImpl {
      * This is the default constructor (do not remove).
      */
     public Contracts_VOImpl() {
+        count=0;
     }
 
     /**
@@ -69,10 +70,11 @@ public class Contracts_VOImpl extends ViewObjectImpl {
 
     public Integer getTotalContractsNo() {
         clearCache();
-        addWhereClause(null);
+        setWhereClause(null);
         executeQuery();
         count = 0;
         contractItrator = createRowSetIterator(null);
+        contractItrator.reset();
         if (!contractItrator.hasNext())
             return count;
         do {

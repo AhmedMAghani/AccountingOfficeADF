@@ -52,8 +52,11 @@
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow id="gr5" height="100%">
-                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc9">
-                        <af:facetRef facetName="search"/>
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc9"
+                                 inlineStyle="padding-bottom:20px;">
+                        <af:panelBox id="pt_pb1" inlineStyle="opacity: 0.8;">
+                            <af:facetRef facetName="search"/>
+                        </af:panelBox>
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr1">
@@ -67,7 +70,7 @@
                         </af:panelGroupLayout>
                     </af:gridCell>
                 </af:gridRow>
-                <af:gridRow height="30px" id="gr3">
+                <af:gridRow height="40px" id="gr3">
                     <af:gridCell id="gc3" inlineStyle="text-align:center;" halign="stretch" valign="stretch">
                         <af:panelStretchLayout id="psl1">
                             <f:facet name="center">
@@ -77,22 +80,50 @@
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                <af:dialog id="d1" title="Create"
-                           dialogListener="#{backing_CRUDTemplate.CommitDialog}">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                      binding="#{backing_CRUDTemplate.createPopup}">
+                <af:dialog id="d1" title="Create" type="none"
+                           affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel" closeIconVisible="false">
                     <af:facetRef facetName="creatPopup"/>
+                    <!--<af:clientListener method="onActionDialog" type="dialog"/>
+                    <af:serverListener type="dialogActionHandler" method="#{backing_CRUDTemplate.dialogActionHandler}"/>-->
+                    <f:facet name="buttonBar">
+                        <af:button text="Ok" id="pt_b1" actionListener="#{backing_CRUDTemplate.CommitDialog}"
+                                   binding="#{backing_CRUDTemplate.dialogOk}" immediate="false"/>
+                        <af:button text="Cancel" id="pt_b2" actionListener="#{backing_CRUDTemplate.CommitDialog}"
+                                   immediate="true"/>
+                    </f:facet>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached">
                 <af:noteWindow id="nw1">
                     <af:facetRef facetName="detailsPopub"/>
                 </af:noteWindow>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
-                <af:dialog id="d2" title="Edit" dialogListener="#{backing_CRUDTemplate.CommitDialog}">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+                      binding="#{backing_CRUDTemplate.editPopup}">
+                <af:dialog id="d2" title="Edit"  type="none"
+                affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel" closeIconVisible="false">
                     <af:facetRef facetName="editPopub"/>
+                    <f:facet name="buttonBar">
+                        <af:button text="Ok" id="pt_b3" actionListener="#{backing_CRUDTemplate.CommitDialog}"
+                                   binding="#{backing_CRUDTemplate.dialogOk}" immediate="false"/>
+                        <af:button text="Cancel" id="pt_b4" actionListener="#{backing_CRUDTemplate.CommitDialog}"
+                                   immediate="true"/>
+                    </f:facet>
                 </af:dialog>
             </af:popup>
+            <!--<af:resource type="javascript">
+            function onActionDialog (evt){
+                var outcome = evt.getOutcome();
+                if (outcome == AdfDialogEvent.OUTCOME_CANCEL){
+                    var eventSource = evt.getSource();
+                    var immediate = true;
+                    AdfCustomeEvent.queue(eventSource,"dialogActionHandler",{},immediate);
+                    evt.cancel();
+                }
+            }
+        </af:resource>-->
         </af:panelGroupLayout>
     </af:group>
 </af:pageTemplateDef>

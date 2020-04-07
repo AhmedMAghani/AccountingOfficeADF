@@ -4,6 +4,7 @@ import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.fragment.RichPageTemplate;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.output.RichOutputFormatted;
 
 public class ExpencesHomeAcivity {
     private RichPageTemplate pt1;
@@ -13,6 +14,7 @@ public class ExpencesHomeAcivity {
     private RichButton b2;
     private RichButton b3;
     private RichButton b4;
+    private RichOutputFormatted of1;
 
     public void setPt1(RichPageTemplate pt1) {
         this.pt1 = pt1;
@@ -71,4 +73,11 @@ public class ExpencesHomeAcivity {
     }
 
 
+    public void setOf1(RichOutputFormatted of1) {
+        this.of1 = of1;
+    }
+
+    public RichOutputFormatted getOf1() {
+        return of1;
+    }
 }

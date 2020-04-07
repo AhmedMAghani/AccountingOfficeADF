@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CompanyiesActivityPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="view.pageDefs.CRUDTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="Companies1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Companies1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Companies1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Companies1Iterator" id="CompanyId">
+      <AttrNames>
+        <Item Value="CompanyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Companies1Iterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Companies1Iterator" StaticList="false" Uses="LOV_IsBranch" id="IsBranch" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="Companies1Iterator" id="CompanyAddress">
+      <AttrNames>
+        <Item Value="CompanyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Companies1Iterator" id="CompanyPhone1">
+      <AttrNames>
+        <Item Value="CompanyPhone1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Companies1Iterator" id="CompanyPhone2">
+      <AttrNames>
+        <Item Value="CompanyPhone2"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Companies1Iterator" id="CreateInsert" InstanceName="AppModule_AMDataControl.Companies1"
+            DataControl="AppModule_AMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="Companies1Iterator" id="Companies1">
+      <nodeDefinition DefName="model.BCs.VOs.Companies_VO" Name="Companies10">
+        <AttrNames>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyAddress"/>
+          <Item Value="IsBranch"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

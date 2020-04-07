@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/CRUDTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="creatPopup">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_IncomeActivity.pfl1}">
+                <af:inputText value="#{bindings.IncomeId.inputValue}" label="#{bindings.IncomeId.hints.label}"
+                              required="#{bindings.IncomeId.hints.mandatory}"
+                              columns="#{bindings.IncomeId.hints.displayWidth}"
+                              maximumLength="#{bindings.IncomeId.hints.precision}"
+                              shortDesc="#{bindings.IncomeId.hints.tooltip}" id="it1"
+                              binding="#{backingBeanScope.backing_IncomeActivity.it1}">
+                    <f:validator binding="#{bindings.IncomeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeId.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="contractIdId"
+                                      popupTitle="Search and Select: #{bindings.ContractId.hints.label}"
+                                      value="#{bindings.ContractId.inputValue}"
+                                      label="#{bindings.ContractId.hints.label}"
+                                      model="#{bindings.ContractId.listOfValuesModel}"
+                                      required="#{bindings.ContractId.hints.mandatory}"
+                                      columns="#{bindings.ContractId.hints.displayWidth}"
+                                      shortDesc="#{bindings.ContractId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_IncomeActivity.contractIdId}">
+                    <f:validator binding="#{bindings.ContractId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.IncomeValue.inputValue}" label="#{bindings.IncomeValue.hints.label}"
+                              required="#{bindings.IncomeValue.hints.mandatory}"
+                              columns="#{bindings.IncomeValue.hints.displayWidth}"
+                              maximumLength="#{bindings.IncomeValue.hints.precision}"
+                              shortDesc="#{bindings.IncomeValue.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.backing_IncomeActivity.it2}">
+                    <f:validator binding="#{bindings.IncomeValue.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeValue.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.IncomeType.inputValue}" label="#{bindings.IncomeType.label}"
+                                    required="#{bindings.IncomeType.hints.mandatory}"
+                                    shortDesc="#{bindings.IncomeType.hints.tooltip}" id="soc1"
+                                    binding="#{backingBeanScope.backing_IncomeActivity.soc1}">
+                    <f:selectItems value="#{bindings.IncomeType.items}" id="si1"
+                                   binding="#{backingBeanScope.backing_IncomeActivity.si1}"/>
+                    <f:validator binding="#{bindings.IncomeType.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="editPopub">
+            <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_IncomeActivity.pfl2}">
+                <af:inputText value="#{bindings.IncomeId.inputValue}" label="#{bindings.IncomeId.hints.label}"
+                              required="#{bindings.IncomeId.hints.mandatory}"
+                              columns="#{bindings.IncomeId.hints.displayWidth}"
+                              maximumLength="#{bindings.IncomeId.hints.precision}"
+                              shortDesc="#{bindings.IncomeId.hints.tooltip}" id="it3"
+                              binding="#{backingBeanScope.backing_IncomeActivity.it3}">
+                    <f:validator binding="#{bindings.IncomeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeId.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.ContractId.hints.label}"
+                                      value="#{bindings.ContractId.inputValue}"
+                                      label="#{bindings.ContractId.hints.label}"
+                                      model="#{bindings.ContractId.listOfValuesModel}"
+                                      required="#{bindings.ContractId.hints.mandatory}"
+                                      columns="#{bindings.ContractId.hints.displayWidth}"
+                                      shortDesc="#{bindings.ContractId.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_IncomeActivity.ilov1}">
+                    <f:validator binding="#{bindings.ContractId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.IncomeValue.inputValue}" label="#{bindings.IncomeValue.hints.label}"
+                              required="#{bindings.IncomeValue.hints.mandatory}"
+                              columns="#{bindings.IncomeValue.hints.displayWidth}"
+                              maximumLength="#{bindings.IncomeValue.hints.precision}"
+                              shortDesc="#{bindings.IncomeValue.hints.tooltip}" id="it4"
+                              binding="#{backingBeanScope.backing_IncomeActivity.it4}">
+                    <f:validator binding="#{bindings.IncomeValue.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeValue.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.IncomeType.inputValue}" label="#{bindings.IncomeType.label}"
+                                    required="#{bindings.IncomeType.hints.mandatory}"
+                                    shortDesc="#{bindings.IncomeType.hints.tooltip}" id="soc2"
+                                    binding="#{backingBeanScope.backing_IncomeActivity.soc2}">
+                    <f:selectItems value="#{bindings.IncomeType.items}" id="si2"
+                                   binding="#{backingBeanScope.backing_IncomeActivity.si2}"/>
+                    <f:validator binding="#{bindings.IncomeType.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="detailsPopub">
+            <af:panelFormLayout id="pfl3" binding="#{backingBeanScope.backing_IncomeActivity.pfl3}">
+                <af:panelLabelAndMessage label="#{bindings.IncomeId.hints.label}" id="plam1"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.plam1}">
+                    <af:outputFormatted value="#{bindings.IncomeId.inputValue}" id="of1"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of1}">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeId.format}"/>
+                    </af:outputFormatted>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.ContractId1.hints.label}" id="plam2"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.plam2}">
+                    <af:outputFormatted value="#{bindings.ContractId1.inputValue}" id="of2"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of2}">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId1.format}"/>
+                    </af:outputFormatted>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.IncomeValue.hints.label}" id="plam3"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.plam3}">
+                    <af:outputFormatted value="#{bindings.IncomeValue.inputValue}" id="of3"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of3}">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IncomeValue.format}"/>
+                    </af:outputFormatted>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.IncomeType.inputValue}" label="#{bindings.IncomeType.label}"
+                                    required="#{bindings.IncomeType.hints.mandatory}"
+                                    shortDesc="#{bindings.IncomeType.hints.tooltip}" readOnly="true" id="soc3"
+                                    binding="#{backingBeanScope.backing_IncomeActivity.soc3}">
+                    <f:selectItems value="#{bindings.IncomeType.items}" id="si3"
+                                   binding="#{backingBeanScope.backing_IncomeActivity.si3}"/>
+                    <f:validator binding="#{bindings.IncomeType.validator}"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="tableHeader">
+            <af:gridRow id="gr7" binding="#{backingBeanScope.backing_IncomeActivity.gr7}" height="20px" marginTop="10px"
+                        marginBottom="10px">
+                <af:gridCell id="gc13" binding="#{backingBeanScope.backing_IncomeActivity.gc13}" width="17%"
+                             halign="stretch" valign="stretch" marginStart="5px">
+                    <af:outputFormatted value="ID" id="of7"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of7}"
+                                        inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc14" binding="#{backingBeanScope.backing_IncomeActivity.gc14}" width="17%"
+                             halign="stretch" valign="stretch" marginStart="5px">
+                    <af:outputFormatted value="Contract" id="of8"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of8}"
+                                        inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc15" binding="#{backingBeanScope.backing_IncomeActivity.gc15}" width="17%"
+                             halign="stretch" valign="stretch" marginStart="5px">
+                    <af:outputFormatted value="Income Value" id="of9"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of9}"
+                                        inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc16" binding="#{backingBeanScope.backing_IncomeActivity.gc16}" width="17%"
+                             halign="stretch" valign="stretch" marginStart="5px">
+                    <af:outputFormatted value="Type" id="of10"
+                                        binding="#{backingBeanScope.backing_IncomeActivity.of10}"
+                                        inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc17" binding="#{backingBeanScope.backing_IncomeActivity.gc17}" width="16%"
+                             halign="stretch" valign="stretch" marginStart="5px"/>
+                <af:gridCell id="gc18" binding="#{backingBeanScope.backing_IncomeActivity.gc18}" width="16%"
+                             halign="stretch" valign="stretch" marginStart="5px" marginEnd="5px"/>
+            </af:gridRow>
+        </f:facet>
+        <f:facet name="search">
+            <af:panelGroupLayout layout="vertical" id="pgl4" binding="#{backingBeanScope.backing_IncomeActivity.pgl4}">
+                <af:panelHeader text="Income" id="ph1"
+                                binding="#{backingBeanScope.backing_IncomeActivity.ph1}">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              binding="#{backingBeanScope.backing_IncomeActivity.qryId1}"/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="navButtons"/>
+        <f:facet name="listView">
+            <af:listView value="#{bindings.OfficeIncome1.collectionModel}" var="item"
+                         emptyText="#{bindings.OfficeIncome1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.OfficeIncome1.rangeSize}" id="lv1"
+                         binding="#{backingBeanScope.backing_IncomeActivity.lv1}" partialTriggers="::qryId1"
+                         selection="single" selectionListener="#{bindings.OfficeIncome1.treeModel.makeCurrent}">
+                <af:listItem id="li1" binding="#{backingBeanScope.backing_IncomeActivity.li1}">
+                    <af:panelGridLayout id="pgl5" binding="#{backingBeanScope.backing_IncomeActivity.pgl5}">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4"
+                                    binding="#{backingBeanScope.backing_IncomeActivity.gr4}">
+                            <af:gridCell marginStart="5px" width="17%" id="gc4"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc4}" halign="stretch"
+                                         valign="stretch">
+                                <af:outputFormatted value="#{item.bindings.IncomeId.inputValue}" id="of4"
+                                                    binding="#{backingBeanScope.backing_IncomeActivity.of4}">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.OfficeIncome1.hints.IncomeId.format}"/>
+                                </af:outputFormatted>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="17%" id="gc5"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc5}" halign="stretch"
+                                         valign="stretch">
+                                <af:outputFormatted value="#{item.bindings.ContractId.inputValue}" id="of5"
+                                                    binding="#{backingBeanScope.backing_IncomeActivity.of5}">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.OfficeIncome1.hints.ContractId.format}"/>
+                                </af:outputFormatted>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="17%" id="gc6"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc6}" halign="stretch"
+                                         valign="stretch">
+                                <af:outputFormatted value="#{item.bindings.IncomeValue.inputValue}" id="of6"
+                                                    binding="#{backingBeanScope.backing_IncomeActivity.of6}">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.OfficeIncome1.hints.IncomeValue.format}"/>
+                                </af:outputFormatted>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="17%" id="gc7"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc7}" halign="stretch"
+                                         valign="stretch">
+                                <af:selectOneChoice value="#{item.bindings.IncomeType.inputValue}"
+                                                    required="#{bindings.OfficeIncome1.hints.IncomeType.mandatory}"
+                                                    shortDesc="#{bindings.OfficeIncome1.hints.IncomeType.tooltip}"
+                                                    readOnly="true" id="soc4"
+                                                    binding="#{backingBeanScope.backing_IncomeActivity.soc4}">
+                                    <f:selectItems value="#{item.bindings.IncomeType.items}" id="si4"
+                                                   binding="#{backingBeanScope.backing_IncomeActivity.si4}"/>
+                                    <f:validator binding="#{item.bindings.IncomeType.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="16%" id="gc8"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc8}" halign="stretch"
+                                         valign="stretch">
+                                <af:button text="Details" id="b1"
+                                           binding="#{backingBeanScope.backing_IncomeActivity.b1}" selected="true">
+                                    <af:showPopupBehavior popupId="::p2" triggerType="mouseHover"/>
+                                </af:button>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc10"
+                                         binding="#{backingBeanScope.backing_IncomeActivity.gc10}" halign="stretch"
+                                         valign="stretch">
+                                <af:button text="Edit" id="b2"
+                                           binding="#{backingBeanScope.backing_IncomeActivity.b2}">
+                                    <af:showPopupBehavior popupId="::p3" triggerType="action"/>
+                                </af:button>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:listItem>
+            </af:listView>
+        </f:facet>
+        <f:facet name="createNewRecord">
+            <af:panelGridLayout id="pgl7" binding="#{backingBeanScope.backing_IncomeActivity.pgl7}">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr6"
+                            binding="#{backingBeanScope.backing_IncomeActivity.gr6}">
+                    <af:gridCell width="50%" id="gc11"
+                                 binding="#{backingBeanScope.backing_IncomeActivity.gc11}" halign="stretch"
+                                 valign="stretch" marginStart="5px" marginEnd="5px">
+                        <af:panelStretchLayout id="psl2" binding="#{backingBeanScope.backing_IncomeActivity.psl2}">
+                            <f:facet name="center">
+                                <af:button text="New Income" id="b4"
+                                           binding="#{backingBeanScope.backing_IncomeActivity.b4}">
+                                    <af:showPopupBehavior popupId="p1"/>
+                                </af:button>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                    <af:gridCell width="50%" id="gc12"
+                                 binding="#{backingBeanScope.backing_IncomeActivity.gc12}" halign="stretch"
+                                 valign="stretch" marginStart="5px" marginEnd="5px">
+                        <af:panelStretchLayout id="psl3" binding="#{backingBeanScope.backing_IncomeActivity.psl3}">
+                            <f:facet name="center">
+                                <af:button text="Overview" id="b3"
+                                           binding="#{backingBeanScope.backing_IncomeActivity.b3}"/>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+    </af:pageTemplate>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_IncomeActivity-->
+</ui:composition>

@@ -4,7 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="Tasks1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"/>
+    <iterator Binds="Tasks1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Tasks1Iterator"
+              ChangeEventPolicy="ppr" Refresh="deferred"/>
     <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="Tasks1Iterator" id="ImplicitViewCriteriaQuery"/>
     <page path="view.pageDefs.CRUDTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>

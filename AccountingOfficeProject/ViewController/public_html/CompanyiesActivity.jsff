@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:pageTemplate viewId="/CRUDTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="creatPopup">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_CompanyiesActivity.pfl1}">
+                <af:inputText value="#{bindings.CompanyId.inputValue}" label="#{bindings.CompanyId.hints.label}"
+                              required="#{bindings.CompanyId.hints.mandatory}"
+                              columns="#{bindings.CompanyId.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyId.hints.precision}"
+                              shortDesc="#{bindings.CompanyId.hints.tooltip}" id="it1"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it1}">
+                    <f:validator binding="#{bindings.CompanyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyName.inputValue}" label="#{bindings.CompanyName.hints.label}"
+                              required="#{bindings.CompanyName.hints.mandatory}"
+                              columns="#{bindings.CompanyName.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyName.hints.precision}"
+                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it2}">
+                    <f:validator binding="#{bindings.CompanyName.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.IsBranch.inputValue}" label="#{bindings.IsBranch.label}"
+                                    required="#{bindings.IsBranch.hints.mandatory}"
+                                    shortDesc="#{bindings.IsBranch.hints.tooltip}" id="soc1"
+                                    binding="#{backingBeanScope.backing_CompanyiesActivity.soc1}">
+                    <f:selectItems value="#{bindings.IsBranch.items}" id="si1"
+                                   binding="#{backingBeanScope.backing_CompanyiesActivity.si1}"/>
+                    <f:validator binding="#{bindings.IsBranch.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.CompanyAddress.inputValue}"
+                              label="#{bindings.CompanyAddress.hints.label}"
+                              required="#{bindings.CompanyAddress.hints.mandatory}"
+                              columns="#{bindings.CompanyAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyAddress.hints.precision}"
+                              shortDesc="#{bindings.CompanyAddress.hints.tooltip}" id="it3"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it3}">
+                    <f:validator binding="#{bindings.CompanyAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyPhone1.inputValue}" label="#{bindings.CompanyPhone1.hints.label}"
+                              required="#{bindings.CompanyPhone1.hints.mandatory}"
+                              columns="#{bindings.CompanyPhone1.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyPhone1.hints.precision}"
+                              shortDesc="#{bindings.CompanyPhone1.hints.tooltip}" id="it4"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it4}">
+                    <f:validator binding="#{bindings.CompanyPhone1.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyPhone2.inputValue}" label="#{bindings.CompanyPhone2.hints.label}"
+                              required="#{bindings.CompanyPhone2.hints.mandatory}"
+                              columns="#{bindings.CompanyPhone2.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyPhone2.hints.precision}"
+                              shortDesc="#{bindings.CompanyPhone2.hints.tooltip}" id="it5"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it5}">
+                    <f:validator binding="#{bindings.CompanyPhone2.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="editPopub">
+            <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_CompanyiesActivity.pfl2}">
+                <af:inputText value="#{bindings.CompanyId.inputValue}" label="#{bindings.CompanyId.hints.label}"
+                              required="#{bindings.CompanyId.hints.mandatory}"
+                              columns="#{bindings.CompanyId.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyId.hints.precision}"
+                              shortDesc="#{bindings.CompanyId.hints.tooltip}" id="it6"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it6}">
+                    <f:validator binding="#{bindings.CompanyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyName.inputValue}" label="#{bindings.CompanyName.hints.label}"
+                              required="#{bindings.CompanyName.hints.mandatory}"
+                              columns="#{bindings.CompanyName.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyName.hints.precision}"
+                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it7"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it7}">
+                    <f:validator binding="#{bindings.CompanyName.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.IsBranch.inputValue}" label="#{bindings.IsBranch.label}"
+                                    required="#{bindings.IsBranch.hints.mandatory}"
+                                    shortDesc="#{bindings.IsBranch.hints.tooltip}" id="soc2"
+                                    binding="#{backingBeanScope.backing_CompanyiesActivity.soc2}">
+                    <f:selectItems value="#{bindings.IsBranch.items}" id="si2"
+                                   binding="#{backingBeanScope.backing_CompanyiesActivity.si2}"/>
+                    <f:validator binding="#{bindings.IsBranch.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.CompanyAddress.inputValue}"
+                              label="#{bindings.CompanyAddress.hints.label}"
+                              required="#{bindings.CompanyAddress.hints.mandatory}"
+                              columns="#{bindings.CompanyAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyAddress.hints.precision}"
+                              shortDesc="#{bindings.CompanyAddress.hints.tooltip}" id="it8"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it8}">
+                    <f:validator binding="#{bindings.CompanyAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyPhone1.inputValue}" label="#{bindings.CompanyPhone1.hints.label}"
+                              required="#{bindings.CompanyPhone1.hints.mandatory}"
+                              columns="#{bindings.CompanyPhone1.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyPhone1.hints.precision}"
+                              shortDesc="#{bindings.CompanyPhone1.hints.tooltip}" id="it9"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it9}">
+                    <f:validator binding="#{bindings.CompanyPhone1.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CompanyPhone2.inputValue}" label="#{bindings.CompanyPhone2.hints.label}"
+                              required="#{bindings.CompanyPhone2.hints.mandatory}"
+                              columns="#{bindings.CompanyPhone2.hints.displayWidth}"
+                              maximumLength="#{bindings.CompanyPhone2.hints.precision}"
+                              shortDesc="#{bindings.CompanyPhone2.hints.tooltip}" id="it10"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.it10}">
+                    <f:validator binding="#{bindings.CompanyPhone2.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="detailsPopub">
+            <af:panelFormLayout id="pfl3" binding="#{backingBeanScope.backing_CompanyiesActivity.pfl3}">
+                <af:panelLabelAndMessage label="#{bindings.CompanyId.hints.label}" id="plam1"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.plam1}">
+                    <af:outputFormatted value="#{bindings.CompanyId.inputValue}" id="of1"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of1}"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.CompanyName.hints.label}" id="plam2"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.plam2}">
+                    <af:outputFormatted value="#{bindings.CompanyName.inputValue}" id="of2"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of2}"/>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.IsBranch.inputValue}" label="#{bindings.IsBranch.label}"
+                                    required="#{bindings.IsBranch.hints.mandatory}"
+                                    shortDesc="#{bindings.IsBranch.hints.tooltip}" readOnly="true" id="soc3">
+                    <f:selectItems value="#{bindings.IsBranch.items}" id="si3"/>
+                    <f:validator binding="#{bindings.IsBranch.validator}"/>
+                </af:selectOneChoice>
+                <af:panelLabelAndMessage label="#{bindings.CompanyAddress.hints.label}" id="plam3"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.plam3}">
+                    <af:outputFormatted value="#{bindings.CompanyAddress.inputValue}" id="of3"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of3}"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.CompanyPhone1.hints.label}" id="plam4"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.plam4}">
+                    <af:outputFormatted value="#{bindings.CompanyPhone1.inputValue}" id="of4"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of4}"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.CompanyPhone2.hints.label}" id="plam5"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.plam5}">
+                    <af:outputFormatted value="#{bindings.CompanyPhone2.inputValue}" id="of5"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of5}"/>
+                </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="navButtons">
+            <af:button text="Tasks" id="b1" binding="#{backingBeanScope.backing_CompanyiesActivity.b1}"
+                       action="toTasks" styleClass="AFAppNavbarButton"/>
+            <af:button text="Employees" id="b2" binding="#{backingBeanScope.backing_CompanyiesActivity.b2}"
+                       action="toEmp" styleClass="AFAppNavbarButton"/>
+            <af:button text="Companies" id="b3" binding="#{backingBeanScope.backing_CompanyiesActivity.b3}"
+                       selected="true" action="toCompanies" styleClass="AFAppNavbarButton"/>
+        </f:facet>
+        <f:facet name="search">
+            <af:panelGroupLayout layout="vertical" id="pgl4"
+                                 binding="#{backingBeanScope.backing_CompanyiesActivity.pgl4}"
+                                 inlineStyle="padding-bottom:20px; margin-bottom:0px;">
+                <af:panelHeader text="Companies_EO" id="ph1"
+                                binding="#{backingBeanScope.backing_CompanyiesActivity.ph1}">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              binding="#{backingBeanScope.backing_CompanyiesActivity.qryId1}"
+                              resultComponentId="::lv1"/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="tableHeader">
+            <af:gridRow id="gr6" binding="#{backingBeanScope.backing_CompanyiesActivity.gr6}" height="20px"
+                        marginTop="10px" marginBottom="10px">
+                <af:gridCell id="gc7" binding="#{backingBeanScope.backing_CompanyiesActivity.gc7}" width="30%"
+                             marginStart="10px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Company" id="of8"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of8}"
+                                        inlineStyle="font-size:large; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc8" binding="#{backingBeanScope.backing_CompanyiesActivity.gc8}" width="30%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Address" id="of9"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of9}"
+                                        inlineStyle="font-size:large; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc10" binding="#{backingBeanScope.backing_CompanyiesActivity.gc10}" width="10%"
+                             marginStart="5px" halign="stretch" valign="stretch">
+                    <af:outputFormatted value="Branch" id="of10"
+                                        binding="#{backingBeanScope.backing_CompanyiesActivity.of10}"
+                                        inlineStyle="font-size:large; font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell id="gc11" binding="#{backingBeanScope.backing_CompanyiesActivity.gc11}" width="15%"
+                             marginStart="5px" halign="stretch" valign="stretch"/>
+                <af:gridCell id="gc12" binding="#{backingBeanScope.backing_CompanyiesActivity.gc12}" width="15%"
+                             marginStart="5px" halign="stretch" valign="stretch"/>
+            </af:gridRow>
+        </f:facet>
+        <f:facet name="listView">
+            <af:listView value="#{bindings.Companies1.collectionModel}" var="item"
+                         emptyText="#{bindings.Companies1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.Companies1.rangeSize}" id="lv1"
+                         binding="#{backingBeanScope.backing_CompanyiesActivity.lv1}" selection="single"
+                         selectionListener="#{bindings.Companies1.treeModel.makeCurrent}">
+                <af:listItem id="li1" binding="#{backingBeanScope.backing_CompanyiesActivity.li1}">
+                    <af:panelGridLayout id="pgl5" binding="#{backingBeanScope.backing_CompanyiesActivity.pgl5}">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4"
+                                    binding="#{backingBeanScope.backing_CompanyiesActivity.gr4}">
+                            <af:gridCell marginStart="5px" width="30%" id="gc4"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.gc4}">
+                                <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}" id="of6"
+                                                    binding="#{backingBeanScope.backing_CompanyiesActivity.of6}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="30%" id="gc5"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.gc5}">
+                                <af:outputFormatted value="#{item.bindings.CompanyAddress.inputValue}" id="of7"
+                                                    binding="#{backingBeanScope.backing_CompanyiesActivity.of7}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="10%" id="gc6"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.gc6}">
+                                <af:selectOneChoice value="#{item.bindings.IsBranch.inputValue}"
+                                                    required="#{bindings.Companies1.hints.IsBranch.mandatory}"
+                                                    shortDesc="#{bindings.Companies1.hints.IsBranch.tooltip}"
+                                                    readOnly="true" id="soc4"
+                                                    binding="#{backingBeanScope.backing_CompanyiesActivity.soc4}">
+                                    <f:selectItems value="#{item.bindings.IsBranch.items}" id="si4"
+                                                   binding="#{backingBeanScope.backing_CompanyiesActivity.si4}"/>
+                                    <f:validator binding="#{item.bindings.IsBranch.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="15%" id="gc13"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.gc13}">
+                                <af:button text="Details" id="b5"
+                                           binding="#{backingBeanScope.backing_CompanyiesActivity.b5}" selected="true"
+                                           partialSubmit="false">
+                                    <af:showPopupBehavior popupId="::p2"/>
+                                </af:button>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="15%" marginEnd="5px" id="gc14"
+                                         binding="#{backingBeanScope.backing_CompanyiesActivity.gc14}">
+                                <af:button text="Edit" id="b6"
+                                           binding="#{backingBeanScope.backing_CompanyiesActivity.b6}">
+                                    <af:showPopupBehavior popupId="::p3"/>
+                                </af:button>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </af:listItem>
+            </af:listView>
+        </f:facet>
+        <f:facet name="createNewRecord">
+            <af:panelGridLayout id="pgl7" binding="#{backingBeanScope.backing_CompanyiesActivity.pgl7}">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr7"
+                            binding="#{backingBeanScope.backing_CompanyiesActivity.gr7}">
+                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15"
+                                 binding="#{backingBeanScope.backing_CompanyiesActivity.gc15}" halign="stretch"
+                                 valign="stretch">
+                        <af:panelStretchLayout id="psl2" binding="#{backingBeanScope.backing_CompanyiesActivity.psl2}">
+                            <f:facet name="center">
+                                <af:button text="Add Company" id="b4"
+                                           binding="#{backingBeanScope.backing_CompanyiesActivity.b4}"
+                                           actionListener="#{backingBeanScope.backing_CompanyiesActivity.createInsertTask}">
+                                    <af:showPopupBehavior popupId="p1" triggerType="click"/>
+                                </af:button>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+    </af:pageTemplate>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_CompanyiesActivity-->
+</ui:composition>

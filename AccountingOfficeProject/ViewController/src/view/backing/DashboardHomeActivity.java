@@ -133,6 +133,7 @@ public class DashboardHomeActivity {
     private UIBarChart barChart2;
     private UILegend cl2;
     private UIDataItem di2;
+    private RichOutputFormatted of5;
 
 
     public DashboardHomeActivity() {
@@ -924,5 +925,13 @@ public class DashboardHomeActivity {
 
     public UIDataItem getDi2() {
         return di2;
+    }
+
+    public void setOf5(RichOutputFormatted of5) {
+        this.of5 = of5;
+    }
+
+    public RichOutputFormatted getOf5() {
+        return of5;
     }
 }

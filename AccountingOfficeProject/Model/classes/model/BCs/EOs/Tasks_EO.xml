@@ -127,7 +127,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="OfficeIncomeId"
     IsUnique="true"
@@ -135,7 +136,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TASKS"/>
+    TableName="TASKS"
+    IsUpdateable="while_insert"/>
   <AccessorAttribute
     Name="Companies"
     Association="model.BCs.ALs.CompaniesTasksFk_AL"

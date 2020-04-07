@@ -17,11 +17,27 @@
       <managed-bean-scope>backingBean</managed-bean-scope>
       <!--oracle-jdev-comment:managed-bean-jsp-link:1TasksActivity.jsff-->
     </managed-bean>
+    <managed-bean id="__1">
+      <managed-bean-name>backing_EmployeesActivity</managed-bean-name>
+      <managed-bean-class>view.backing.EmployeesActivity</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1EmployeesActivity.jsff-->
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>backing_CompanyiesActivity</managed-bean-name>
+      <managed-bean-class>view.backing.CompanyiesActivity</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1CompanyiesActivity.jsff-->
+    </managed-bean>
     <view id="TasksActivity">
       <page>/TasksActivity.jsff</page>
     </view>
-    <view id="EmployeesActivity"></view>
-    <view id="CompanyiesActivity"></view>
+    <view id="EmployeesActivity">
+      <page>/EmployeesActivity.jsff</page>
+    </view>
+    <view id="CompanyiesActivity">
+      <page>/CompanyiesActivity.jsff</page>
+    </view>
     <control-flow-rule id="__3">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__6">

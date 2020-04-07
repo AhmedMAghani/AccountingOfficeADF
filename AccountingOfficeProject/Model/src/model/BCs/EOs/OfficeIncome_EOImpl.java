@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import model.BCs.common.Money;
-import model.BCs.common.contractIdType;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
@@ -41,13 +40,6 @@ public class OfficeIncome_EOImpl extends EntityImpl {
         if (validationDate.compareTo(currentDate)>0)
             return true;
         return false;
-    }
-
-    /**
-     * Validation method for ContractId.
-     */
-    public boolean validateContractId1(contractIdType contractid) {
-        return true;
     }
 
     /**

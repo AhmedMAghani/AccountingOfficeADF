@@ -148,10 +148,7 @@
     <validation:MethodValidationBean
       Name="ContractEndDateRule0"
       ResId="model.BCs.EOs.Contracts_EO.ContractEndDate_Rule_0"
-      MethodName="validateContractEndDate">
-      <validation:ResExpressions
-        Name="ContractEndDateRule0_ResExprList"/>
-    </validation:MethodValidationBean>
+      MethodName="validateContractEndDate"/>
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER

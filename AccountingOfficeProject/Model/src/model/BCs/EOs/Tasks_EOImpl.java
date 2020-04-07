@@ -18,18 +18,19 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class Tasks_EOImpl extends EntityImpl {
-    private final Integer TASK_PENDING=1;
-    private final Integer TASK_Completed=2;
-    private final Integer TASK_FAIL=3;
+    private final Integer TASK_PENDING = 1;
+    private final Integer TASK_Completed = 2;
+    private final Integer TASK_FAIL = 3;
     private Integer currentTaskStatus;
     private Contracts_EOImpl contractEntity;
     private Key contractPrimaryKey;
-    private Date validationDate,currentDate;
+    private Date validationDate, currentDate;
+
     /**
      * Validation method for TaskCompleteDate.
      */
     public boolean validateTaskCompleteDate(Timestamp taskcompletedate) {
-        if (taskcompletedate.compareTo(getTaskIssueDate())<=0)
+        if (taskcompletedate.compareTo(getTaskIssueDate()) <= 0)
             return false;
         return true;
     }
@@ -38,10 +39,12 @@ public class Tasks_EOImpl extends EntityImpl {
      * Validation method for TaskState.
      */
     public boolean validateTaskState(BigDecimal taskstate) {
-        currentTaskStatus = getTaskState().intValue();
-        if (taskstate.intValue()==TASK_Completed && (currentTaskStatus==TASK_FAIL || currentTaskStatus==TASK_PENDING))
+        currentTaskStatus = (Integer) getPostedAttribute(TASKSTATE);
+        if (taskstate.intValue() == TASK_Completed &&
+            (currentTaskStatus == TASK_FAIL || currentTaskStatus == TASK_PENDING))
             return false;
-        else if (taskstate.intValue()==TASK_FAIL && (currentTaskStatus==TASK_Completed || currentTaskStatus==TASK_PENDING))
+        else if (taskstate.intValue() == TASK_FAIL &&
+                 (currentTaskStatus == TASK_Completed || currentTaskStatus == TASK_PENDING))
             return false;
         else
             return true;
@@ -84,10 +87,12 @@ public class Tasks_EOImpl extends EntityImpl {
     public boolean validateContractId(BigDecimal contractid) {
         Contracts_EOImpl contractEntity = (Contracts_EOImpl) getContainerEntity();
         contractPrimaryKey = Contracts_EOImpl.createPrimaryKey(contractid);
-        Contracts_EOImpl contractRecord =(Contracts_EOImpl) contractEntity.getDefinitionObject().findByPrimaryKey(getDBTransaction(), contractPrimaryKey);
-        validationDate =(Date) contractRecord.getAttribute("ContractEndDate");
+        Contracts_EOImpl contractRecord =
+            (Contracts_EOImpl) contractEntity.getDefinitionObject().findByPrimaryKey(getDBTransaction(),
+                                                                                     contractPrimaryKey);
+        validationDate = (Date) contractRecord.getAttribute("ContractEndDate");
         currentDate = new Date();
-        if (validationDate.compareTo(currentDate)>0)
+        if (validationDate.compareTo(currentDate) > 0)
             return true;
         return false;
     }
@@ -163,6 +168,7 @@ public class Tasks_EOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("model.BCs.EOs.Tasks_EO");
     }
+
 
     /**
      * Gets the attribute value for TaskId, using the alias name TaskId.
@@ -298,10 +304,7 @@ public class Tasks_EOImpl extends EntityImpl {
      * @param value value to set the OfficeExpencesId
      */
     public void setOfficeExpencesId(BigDecimal value) {
-        if (value==null)
-            setAttributeInternal(OFFICEEXPENCESID, value);
-        else
-            setAttributeInternal(OFFICEINCOMEID, null);
+        setAttributeInternal(OFFICEEXPENCESID, value);
     }
 
     /**
@@ -317,10 +320,7 @@ public class Tasks_EOImpl extends EntityImpl {
      * @param value value to set the OfficeIncomeId
      */
     public void setOfficeIncomeId(BigDecimal value) {
-        if (value == null)
-            setAttributeInternal(OFFICEINCOMEID, value);
-        else 
-            setAttributeInternal(OFFICEEXPENCESID, null);
+        setAttributeInternal(OFFICEINCOMEID, value);
     }
 
     /**
@@ -368,14 +368,14 @@ public class Tasks_EOImpl extends EntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getOfficeExpences() {
-        return (EntityImpl) getAttributeInternal(OFFICEEXPENCES);
+    public OfficeExpences_EOImpl getOfficeExpences() {
+        return (OfficeExpences_EOImpl) getAttributeInternal(OFFICEEXPENCES);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setOfficeExpences(EntityImpl value) {
+    public void setOfficeExpences(OfficeExpences_EOImpl value) {
         setAttributeInternal(OFFICEEXPENCES, value);
     }
 

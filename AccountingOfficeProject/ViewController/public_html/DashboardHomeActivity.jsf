@@ -9,7 +9,11 @@
         <af:form id="f1" binding="#{backingBeanScope.backing_DashboardHomeActivity.f1}">
             <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1"
                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pt1}">
-                <f:facet name="header"/>
+                <f:facet name="header">
+                    <af:outputFormatted value="Taxes Office Application"
+                                        inlineStyle="font-size:large; font-family:times; font-weight:bold;" id="of5"
+                                        binding="#{backingBeanScope.backing_DashboardHomeActivity.of5}"/>
+                </f:facet>
                 <f:facet name="status"/>
                 <f:facet name="appNav">
                 <af:button text="Home" id="b1" binding="#{backingBeanScope.backing_DashboardHomeActivity.b1}"
@@ -46,7 +50,8 @@
                                          halign="stretch" valign="stretch" inlineStyle="text-align:center;">
                                 <af:panelBox text="Change Title" id="pb1"
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb1}"
-                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                             inlineStyle="text-align:center;" showDisclosure="false"
+                                             background="medium">
                                     <f:facet name="toolbar"/>
                                     <!--font-size:medium; text-align:center;-->
                                     <af:listView value="#{bindings.Cash1.collectionModel}" var="item"
@@ -177,7 +182,7 @@
                                          halign="stretch" valign="stretch" inlineStyle="text-align:center;">
                                 <af:panelBox text="Change Title" id="pb2"
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb2}"
-                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                             inlineStyle="text-align:center;" showDisclosure="false" background="light">
                                     <f:facet name="toolbar"/>
                                     <af:outputFormatted value="#{backingBeanScope.backing_DashboardHomeActivity.totalContractNo}"
                                                         id="of2"
@@ -225,7 +230,7 @@
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow marginTop="5px" height="320px" id="gr3"
+                        <af:gridRow marginTop="5px" height="450px" id="gr3"
                                     binding="#{backingBeanScope.backing_DashboardHomeActivity.gr3}">
                             <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc5"
                                          binding="#{backingBeanScope.backing_DashboardHomeActivity.gc5}"
@@ -258,7 +263,7 @@
                                          halign="stretch" valign="stretch" inlineStyle="text-align:center;">
                                 <af:panelBox text="Change Title" id="pb6"
                                              binding="#{backingBeanScope.backing_DashboardHomeActivity.pb6}"
-                                             inlineStyle="text-align:center;" showDisclosure="false">
+                                             inlineStyle="text-align:center;" showDisclosure="false" background="light">
                                     <f:facet name="toolbar"/>
                                     <af:outputFormatted value="#{backingBeanScope.backing_DashboardHomeActivity.totalTasksNo}" id="of4"
                                                         binding="#{backingBeanScope.backing_DashboardHomeActivity.of4}"
@@ -276,7 +281,8 @@
                                                           binding="#{backingBeanScope.backing_DashboardHomeActivity.statusMeterGauge7}"
                                                           value="#{backingBeanScope.backing_DashboardHomeActivity.completedTasksNo}"
                                                           inlineStyle="width:200px; height:75px; text-align:center; margin: 0 auto;"
-                                                          minimum="0" plotArea="on">
+                                                          minimum="0" plotArea="on"
+                                                          maximum="#{backingBeanScope.backing_DashboardHomeActivity.totalTasksNo}">
                                         <dvt:gaugeThreshold id="thr13" color="#d62800"
                                                             binding="#{backingBeanScope.backing_DashboardHomeActivity.thr13}"/>
                                         <dvt:gaugeMetricLabel rendered="true" id="gml7"

@@ -102,8 +102,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="EMPLOYEES"
-    IsUpdateable="false"/>
+    TableName="EMPLOYEES"/>
   <Attribute
     Name="EmpHairDate"
     ColumnName="EMP_HAIR_DATE"

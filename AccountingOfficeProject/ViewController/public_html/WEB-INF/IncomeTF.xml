@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="IncomeTF">
+    <default-activity>IncomeActivity</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__4">
+      <managed-bean-name>backing_IncomeActivity</managed-bean-name>
+      <managed-bean-class>view.backing.IncomeActivity</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1IncomeActivity.jsff-->
+    </managed-bean>
+    <view id="IncomeActivity">
+      <page>/IncomeActivity.jsff</page>
+    </view>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

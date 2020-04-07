@@ -69,20 +69,13 @@
                     <f:validator binding="#{bindings.TaskIssueDate.validator}"/>
                     <af:convertDateTime pattern="#{bindings.TaskIssueDate.format}"/>
                 </af:inputDate>
-                <af:inputDate value="#{bindings.TaskCompleteDate.inputValue}"
-                              label="#{bindings.TaskCompleteDate.hints.label}"
-                              required="#{bindings.TaskCompleteDate.hints.mandatory}"
-                              columns="#{bindings.TaskCompleteDate.hints.displayWidth}"
-                              shortDesc="#{bindings.TaskCompleteDate.hints.tooltip}" id="id6"
-                              binding="#{backingBeanScope.backing_TasksActivity2.id6}">
-                    <f:validator binding="#{bindings.TaskCompleteDate.validator}"/>
-                    <af:convertDateTime pattern="#{bindings.TaskCompleteDate.format}"/>
-                </af:inputDate>
                 <af:selectOneChoice value="#{bindings.OfficeExpencesId.inputValue}"
                                     label="#{bindings.OfficeExpencesId.label}"
                                     required="#{bindings.OfficeExpencesId.hints.mandatory}"
                                     shortDesc="#{bindings.OfficeExpencesId.hints.tooltip}" id="soc11"
-                                    binding="#{backingBeanScope.backing_TasksActivity2.soc11}">
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc11}"
+                                    valueChangeListener="#{backingBeanScope.backing_TasksActivity2.onchange}"
+                                    autoSubmit="true" partialTriggers="soc12" immediate="true">
                     <f:selectItems value="#{bindings.OfficeExpencesId.items}" id="si11"
                                    binding="#{backingBeanScope.backing_TasksActivity2.si11}"/>
                     <f:validator binding="#{bindings.OfficeExpencesId.validator}"/>
@@ -91,7 +84,9 @@
                                     label="#{bindings.OfficeIncomeId.label}"
                                     required="#{bindings.OfficeIncomeId.hints.mandatory}"
                                     shortDesc="#{bindings.OfficeIncomeId.hints.tooltip}" id="soc12"
-                                    binding="#{backingBeanScope.backing_TasksActivity2.soc12}">
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc12}"
+                                    valueChangeListener="#{backingBeanScope.backing_TasksActivity2.onchange}"
+                                    autoSubmit="true" partialTriggers="soc11" immediate="true">
                     <f:selectItems value="#{bindings.OfficeIncomeId.items}" id="si12"
                                    binding="#{backingBeanScope.backing_TasksActivity2.si12}"/>
                     <f:validator binding="#{bindings.OfficeIncomeId.validator}"/>
@@ -177,7 +172,9 @@
                                     label="#{bindings.OfficeExpencesId.label}"
                                     required="#{bindings.OfficeExpencesId.hints.mandatory}"
                                     shortDesc="#{bindings.OfficeExpencesId.hints.tooltip}" id="soc7"
-                                    binding="#{backingBeanScope.backing_TasksActivity2.soc7}">
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc7}"
+                                    valueChangeListener="#{backingBeanScope.backing_TasksActivity2.onchange}"
+                                    autoSubmit="true" partialTriggers="soc8" immediate="true">
                     <f:selectItems value="#{bindings.OfficeExpencesId.items}" id="si7"
                                    binding="#{backingBeanScope.backing_TasksActivity2.si7}"/>
                     <f:validator binding="#{bindings.OfficeExpencesId.validator}"/>
@@ -186,7 +183,9 @@
                                     label="#{bindings.OfficeIncomeId.label}"
                                     required="#{bindings.OfficeIncomeId.hints.mandatory}"
                                     shortDesc="#{bindings.OfficeIncomeId.hints.tooltip}" id="soc8"
-                                    binding="#{backingBeanScope.backing_TasksActivity2.soc8}">
+                                    binding="#{backingBeanScope.backing_TasksActivity2.soc8}"
+                                    valueChangeListener="#{backingBeanScope.backing_TasksActivity2.onchange}"
+                                    autoSubmit="true" partialTriggers="soc7" immediate="true">
                     <f:selectItems value="#{bindings.OfficeIncomeId.items}" id="si8"
                                    binding="#{backingBeanScope.backing_TasksActivity2.si8}"/>
                     <f:validator binding="#{bindings.OfficeIncomeId.validator}"/>
@@ -194,7 +193,8 @@
             </af:panelFormLayout>
         </f:facet>
         <f:facet name="detailsPopub">
-            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_TasksActivity2.pfl1}">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_TasksActivity2.pfl1}"
+                                partialTriggers="lv1:li1">
                 <af:panelLabelAndMessage label="#{bindings.TaskId.hints.label}" id="plam1"
                                          binding="#{backingBeanScope.backing_TasksActivity2.plam1}">
                     <af:outputText value="#{bindings.TaskId.inputValue}" shortDesc="#{bindings.TaskId.hints.tooltip}"
@@ -372,17 +372,19 @@
         </f:facet>
         <f:facet name="navButtons">
             <af:button text="Tasks" id="b1" binding="#{backingBeanScope.backing_TasksActivity2.b1}"
-                       styleClass="AFAppNavbarButton"/>
+                       styleClass="AFAppNavbarButton" selected="true" action="toTasks"/>
             <af:button text="Employees" id="b2" binding="#{backingBeanScope.backing_TasksActivity2.b2}"
-                       styleClass="AFAppNavbarButton"/>
+                       styleClass="AFAppNavbarButton" action="toEmp"/>
             <af:button text="Companies" id="b3" binding="#{backingBeanScope.backing_TasksActivity2.b3}"
-                       styleClass="AFAppNavbarButton"/>
+                       styleClass="AFAppNavbarButton" action="toCompanies"/>
         </f:facet>
         <f:facet name="listView">
             <af:listView value="#{bindings.Tasks1.collectionModel}" var="item"
                          emptyText="#{bindings.Tasks1.viewable ? 'No data to display.' : 'Access Denied.'}"
                          fetchSize="#{bindings.Tasks1.rangeSize}" id="lv1"
-                         binding="#{backingBeanScope.backing_TasksActivity2.lv1}">
+                         binding="#{backingBeanScope.backing_TasksActivity2.lv1}" inlineStyle="margin-top:0px;"
+                         selection="single"
+                         selectionListener="#{bindings.Tasks1.treeModel.makeCurrent}">
                 <af:listItem id="li1" binding="#{backingBeanScope.backing_TasksActivity2.li1}">
                     <af:panelGridLayout id="pgl4" binding="#{backingBeanScope.backing_TasksActivity2.pgl4}">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6"
@@ -523,9 +525,25 @@
             </af:listView>
         </f:facet>
         <f:facet name="createNewRecord">
-            <af:button text="Create New" id="b6" binding="#{backingBeanScope.backing_TasksActivity2.b6}" actionListener="#{backingBeanScope.backing_TasksActivity2.createInsertTask}">
-                <af:showPopupBehavior popupId="p1" triggerType="click"/>
-            </af:button>
+            <af:panelGridLayout id="pgl9" binding="#{backingBeanScope.backing_TasksActivity2.pgl9}">
+                <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr15"
+                            binding="#{backingBeanScope.backing_TasksActivity2.gr15}">
+                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29"
+                                 binding="#{backingBeanScope.backing_TasksActivity2.gc29}" halign="stretch"
+                                 valign="stretch">
+                        <af:panelStretchLayout id="psl2" binding="#{backingBeanScope.backing_TasksActivity2.psl2}">
+                            <f:facet name="center">
+                                <af:button text="Create New" id="b6"
+                                           binding="#{backingBeanScope.backing_TasksActivity2.b6}"
+                                           actionListener="#{backingBeanScope.backing_TasksActivity2.createInsertTask}"
+                                           inlineStyle="font-size:large; font-weight:normal; font-family:times;">
+                                    <af:showPopupBehavior popupId="p1" triggerType="click"/>
+                                </af:button>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
         </f:facet>
     </af:pageTemplate>
     <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_TasksActivity2-->

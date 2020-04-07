@@ -13,7 +13,7 @@
       <property
          name="x">504.0</property>
       <property
-         name="y">144.39062</property>
+         name="y">144.04004</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>TasksActivity&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -36,6 +36,8 @@
       <property
          name="y">381.59766</property>
       <property
+         name="page">/EmployeesActivity.jsff</property>
+      <property
          name="exceptionHandler">false</property>
    </View>
    <View
@@ -50,6 +52,8 @@
          name="description">&lt;html>&lt;p>&lt;b>CompanyiesActivity&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="y">377.59766</property>
+      <property
+         name="page">/CompanyiesActivity.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -70,7 +74,7 @@
       <property
          name="fromOutcome">toTasks</property>
       <property
-         name="sdm:polyPoints">T50,485.0,283.94824,504.0,198.39062,B50</property>
+         name="sdm:polyPoints">T50,485.0,283.94824,504.0,197.68945,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

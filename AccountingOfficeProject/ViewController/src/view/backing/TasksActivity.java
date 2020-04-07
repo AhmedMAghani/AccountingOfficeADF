@@ -1,12 +1,21 @@
 package view.backing;
 
+import java.util.List;
+
 import javax.faces.component.UISelectItems;
 
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 
+import javax.faces.event.PhaseId;
+
+import javax.faces.event.ValueChangeEvent;
+
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.view.faces.bi.event.graph.SelectionEvent;
 import oracle.adf.view.rich.component.rich.RichQuery;
+import oracle.adf.view.rich.component.rich.data.RichCarousel;
 import oracle.adf.view.rich.component.rich.data.RichListItem;
 import oracle.adf.view.rich.component.rich.data.RichListView;
 import oracle.adf.view.rich.component.rich.fragment.RichPageTemplate;
@@ -21,14 +30,22 @@ import oracle.adf.view.rich.component.rich.layout.RichPanelGridLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
 import oracle.adf.view.rich.component.rich.layout.RichPanelLabelAndMessage;
+import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.output.RichOutputFormatted;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
+import oracle.adf.view.rich.event.CarouselSpinEvent;
 import oracle.adf.view.rich.event.DialogEvent;
 import oracle.adf.view.rich.event.PopupFetchEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
+
+import oracle.jbo.Key;
+import oracle.jbo.uicli.binding.JUCtrlHierBinding;
+import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
+
+import org.apache.myfaces.trinidad.model.CollectionModel;
 
 public class TasksActivity {
     private RichPageTemplate pt1;
@@ -58,7 +75,6 @@ public class TasksActivity {
     private RichSelectOneChoice soc10;
     private UISelectItems si10;
     private RichInputDate id5;
-    private RichInputDate id6;
     private RichSelectOneChoice soc11;
     private UISelectItems si11;
     private RichSelectOneChoice soc12;
@@ -155,6 +171,10 @@ public class TasksActivity {
     private UISelectItems si19;
     private RichSelectOneChoice soc20;
     private UISelectItems si20;
+    private RichPanelGridLayout pgl9;
+    private RichGridRow gr15;
+    private RichGridCell gc29;
+    private RichPanelStretchLayout psl2;
 
     public void setPt1(RichPageTemplate pt1) {
         this.pt1 = pt1;
@@ -374,13 +394,6 @@ public class TasksActivity {
         return id5;
     }
 
-    public void setId6(RichInputDate id6) {
-        this.id6 = id6;
-    }
-
-    public RichInputDate getId6() {
-        return id6;
-    }
 
     public void setSoc11(RichSelectOneChoice soc11) {
         this.soc11 = soc11;
@@ -1177,4 +1190,85 @@ public class TasksActivity {
     public UISelectItems getSi20() {
         return si20;
     }
+
+    public void setPgl9(RichPanelGridLayout pgl9) {
+        this.pgl9 = pgl9;
+    }
+
+    public RichPanelGridLayout getPgl9() {
+        return pgl9;
+    }
+
+    public void setGr15(RichGridRow gr15) {
+        this.gr15 = gr15;
+    }
+
+    public RichGridRow getGr15() {
+        return gr15;
+    }
+
+    public void setGc29(RichGridCell gc29) {
+        this.gc29 = gc29;
+    }
+
+    public RichGridCell getGc29() {
+        return gc29;
+    }
+
+    public void setPsl2(RichPanelStretchLayout psl2) {
+        this.psl2 = psl2;
+    }
+
+    public RichPanelStretchLayout getPsl2() {
+        return psl2;
+    }
+    
+    public void onchange(ValueChangeEvent changeEvent){
+        if (changeEvent.getNewValue()!=null){
+            if (changeEvent.getSource().equals(soc11)){
+                soc12.setDisabled(true);
+                getSoc12().setValue(null);
+//                setSoc12(null);
+            } 
+            else if(changeEvent.getSource().equals(soc12)) {
+                soc11.setDisabled(true);
+                getSoc11().setValue(null);
+//                setSoc11(null);
+            }
+            else if(changeEvent.getSource().equals(soc7)) {
+                soc8.setDisabled(true);
+                getSoc8().setValue(null);
+//                setSoc8(null);
+            } else {
+                soc7.setReadOnly(true);
+                getSoc7().setValue(null);
+//                setSoc7(null);
+            }
+        }
+    }
+    
+//    public void onSelect(SelectionEvent selectionEvent) {
+        //get the selected item key - an instance of java.util.List
+//        PhaseId id = selectionEvent.getPhaseId();
+//         System.out.println(id.toString());
+//        List currentSelectedKey = (List) carouselSpinEvent.getNewItemKey();
+        //get a handle to the carousel component instance. We need this to
+        //generically access the binding layer
+//        RichCarousel carousel = (RichCarousel) carouselSpinEvent.getSource();
+        //get the Trinidad CollectionModel for this component
+//        CollectionModel componentModel = (CollectionModel) carousel.getValue();
+        //get the ADF tree binding from the CollectionModel. This code also
+        //works with tables and trees and thus is worth to remember
+//        JUCtrlHierBinding carouselTreeBinding = (JUCtrlHierBinding) componentModel.getWrappedData();
+        //get the selected node
+//        JUCtrlHierNodeBinding selectedCarouselItemNode = carouselTreeBinding.findNodeByKeyPath(currentSelectedKey);
+        //get the row key to make it the current key in the ADF iterator
+//        Key currentCarouselItemKey = selectedCarouselItemNode.getRowKey();
+        //You can access the iterator binding from the tree binding so that
+        //you don't need any knowledge about the namings in the PageDef file
+        //- Cool, he ?
+//        DCIteratorBinding dcIterBinding = carouselTreeBinding.getIteratorBinding();
+        //make the row the current row
+//        dcIterBinding.setCurrentRowWithKey(currentCarouselItemKey.toStringFormat(true));
+//    }
 }

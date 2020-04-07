@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="IncomeActivityPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="view.pageDefs.CRUDTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="OfficeIncome1" RangeSize="25" DataControl="AppModule_AMDataControl" id="OfficeIncome1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OfficeIncome1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OfficeIncome1Iterator" id="IncomeId">
+      <AttrNames>
+        <Item Value="IncomeId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="OfficeIncome1Iterator" StaticList="false" Uses="LOV_ContractId" id="ContractId"/>
+    <attributeValues IterBinding="OfficeIncome1Iterator" id="IncomeValue">
+      <AttrNames>
+        <Item Value="IncomeValue"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OfficeIncome1Iterator" StaticList="false" Uses="LOV_IncomeType" id="IncomeType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="OfficeIncome1Iterator" id="ContractId1">
+      <AttrNames>
+        <Item Value="ContractId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="OfficeIncome1Iterator" id="OfficeIncome1">
+      <nodeDefinition DefName="model.BCs.VOs.OfficeIncome_VO" Name="OfficeIncome10">
+        <AttrNames>
+          <Item Value="IncomeId"/>
+          <Item Value="ContractId"/>
+          <Item Value="IncomeValue"/>
+          <Item Value="IncomeType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -69,7 +69,7 @@ public class Tasks_VOImpl extends ViewObjectImpl {
     
     public Integer getTotalTasksNo(){
         clearCache();
-        addWhereClause(null);
+        setWhereClause(null);
         executeQuery();
         count=0;
         tasksItrator = createRowSetIterator(null);

@@ -141,8 +141,9 @@
     Name="LOV_OfficeExpencesId"
     ListVOName="OfficeExpences_VO1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="OfficeExpencesId"/>
     </AttrArray>
@@ -159,8 +160,9 @@
     Name="LOV_OfficeIncomeId"
     ListVOName="OfficeIncome_VO1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="OfficeIncomeId"/>
     </AttrArray>
@@ -282,7 +284,8 @@
     EntityAttrName="OfficeExpencesId"
     EntityUsage="Tasks_EO"
     AliasName="OFFICE_EXPENCES_ID"
-    LOVName="LOV_OfficeExpencesId">
+    LOVName="LOV_OfficeExpencesId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -297,7 +300,8 @@
     EntityAttrName="OfficeIncomeId"
     EntityUsage="Tasks_EO"
     AliasName="OFFICE_INCOME_ID"
-    LOVName="LOV_OfficeIncomeId">
+    LOVName="LOV_OfficeIncomeId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
